@@ -1,0 +1,311 @@
+@charset "euc-kr";
+@import url("base.css");
+@import url("main.css");
+@import url("sub.css");
+
+/* skipNav */
+#skipnavi { position:absolute; left:0; top:0; width:100%; height:0; z-index:500; }
+#skipnavi p { height:0; }
+#skipnavi p a { display:block; position:absolute; left:0; top:0; width:1px; height:1px; margin-bottom:-1px; margin-left:-1px; overflow:hidden; text-align:center; white-space:nowrap;  color:#333; }
+#skipnavi p a:focus , #skipnavi p a:hover , #skipnavi p a:active { width:100%; height:auto; padding:10px 0; color:#fff; background:#0c4da2; z-index:1000; }
+#skipnavi p a:hover { text-decoration:underline; }
+
+
+#warp  { width:100%; margin:0 auto; min-width: 1000px; padding-top:141px;}
+
+
+
+/***** skip *****/
+.skip {position:absolute; width:100%; margin:0 auto; z-index:999;}
+.skip a {display:block; height:1px; margin-bottom:-1px; overflow:hidden; white-space:nowrap; width:1px;}
+.skip dt{ width:1px; height:1px; font-size:0px; visibility:hidden; float:left; position:absolute; text-indent:-9999px;}
+.skip dd{float:left;}
+.skip a:focus, .skipa:active {height:18px; width:130px; padding:5px; color:#333; text-align:center; font-weight:600; margin:0;}
+
+
+/********************* header  *********************/
+#header {width:100%;   height:140px; position:absolute; top:0; left:0;  border-bottom:1px solid #d5d8de; overflow:hidden; background:#fff; z-index:9999999; }
+
+.inner {position:relative; width:1000px; margin:0 auto; clear:both; }
+.inner:after{content:'';display:block;clear:both;}
+
+#header  h1 { float:left; padding:10px 0 10px 0 }
+#header .util_wrap { float:right;}
+#header .util { position:relative;  padding-top:30px}
+#header .util span a { font-size:13px; color:#333;  font-weight:700;}
+#header .util span:first-child { background:url(../img/common/icon_home.png) no-repeat 0 3px; padding:0 0 0 15px}
+#header .util span:after{ content:""; display:inline-block; width:1px; background-color:#b7b7b7; height:12px; vertical-align:middle; margin:0 10px 0 15px;}
+#header .util span:last-child:after {display:none;}
+#header .util span a.logout { color:#d7733b}
+
+#gnb_wrap {position:absolute; right:0;  top:85px; width:100%; background:#3C3D8D;/*��ܹ� ��*/ height:55px;  }
+
+/** GNB **/
+#gnb { background:#1fa5d8; width:1500px; margin:0 auto}
+#gnb > li {float:left;  width:12.5%}
+#gnb > li > a {display:block; font-size:18px; padding:0 30px; line-height:55px; color:#fff; letter-spacing:-0.03em; font-weight:700; }
+#gnb > li:hover > a {color:#fffd00; font-weight:700; }
+
+/* gnb sub */
+.blind {position:fixed;left:0; top:0; right:0; bottom:0;  opacity:0.6; z-index:99999; filter:alpha(opacity=60);-ms-filter:alpha("opacity=60");  background:#333; }
+.header_btm {position:absolute; left:0;  right:0; bottom:0; height:700px; border-top:1px solid #d5d8de; z-index:99;; background:#1fa5d8;}
+.gsub_box { position:absolute; left:45%; margin-left:-580px; top:100%; width:1500px;  padding:15px 0 30px 0; z-index:9999999; overflow:hidden; display:none; }
+.gsub_box dl {float:left; width:300px; padding-left:75px; }
+.gsub_box dt {font-size:17px; font-family:sans-serif; font-weight:600 ;line-height:1.5em; color:#3f3f3f; margin-bottom:15px; }
+.gsub_box dd {font-size:17px; color:#535353; line-height:1.71em;}
+.gsub_box dd em {font-size:18px; color:#4276b1; font-weight:600;}
+.gsub {width:1500px; float:right; }
+.gsub li { float:left; width:190px;  }
+.gsub li dt {height:30px; line-height:20px; font-size:17px; margin-top:5px; margin-bottom:5px; font-weight:600; }
+.gsub li dt a:hover { color:#082996;  font-size:18px; }
+.gsub li dd a { background: url(/img/common/gsub_list.gif) no-repeat 9px 20px; font-size:14px; padding:7px 0 7px 25px; border-top:1px solid #dddddd; width:150px; display:inline-block}
+.gsub li dd .four {background: url(/img/common/gsub_list_02.gif) no-repeat 9px 20px; color:#646464;  font-size:14px; padding:7px 0 7px 25px; border-top:1px solid #dddddd; width:143px; display:inline-block;}
+.gsub li dd a:hover { color:#fff; background:#2f4aa1; font-weight:600; }
+.gsub li dd:last-child {border-bottom:1px solid #dddddd; display:inline-block; }
+
+
+
+
+/********************* footer *********************/
+#footer_warp { width:100%; margin: 0 auto; background: url(../item/footer_bg.png) repeat-x; overflow:hidden}
+#footer_warp .f_menu_cont { position:relative; width:1000px; margin: 0 auto; height:44px}
+#footer_warp .f_menu_cont .f_menu { float: left; }
+#footer_warp .f_menu_cont .f_menu li { float:left; background:url(../item/footer_menu_line.png) no-repeat left 18px; padding:0 10px 0 10px; line-height:44px}
+#footer_warp .f_menu_cont .f_menu li:first-child  { background:none}
+#footer_warp .f_menu_cont .f_menu li a { color:#fff; font-size:14px; font-weight:600;}
+#footer_warp .f_menu_cont .f_menu li a:hover { color:#fffd00}
+#footer_warp .f_menu_cont .f_tel { float:right; letter-spacing:-0.8px ; }
+#footer_warp .f_menu_cont .f_tel li { float:left; color:#fff; line-height:42px; padding-right:5px}
+#footer_warp .f_menu_cont .f_tel li.tel_tx1 {color:#1174c5; font-size:16px; font-weight:600; letter-spacing:-0.3px ; }
+#footer_warp .f_menu_cont .f_tel li.tel_tx2 { background:url(../img/common/footer_stit02.png) no-repeat 0 12px; padding-left:30px}
+#footer_warp .f_menu_cont .f_tel li.tel_tx3 { background:url(../img/common/footer_stit03.png) no-repeat 0 12px; padding-left:70px}
+
+#footer_warp .footer { clear:both;  position:relative; width:1000px; margin: 0 auto; height:120px}
+#footer_warp .footer .footer_logo { float:left; width:280px; margin:35px 0 0 30px}
+#footer_warp .footer .copyright { float:left; width:660px; margin-top:30px; font-size:13px; font-weight:600; }
+#footer_warp .footer .copyright li { float:left; padding-right:10px; padding-bottom:0px }
+#footer_warp .footer .copyright p { clear:both; font-size:11px; color:#333; font-weight:600; }
+
+
+
+/********************* ���� *********************/
+
+
+
+/* ����Warp */
+#contents { position:relative; width:1000px; margin:0 auto;  overflow: hidden; background:url(../img/common/lnb_line.png) repeat-y}
+#contents .lnb_warp { float:left; width:200px; margin-right:50px; overflow: hidden; }
+#contents .lnb_warp:after { display:block; clear:both; content:'';}
+#contents .right_warp { float:right; position: relative; width:750px; }
+
+
+/* ���ʸ޴� */
+#contents .lnb_warp h2 { width:200px; font-size:22px; color:#173176; overflow: hidden; text-align:center; padding:45px 0 45px 0}
+
+#contents .lnb{width:200px; padding-bottom:70px; float:left;} /*border ����*/
+#contents .lnb ul li{width:100%; border-bottom:1px solid #ddd}
+#contents .lnb ul li:first-child {border-top:1px solid #ddd }
+#contents .lnb ul li a{display:block;font-size:14px; letter-spacing:-0.5pt; width:200px; padding:12px 0 12px 16px; color:#333; font-weight:600; }
+#contents .lnb li a:link, .lnb li a:visited{display:block;font-size:14px; letter-spacing:-0.5pt; width:200px; padding:12px 0 12px 16px; color:#333;}
+#contents .lnb ul li a:hover{background:url('../item/lnb_on.png') no-repeat 1px 0; color:#fff; font-weight:600; text-decoration:none;}
+		  .lnb_on{display:block; color:#fff !important; font-weight:600 !important; background: #2f4aa1 no-repeat 1px 0 !important; text-decoration:none;}
+
+#contents .lnb ul ol{padding:9px 0 8px; background:#e8f2f5; border-bottom:1px solid #ddd}
+#contents .lnb ul ol dl dd{padding-left:16px; padding-top:5px; padding-bottom:4px; margin-left:1px;}
+#contents .lnb ul ol dl dd .four{color:#545454; padding-left:5px; margin-left:1px;}
+#contents .lnb ul ol dl dd a{font-size:13px; color:#333; margin-left:1px;}
+#contents .lnb ul ol dl dd a:link, 
+#contents .lnb ul ol dl dd a:visited{font-size:13px; letter-spacing:-0.5pt; font-weight:600; margin-left:1px;}
+#contents .lnb ul ol dl dd a:active,
+#contents .lnb ul ol dl dd a:hover,
+#contents .lnb ul ol dl dd a:focus {color:#1692cd; font-weight:600;  text-decoration: none; margin-left:1px;}
+		.lnb_on_3depth{display:block; color:#1692cd !important; font-weight:600 !important; text-decoration: none; margin-left:1px; }
+
+.local { width:750px; height:55px; margin-top:40px;}
+.local h3 { font-size:28px; font-weight:600; color:#333; line-height:32px; letter-spacing:-1px; padding-top:10px}
+.local p { background: url(../img/common/local_home.png) no-repeat 0 3px; font-size:12px; color:#747474; padding-left:15px}
+
+.contentsArea { width:750px; position:relative; overflow:hidden; min-height:500px; padding-top:50px; margin-bottom:80px}
+.campus_list{background:#f8f8f8;}
+.campus_list table{width:100%; height:150px; font-size:17px;}
+/* ���޴� */
+.quick_conts { position:absolute; right:0; top:340px; z-index:10;}
+.quickmenu {}
+.quickmenu li{}
+.quickmenu li a{display:block; overflow:hidden;}
+.quickmenu li a:hover img{}
+.quickmenu li.active a img{}
+
+/*학점은행제 소개*/
+.subTit {position:relative;font-size:22px;color:#000000;margin-top:57px;margin-bottom:5px;font-family: 'NotoKrM'}
+.subTit:before {display:block;width:19px;height:3px;content:'';margin-bottom:5px;background:#005e93;}
+
+.tblData {width:100%;border-top:2px solid #123867;border-bottom:1px solid #99a0aa;margin-bottom:10px;}
+.tblData.borTble {background:#123867;padding:5px;border:none;width:98.8%;}
+.tblData table {background:#fff;table-layout:fixed;}
+.tblData table.subTbl td {border-top:1px solid #cccccc}
+.tblData table.subTbl thead {position:absolute; left:-10000px; top:auto; height:1px; overflow:hidden;}
+.tblData thead th {padding:11px 3px 14px 3px;background:#dee7f1;border-bottom:1px solid #99a0aa;border-left:1px solid #cccccc;text-align:center;color:#142e4e;font-size:14px;font-family: 'NotoKrM';color:#333;}
+.tblData thead tr:first-child th:first-child {border-left:0;}
+.tblData tbody tr:last-child th {border-bottom:none;}
+.tblData tbody th {padding:11px 7px 14px 7px;border-bottom:1px solid #cccccc;border-right:1px solid #cccccc;text-align:center;color:#333;font-size:14px;background:#edf2f7;font-family: 'NotoKrM';}
+.tblData tbody th.bg {background:#dee7f1;color:#142e4e}
+.tblData tbody td.bg {background:#edf2f7;color:#000000;font-family: 'NotoKrM';}
+.tblData tbody td {padding:8px 5px 10px 5px;border-bottom:1px solid #cccccc;border-left:1px solid #cccccc;text-align:center;color:#555555;font-size:14px;line-height:24px;word-break:break-all;}
+.tblData tbody td>.tbtns {margin-left:5px;}
+.tblData tbody td>.tbtns:first-child {margin-left:0;}
+.tblData tbody tr:last-child td {border-bottom:0;}
+.tblData tbody th.tal {padding: 11px 10px 14px 20px !important;}
+.tblData tbody td:first-child {border-left:0;}
+.tblData tbody td.tal, .tblData tbody td.tar {padding-left:10px;padding-right:10px;}
+.tblData td.tdtit {color:#007dc3;font-family: 'NotoKrM';}
+.tblData td .link{color:#007dc3;text-decoration:underline;font-family: 'NotoKrM';}
+.tblData td.tdtit.noGrade {color:#000;}
+.tblData td.tdtit.noGrade .link  {color:#000;}
+.tblData td .tdline {display:block;position:relative;padding-left:10px;}
+.tblData td .tdline:before {display:block;content:'';width:5px;height:1px;position:absolute;top:11px;left:0;background:#555;}
+.tblData td .cau05 {margin-top:5px;margin-bottom:0;}
+.tblData td .cau05:before{top:5px;}
+.tblData tfoot td {padding:11px 3px 14px 3px;border-right:1px solid #cccccc;text-align:center; }
+.tblData th.borBn,
+.tblData td.borBn {border-bottom:none }
+.tblData th.borRn,
+.tblData td.borRn {border-right:none }
+.tblData th.borLy,
+.tblData td.borLy {border-left:1px solid #cccccc !important; }
+.tblData td.borRy {border-right:1px solid #cccccc !important; }
+.tblData tfoot td.total {padding:15px 10px;background:#005e93;color:#fff; }
+.tblData .trBg {background:#f2f8fc;}
+.tblData .trBg th {padding-left:10px;padding-right:10px;border-bottom:1px solid #007dc3 !important;color:#007dc3;text-align:left;}
+.tblData .trBg td {padding-left:10px;padding-right:10px;border-top:1px solid #99a0aa !important;color:#007dc3;text-align:center;}
+.tblData .trBg th:last-child {border-right:0 !important;}
+.tblData td.tdB, .tblData td.num01 {font-family: 'NotoKrM';color:#000;}
+.tblData .borBt th, .tblData .borBt td {border-bottom:1px solid #007dc3 !important;}
+.tblData .sum td {background:#f2f8fc;font-family: 'NotoKrM';color:#000;border-top:1px solid #99a0aa !important;}
+.tblData .sum td:last-child {border-right:0;}
+
+.eduIntroCont .finalEduTbl {width:100%;margin-top:20px}
+.eduIntroCont .finalEduTbl table {width:100%;table-layout:fixed;}
+.eduIntroCont .finalEduTbl thead {display:table-caption;padding-bottom:38px;background:url(../item/bg_eduIntro_0103.png) no-repeat right bottom;}
+.eduIntroCont .finalEduTbl thead tr {display:table;width:100%;}
+.eduIntroCont .finalEduTbl thead th {width:165px;height:68px;border-left:5px solid #fff;;border-right:5px solid #fff;background:#005e93;color:#fff;font-size:15px;text-align:center;}
+.eduIntroCont .finalEduTbl thead th:first-child {background:#123867;border-left:none;}
+.eduIntroCont .finalEduTbl thead th:last-child {border-right:none;}
+.eduIntroCont .finalEduTbl tbody th {height:50px;border:5px solid #fff;color:#fff;font-size:15px;text-align:center;}
+.eduIntroCont .finalEduTbl tbody th.bg {background:#7188a4;}
+.eduIntroCont .finalEduTbl tbody th > span {display:block;height:50px;border:2px solid #005e93;background:#fff;color:#005e93;font-size:15px;text-align:center;line-height:50px;}
+.eduIntroCont .finalEduTbl tbody th:first-child{background:#123867;border-left:none;}
+.eduIntroCont .finalEduTbl tbody td {padding:10px;border:5px solid #fff;background:#f5f5f5;}
+.eduIntroCont .finalEduTbl tr td:last-child {border-right:none;}
+.eduIntroCont .finalEduTbl th > em {font-family: 'NotoKrL';font-size:14px;font-weight: normal}
+.eduIntroCont .finalEduTbl .num {font-size:10px;vertical-align:top;}
+.eduIntroCont .finalEduTbl tfoot th {border-left:none;border-right:5px solid #fff;padding-top:40px;}
+.eduIntroCont .finalEduTbl tfoot td {padding-top:40px;background:url(../item/bg_arrow_down.png) no-repeat center top;}
+.eduIntroCont .finalEduTbl tfoot th span {display:block;height:50px;padding-top:5px;background:#123867;color:#fff;font-size:15px;text-align:center;}
+.eduIntroCont .finalEduTbl tfoot th span > em {font-family: 'NotoKrL';font-size:14px;font-weight: normal}
+.eduIntroCont .finalEduTbl tfoot td span {display:block;height:50px;padding-top:5px;line-height:45px;background:#005e93;color:#fff;font-size:15px;text-align:center;}
+
+.cntList04 > li {position:relative;padding-left:12px;color:#555;font-size:14px;line-height:1.7;}
+.cntList04 > li:before {display:block;position:absolute;top:10px;left:0;content:'';width:4px;height:4px;background:url(../item/blt_dot_list04.png) no-repeat;}
+
+/* 학점은행소개 > 학점은행이란 */
+.eduIntroCont .defineList {margin-top:30px;}
+.eduIntroCont .defineList .badgeWrap {width:160px;}
+.eduIntroCont .defineList .badgeWrap .badge {width:160px;}
+
+/* 학점은행제소개 > 신청절차 */
+.eduIntroCont .eduProceArea {margin-top:30px;padding:20px 0;border-top:3px solid #123867;border-bottom:3px solid #123867;}
+.eduIntroCont .eduProceArea > ul > li {width:96%;padding:0 10px 40px 10px;overflow:hidden;display:table;background:url('/nrsc/images/common/bg_arrow_down.png') no-repeat 55px bottom;}
+.eduIntroCont .eduProceArea > ul > li > span {display:table-cell;width:145px;height:60px;background:#123867;color:#fff;vertical-align:middle;text-align:center;}
+.eduIntroCont .eduProceArea > ul > li > ul {padding-left:20px;display:table-cell;vertical-align:middle;}
+.eduIntroCont .eduProceArea > ul > li:last-child {padding-bottom:0;background:none;}
+
+/* 학점은행제소개 > 학점인정대상 */
+.eduIntroCont .degreeStandArea {margin-top:30px;text-align:center;}
+.eduIntroCont .degreeStandArea ul {overflow:hidden;width:750px;margin:0 auto;}
+.eduIntroCont .degreeStandArea ul li {float:left;padding:0 90px 0 0;background:url('/nrsc/images/common/bg_arrow_next.png') no-repeat right center;}
+.eduIntroCont .degreeStandArea ul li:nth-child(1) {text-align:center;}
+.eduIntroCont .degreeStandArea ul li:nth-child(1) span {display:table-cell;vertical-align:middle;height:100px;width:100px;text-align:center;width:100px;height:100px;background:#06aab0;border-radius:50px;color:#fff;}
+.eduIntroCont .degreeStandArea ul li:nth-child(2) span {display:table-cell;width:165px;height:100px;font-size:15px;color:#142e4e;text-align:center;vertical-align:middle;font-family: 'NotoKrM';}
+.eduIntroCont .degreeStandArea ul li:nth-child(3) {padding:0;margin-left:30px;}
+.eduIntroCont .degreeStandArea ul li:nth-child(3) dl {width:275px;}
+.eduIntroCont .degreeStandArea ul li:nth-child(3) dt {width:275px;background:#007dc3;color:#fff;text-align:center;height:40px;line-height:40px;}
+.eduIntroCont .degreeStandArea ul li:nth-child(3) dd {border:1px solid #8996a6;background:#edf2f7;}
+.eduIntroCont .degreeStandArea ul li:nth-child(3) dd span {display:inline-block;width:24%;padding:10px 0;text-align:center;border-right:1px dashed #8996a6;color:#142e4e;font-family: 'NotoKrM';}
+.eduIntroCont .degreeStandArea ul li:nth-child(3) dd span:last-child {width:23%;border-right:none;}
+
+/* 학점은행소개 > 학기의 구분 */
+.eduIntroCont .semesterTypeArea {position:relative;margin:20px 0 30px 0;padding-bottom:43px;width:100%;}
+.eduIntroCont .semesterTypeArea:after {display:block;content:'';clear:both;}
+.eduIntroCont .semesterTypeArea > span {display:block;position:absolute;left:203px;bottom:0;width:414px;height:42px;border:1px solid #bebebe;border-top:none;}
+.eduIntroCont .semesterTypeArea > span > em {position:absolute;left:180px;bottom:-16px;font-family: 'NotoKrM';font-size:22px;color:#000;width:60px;background:#fff;text-align:center;}
+.eduIntroCont .semesterTypeArea dl {border:1px solid #8996a6;padding-bottom:40px;position:relative;float:left;width:49.5%;background:#edf2f7}
+.eduIntroCont .semesterTypeArea dl dt {position:absolute;bottom:-1px;left:0;width:100%;background:#005e93;color:#fff;text-align:center;height:40px;line-height:40px;font-family: 'NotoKrM';}
+.eduIntroCont .semesterTypeArea dl dd {float:left;border-right:1px dashed #8996a6;width:16.4%;padding:10px 0;text-align:center;}
+.eduIntroCont .semesterTypeArea dl:nth-child(2) {background:#e7f3f3;margin-left:2px;border:1px solid #89a1a2;}
+.eduIntroCont .semesterTypeArea dl:nth-child(2) dt {background:#009ca2}
+.eduIntroCont .semesterTypeArea dl:nth-child(2) dd {color:#004244;border-right:1px dashed #89a1a2;}
+.eduIntroCont .semesterTypeArea dl dd:last-child {border-right:none;}
+
+/* 학점은행소개 > 학점인정 주의사항 */
+.boxCnt03.eduOrgInfoArea .boxInner {width:263px;height:160px;}
+.boxCnt03.eduOrgInfoArea .boxInner dl {position:relative;padding:10px 15px}
+.boxCnt03.eduOrgInfoArea .boxInner dt {position:relative;display:table;}
+.boxCnt03.eduOrgInfoArea .boxInner dd span {display:block;float:left;width:110px;height:70px;background:#dee7f1;color:#123867;font-family: 'NotoKrM';padding-top:10px;}
+.boxCnt03.eduOrgInfoArea .boxInner dd span:last-child {margin-left:10px;}
+.boxCnt03.eduOrgInfoArea .boxInner dd span em {font-size:17px;color:#123867;font-family: 'NotoKrM';}
+.boxCnt03.eduOrgInfoArea .boxInner:nth-child(2) {margin:0 10px;}
+.boxCnt03.eduOrgInfoArea .boxInner:nth-child(3) dd span  {float:none;width:92%;}
+.boxCnt03.eduOrgInfoArea .boxInner:focus,
+.boxCnt03.eduOrgInfoArea .boxInner:hover {width:261px;height:158px;}
+
+/* 학점은행소개 > 학점취득 주의사항 */
+.boxCnt03.eduOrgInfoArea02 .boxInner {display:block;width:197px;height:95px;margin-right:8px;margin-bottom:8px;}
+.boxCnt03.eduOrgInfoArea02 .boxInner span {display:table-cell;width:197px;height:95px;text-align:center;vertical-align:middle;}
+.boxCnt03.eduOrgInfoArea02 .boxInner span em {position:relative;color:#123867;font-family: 'NotoKrM';font-size:15px;color:#000;}
+.boxCnt03.eduOrgInfoArea02 .boxInner span em:after {display:inline-block;content:'';width:10px;height:10px;background:url('/nrsc/images/common/btn_arrow1.png') no-repeat right top;}
+.boxCnt03.eduOrgInfoArea02 .boxInner:focus,
+.boxCnt03.eduOrgInfoArea02 .boxInner:hover {width:195px;height:93px;}
+.boxCnt03.eduOrgInfoArea02 .boxInner:hover span {display:table-cell;width:195px;height:93px;text-align:center;vertical-align:middle;}
+.boxCnt03.eduOrgInfoArea02 .boxInner:hover span em:after {background:url('/nrsc/images/common/btn_arrow1_active.png') no-repeat right top;}
+.boxCnt03.eduOrgInfoArea02 .boxInner:nth-child(4) {margin-right:0;}
+
+.cntList01 > li {position:relative;padding-left:14px;color:#555;font-size:14px;line-height:1.7;}
+.cntList01 > li:before {display:block;position:absolute;top:9px;left:0;content:'';width:4px;height:4px;background:url('../item/blt_dot_list01.png') no-repeat;}
+.cntList01 > li.noBlt {padding-left:0;}
+.cntList01 > li.noBlt:before {background:none;}
+.cntList01 > li.lgTxt {font-size:18px;color:#000;font-family: 'NotoKrM';text-decoration:underline;}
+.cntList01 > li.lgTxt:before {top:13px;}
+.cntList01 .sBtns {margin-left:5px;}
+.cntTxt01 {color:#555;font-size:14px;line-height:1.7}
+.imgArea {margin:0 0;text-align:center;}
+
+.listTxtWrap {margin-top:10px;border-top:3px solid #123867;border-bottom:1px solid #8e99a7;}
+.listTxtWrap > ul > li {width:96%;padding:7px 2%;overflow:hidden;display:table;border-bottom:1px solid #cccccc;}
+.listTxtWrap > ul > li .badgeWrap {width:98px;display:table-cell;border-spacing:5px;text-align:center;vertical-align:middle;}
+.listTxtWrap > ul > li .badgeWrap .badge {width:98px;height:55px;border:1px solid #7c91ab;background:#e7ebf0;color:#123867;display:table-cell;vertical-align:middle;font-family: 'NotoKrM'}
+.listTxtWrap > ul > li .badgeWrap .badge em {font-family: 'NotoKrM'}
+.listTxtWrap > ul > li .txtArea {padding-left:15px;display:table-cell;vertical-align:middle;text-align:left;}
+.listTxtWrap > ul > li:last-child {border-bottom:none;}
+
+.cautionList01 {position:relative;overflow:hidden;margin-top:10px;padding:20px 19px 20px 19px;border:1px solid #ccc;background:#f5f5f5;}
+.cautionList01 dt {margin-bottom:5px;padding-left:23px;font-size:14px;color:#e6000c;background:url('../item/blt_caution04.png') no-repeat left center;font-family: 'NotoKrM';  background-size:16px 16px;}
+.cautionList01 dd {position:relative;margin-left:20px;padding-left:14px;color:#555;font-size:14px;line-height:1.7;}
+.cautionList01 dd:before {display:block;position:absolute;top:9px;left:0;content:'';width:4px;height:4px;background:url('../item/blt_dot_list01.png') no-repeat;}
+.cautionList01 dd .sBtns {margin-left:5px;}
+
+.boxWarning01 {position:relative;overflow:hidden;padding:15px 19px 15px 19px;border:1px solid #ccc;margin-top:10px;min-height: 78px; box-sizing: border-box;}
+.boxWarning01 .tit {position:absolute;top:12px;left:19px;vertical-align:top;width:41px;height:41px;margin:5px 39px 0 0;border:2px solid #0982c5;border-radius:22px;background:url('../item/ico_warning01.png') no-repeat center;font-size:0;}
+.boxWarning01 > ul {margin-left:76px;}
+.boxWarning01 > .cont {margin-left:76px;}
+.mt30 {margin-top:30px !important;}
+
+.sBtns {display:inline-block;padding:0 8px;min-width:60px;height:23px;line-height:20px;font-size:13px;text-align:center;border:1px solid #aaaaaa;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;vertical-align:middle}
+.sBtns > span{font-family: 'NotoKrM'}
+.sBtns02 {display:inline-block;padding:0 10px;min-width:45px;height:32px;font-size:14px;text-align:center;line-height:30px;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;font-family: 'NotoKrM'}
+.sBtns02 > span{color:#fff;font-family: 'NotoKrM'}
+.sbtnSt01 {position:relative;top:-1px;padding-right:20px;background:#eee;color:#000;} /* gray */
+.sbtnSt01:after {display:block;content:'';width:5px;height:9px;background:url('/nrsc/images/common/btn_arrow1.png') no-repeat;position:absolute;top:6px;right:7px;color:#333;font-family: 'NotoKrM'}
+
+
+

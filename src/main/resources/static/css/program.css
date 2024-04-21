@@ -1,0 +1,158 @@
+/* 갤러리형 과정리스트 */
+div.course-card-wrap div.course-card{float:left; width:22%; height:auto; margin-bottom:3rem; margin-right:4%; padding:3rem; border:3px solid #333; background:url("/fro_end/img/symbol.png") 110% -1rem / 9rem 9rem no-repeat; text-align:center; -webkit-transition:0.3s; -moz-transition:0.3s; -o-transition:0.3s; -ms-transition:0.3s; transition:0.3s;}
+div.course-card-wrap div.course-card:nth-child(4n){margin-right:0;}
+div.course-card-wrap div.course-card div.tit{width:100%; height:4.5rem; max-height:4.5rem; margin-bottom:2rem; overflow:hidden; font-size:1.5rem; font-family:"NotoKr_B"; letter-spacing:-0.03rem;}
+div.course-card-wrap div.course-card div.btn-wrap a{width:100%; height:3rem; line-height:3rem; border-radius:0; padding:0; font-size:1.25rem;}
+div.course-card-wrap div.course-card div.btn-wrap a:after{content:""; display:inline-block; width:0.95rem; height:0.95rem; margin-left:0.75rem; background:url("/fro_end/img/arrow_bk.svg") center / cover no-repeat;}
+div.course-card-wrap div.course-card div.btn-wrap a:hover{transform:none; box-shadow:none;}
+div.course-card-wrap div.course-card:hover{border-color:#013a86; background:#013a86 url("/fro_end/img/symbol_wh.png") 110% -1rem / 9rem 9rem no-repeat; color:#fff; box-shadow:0 10px 40px rgba(0, 0, 0, 0.6); transform:translateY(-7px);}
+div.course-card-wrap div.course-card:hover div.btn-wrap a{border-color:#fff; color:#fff;}
+div.course-card-wrap div.course-card:hover div.btn-wrap a:after{background:url("/fro_end/img/arrow_wh.svg") center / cover no-repeat;}
+div.course-card-wrap div.course-card:hover div.btn-wrap a:hover{background:#fff; color:#013a86; font-family:"NotoKr_M";}
+div.course-card-wrap div.course-card:hover div.btn-wrap a:hover:after{background:url("/fro_end/img/arrow_blue.svg") center / cover no-repeat;}
+
+/* 과정리스트 검색 */
+div.course-search{width:100%; height:auto; border:1px solid #ddd; background:#f5f5f5; padding:2rem 0;}
+div.course-search div.tit{float:left; width:25%; border-right:1px solid #ccc; text-align:center;}
+div.course-search div.tit span.kor{display:block; font-size:2rem; font-family:"NotoKr_M";}
+div.course-search div.tit span.eng{display:block; margin-top:0.5rem; color:#ccc; font-size:1.25rem; font-family:"Montserrat_B"; letter-spacing:0.1rem;}
+div.course-search div.cont{float:right; width:70%; padding:0.55rem 5% 0.55rem 0;}
+div.course-search div.cont > div.sel-wrap{float:left; width:22.5%; margin-right:2.5%;}
+div.course-search div.cont > div.sel-wrap select{height:3.5rem; line-height:3.5rem;}
+div.course-search div.cont > div.input-wrap{float:left; position:relative; width:50%;}
+div.course-search div.cont > div.input-wrap a.search-btn{position:absolute; top:0; right:0; display:inline-block; width:auto; height:3.5rem; line-height:3.5rem; padding:0 1.5rem; background:#333; color:#fff; font-size:1.25rem; text-align:center;}
+
+/* 과정리스트 */
+table.table-course tbody tr td.td01{width:30%; background:#f2f5f9; font-family:"NotoKr_B";}
+table.table-course tbody tr td.td02{width:22%;}
+table.table-course tbody tr td.td03{width:17%;}
+table.table-course tbody tr td.td04{width:10%;}
+table.table-course tbody tr td.td05{width:8%; padding:1rem 0;}
+table.table-course tbody tr td.td06{width:13%;}
+table.table-course a.state{display:inline-block; width:auto; height:auto; padding:0.5rem 0.8rem; border-radius:2px; color:#fff; -webkit-transition:0.3s; -moz-transition:0.3s; -o-transition:0.3s; -ms-transition:0.3s; transition:0.3s;}
+table.table-course a.state.state01{background:#013a86;}
+table.table-course a.state.state02{background:#ff8b11;}
+table.table-course a.state.state03{border:2px solid #ccc; color:#bbb;}
+table.table-course a.state.state04{color:#bbb; text-decoration:line-through;}
+table.table-course a.state.state01:hover{transform:translateY(-4px); box-shadow:0 3px 10px rgba(0, 0, 0, 0.4);}
+table.table-course a.schedule{position:relative; display:inline-block; width:auto; height:3rem; padding:0.5rem 2.5rem 0.5rem 0.8rem; border-radius:2px; border:2px solid #333; -webkit-transition:0.3s; -moz-transition:0.3s; -o-transition:0.3s; -ms-transition:0.3s; transition:0.3s;}
+table.table-course a.schedule:after{content:""; position:absolute; top:50%; right:1rem; transform:translateY(-50%); display:inline-block; width:1rem; height:1rem; background:url("/fro_end/img/search.svg") center / cover no-repeat;}
+table.table-course a.schedule:hover{transform:translateY(-4px); box-shadow:0 3px 10px rgba(0, 0, 0, 0.4);}
+
+/* 과정리스트 강의소개 페이지 */
+div.course-schedule-wrap div.course-tit{position:relative; width:100%; height:auto; padding:4rem 0; margin-bottom:5rem; background:url("/fro_end/img/D3500_tit_bg.jpg") center / cover no-repeat; text-align:center;}
+div.course-schedule-wrap div.course-tit:after{content:""; position:absolute; top:0; left:0; display:block; width:100%; height:100%; background:rgba(1, 58, 134, 0.8);}
+div.course-schedule-wrap div.course-tit > div{position:relative; z-index:2;}
+div.course-schedule-wrap div.course-tit div.txt01{margin-bottom:0.5rem; font-size:2.5rem; font-family:"NotoKr_B"; color:#fff;}
+div.course-schedule-wrap div.course-tit div.txt01 span{display:inline-block; padding-bottom:0.3rem; border-bottom:1px solid #fff;}
+div.course-schedule-wrap div.course-tit div.txt02{margin-bottom:2rem; font-size:1.5rem; color:rgba(255, 255, 255, 0.5); font-family:"NotoKr_DL";}
+div.course-schedule-wrap div.course-intro{width:100%; max-width:100%; height:auto; margin-bottom:5rem;}
+
+/* 교수진소개 */
+div.D4500 div.professor{width:100%; height:auto; padding:5rem; margin-bottom:5rem; border:1px solid #ccc; border-top:3px solid #013a86;}
+div.D4500 div.professor:last-child{margin-bottom:0;}
+div.D4500 div.professor div.image{float:left; position:relative; width:18rem; height:21rem; border:1px solid #ccc; background:#fff; overflow:hidden;}
+div.D4500 div.professor div.image > img{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); display:block; width:100%; height:auto;}
+div.D4500 div.professor div.image > img.noimg{width:50%;}
+div.D4500 div.professor div.txt{float:right; width:75%; height:auto;}
+div.D4500 div.professor div.txt div.top{position:relative; width:100%; height:auto; padding-bottom:1rem; margin-bottom:2rem; border-bottom:1px dashed #ccc;}
+div.D4500 div.professor div.txt div.top span.name{display:inline-block; margin-right:1rem; font-size:2.75rem; font-family:"NotoKr_B";}
+div.D4500 div.professor div.txt div.top span.position{display:inline-block; font-size:1.75rem; color:#aaa;}
+div.D4500 div.professor div.txt div.bot div.sect{margin-bottom:2rem;}
+div.D4500 div.professor div.txt div.bot div.sect:last-child{margin-bottom:0;}
+div.D4500 div.professor div.txt div.bot div.sect div.tit{position:relative; padding-left:1.25rem; font-size:2rem;}
+div.D4500 div.professor div.txt div.bot div.sect div.tit:before{content:""; position:absolute; top:18px; left:0; display:inline-block; width:8px; height:8px; background:#013a86; border-radius:50%;}
+div.D4500 div.professor div.txt div.bot div.sect div.con{width:100%; height:auto; padding:2rem 2.5rem; margin-top:0.5rem; background:#f8f8f8;}
+div.D4500 div.professor div.txt div.bot div.sect div.con ul li{position:relative; padding-left:1.5rem; margin-bottom:0.5rem; font-size:1.25rem; word-break:keep-all;}
+div.D4500 div.professor div.txt div.bot div.sect div.con ul li:last-child{margin-bottom:0;}
+div.D4500 div.professor div.txt div.bot div.sect div.con ul li:before{content:""; position:absolute; top:14px; left:0; width:8px; height:1px; background:#333;}
+
+/* 학점은행제 과정리스트 */
+div.D4600 table.table-course tbody tr td.td01{width:15%; background:#f2f5f9; font-family:"NotoKr_B";}
+div.D4600 table.table-course tbody tr td.td07{width:15%; background:#f2f5f9; font-family:"NotoKr_B";}
+
+@media screen and (max-width:1440px){
+	table.table-course tbody tr td.td01{width:25%;}
+	table.table-course tbody tr td.td05{width:15%;}
+
+	div.D4500 div.professor div.txt{width:70%;}
+}
+
+@media screen and (max-width:1280px){
+	table.table-course a.schedule{letter-spacing:-0.15rem;}
+}
+
+@media screen and (max-width:1024px){
+	div.course-card-wrap div.course-card{padding:1.5rem;}
+	div.course-card-wrap div.course-card div.tit{height:3.5rem; max-height:3.5rem; font-size:1.25rem;}
+	div.course-card-wrap div.course-card div.btn-wrap a{height:2.5rem; line-height:2.5rem; font-size:1rem;}
+	div.course-card-wrap div.course-card div.btn-wrap a:after{width:0.8rem; height:0.8rem;}
+	
+	div.course-search{padding:1.5rem;}
+	div.course-search div.tit{display:none;}
+	div.course-search div.cont{float:none; width:100%; padding:0;}
+
+	table.table-course tbody tr td.td01{width:20%;}
+	table.table-course tbody tr td.td06{width:20%;}
+
+	div.D4500 div.professor{padding:3rem;}
+	div.D4500 div.professor div.image{width:13rem; height:16rem;}
+}
+
+@media screen and (max-width:768px){
+	div.course-card-wrap div.course-card{width:48%; margin-bottom:2rem;}
+	div.course-card-wrap div.course-card:nth-child(4n){margin-right:4%;}
+	div.course-card-wrap div.course-card:nth-child(2n){margin-right:0;}
+	
+	div.course-search div.cont > div.sel-wrap{width:49%; margin-right:2%;}
+	div.course-search div.cont > div.sel-wrap:nth-of-type(2){margin-right:0;}
+	div.course-search div.cont > div.input-wrap{width:100%; margin-top:0.5rem;}
+
+	table.table-course{display:block; box-shadow:none;}
+	table.table-course *{display:block;}
+	table.table-course thead{display:none;}
+	table.table-course tbody tr{width:100%; margin-bottom:3rem; box-shadow:0 5px 25px rgb(0, 0, 0, 0.2);}
+	table.table-course tbody tr td{position:relative; border-right:0; text-align:right;}
+	table.table-course tbody tr td:before{position:absolute; top:50%; left:1rem; transform:translateY(-50%); display:inline-block; width:6rem; height:auto; text-align:left; font-family:"NotoKr_B"; letter-spacing:-0.05rem;}
+	table.table-course tbody tr td.td01{width:100%; border-bottom:0; background:#013a86; color:#fff; text-align:center;}
+	table.table-course tbody tr td.td02,
+	table.table-course tbody tr td.td03,
+	table.table-course tbody tr td.td04,
+	table.table-course tbody tr td.td05,
+	table.table-course tbody tr td.td06{width:100%;}
+	table.table-course tbody tr td.td05{padding:1rem;}
+	table.table-course tbody tr td.td06{border-bottom:0; text-align:center;}
+	table.table-course a.schedule{letter-spacing:0;}
+	table.table-course tbody tr td.td02:before{content:"교육기간";}
+	table.table-course tbody tr td.td03:before{content:"교육시간";}
+	table.table-course tbody tr td.td04:before{content:"수강료";}
+	table.table-course tbody tr td.td05:before{content:"수강현황";}
+
+	div.course-schedule-wrap div.course-tit{padding:3rem 0;}
+	div.course-schedule-wrap div.course-tit div.txt01{font-size:2rem;}
+	div.course-schedule-wrap div.course-tit div.txt02{font-size:1.25rem;}
+
+	div.D4500 div.professor div.image{float:none; margin:0 auto;}
+	div.D4500 div.professor div.txt{float:none; width:100%;}
+	div.D4500 div.professor div.txt div.top{padding-top:1rem; text-align:center;}
+	div.D4500 div.professor div.txt div.bot div.sect div.tit{font-size:1.5rem;}
+	div.D4500 div.professor div.txt div.bot div.sect div.tit:before{top:11px;}
+	div.D4500 div.professor div.txt div.bot div.sect div.con{padding:1.5rem 2rem;}
+
+	/* 학점은행제 과정리스트 */
+	div.D4600 table.table-course tbody tr td.td01{width:100%; background:#013a86;}
+	div.D4600 table.table-course tbody tr td.td07{width:100%; color:#013a86; text-align:center; border-top:2px solid #013a86;}
+	
+}
+
+@media screen and (max-width:480px){
+	div.course-card-wrap div.course-card{border:2px solid #333;}
+
+	div.D4500 div.professor{padding:2rem; margin-bottom:3rem;}
+	div.D4500 div.professor div.txt div.top span.name{font-size:2.25rem;}
+	div.D4500 div.professor div.txt div.top span.position{font-size:1.5rem;}
+	div.D4500 div.professor div.txt div.bot div.sect{margin-bottom:1.5rem;}
+	div.D4500 div.professor div.txt div.bot div.sect div.con{padding:1.25rem 1.5rem;}
+}
+
+

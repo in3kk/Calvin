@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div class="lnb_warp" th:fragment="left_sidebar">
+    <!--왼쪽메뉴-->
+    <h2>마이페이지</h2>
+    <div class="lnb">
+        <ul>
+            <li>
+                <a th:if="${page_type == '9.1'}" href="/member/mypage/subject" class='lnb_on'>내 강의</a>
+                <a th:unless="${page_type == '9.1'}" href="/member/mypage/subject">내 강의</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '9.2'}" href="/member/mypage/info" class='lnb_on'>회원 정보 관리</a>
+                <a th:unless="${page_type == '9.2'}" href="/member/mypage/info">회원 정보 관리</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '9.3' and (session.member_type == 'ai' or session.member_type == 'dd')}" href="/mypage/admin/board" class='lnb_on'>관리자 페이지</a>
+                <a th:if="${page_type != '9.3' and (session.member_type == 'ai' or session.member_type == 'dd')}" href="/mypage/admin/board">관리자 페이지</a>
+                <ol th:if="${page_type == '9.3' and (session.member_type == 'ai' or session.member_type == 'dd')}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/mypage/admin/board">게시글 관리</a></dd>
+                        <dd><a href="/mypage/admin/member">회원 관리</a></dd>
+                        <dd><a href="/mypage/admin/apply">강의 신청 관리</a></dd>
+                        <dd><a href="/mypage/admin/subject">개설 강의 관리</a></dd>
+                    </dl>
+                </ol>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="left_con pb50">
+        <h3>수강신청</h3>
+        <div class="pl10">
+            <span><a href="">일반교양과정</a></span>
+            <span><a href="/menu/liberal_arts/list">특별교육과정</a></span>
+            <span><a href="/menu/subject/list">학점은행제 </a></span>
+        </div>
+        </ul>
+    </div>
+
+    <!--//왼쪽메뉴 끝-->
+</div>
+
+</body>
+</html>

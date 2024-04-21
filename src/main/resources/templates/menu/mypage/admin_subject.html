@@ -1,0 +1,137 @@
+<!DOCTYPE html><!-- 제목:원장 인사말 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=1200">
+    <script type="text/javascript" src="/js/lnb.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/script.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+    <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+    <div th:replace="~{menu/mypage/fragments/left_sidebar :: left_sidebar}">
+        <!--//왼쪽메뉴 끝-->
+    </div>
+
+    <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+    <div class="right_warp">
+        <div class="local">
+            <p>HOME &gt; 마이페이지 &gt; 관리자 페이지</p>
+            <h3>개설 강의 관리</h3>
+
+
+        </div>
+        <div class="contentsArea">
+            <div class="bbs_search">
+                <form action="">
+                    <fieldset class="bbs_search">
+                        <select name="search_type" style="width:80px" title="검색옵션">
+                            <option value="1">강의명</option>
+                            <option value="2">과정명</option>
+                            <option value="3">분류명</option>
+                        </select>
+                        <input type="text" size="20" name="search_word" title="검색어 입력"/>
+                        <a ></a><input type="image" src="/item/bbs_btn_search.gif" alt="검색" />
+                    </fieldset>
+                </form>
+            </div>
+            <div class="bbsList">
+                <table width="100%">
+                    <tr>
+                        <th width="10%">번호</th>
+                        <th width="15%">과정</th>
+                        <th width="30%">교과목</th>
+                        <th width="15%">수강료</th>
+                        <th width="15%">분류</th>
+                        <th width="10%">상태</th>
+                    </tr>
+                    <tr th:each = "subject :${subject_list}">
+                        <td th:text="${subject.subject_code}"></td>
+                        <td th:text="${subject.subject_field}"></td>
+                        <td>
+                            <a th:href="@{/menu/subject/apply(id = ${subject.subject_code})}" th:text="${subject.subject_name}" target="_blank"></a>
+                        </td>
+                        <td th:text="${subject.fee}+'원'"></td>
+                        <td th:text="${subject.subject_type}"></td>
+                        <td th:if="${subject.subject_stat == 1}" style="background:orange;">접수중</td>
+                        <td th:if="${subject.subject_stat == 2}" style="background:red;color:white;">마감</td>
+                        <td th:if="${subject.subject_stat == 3}" style="background:gray;color:white;">폐강</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="paging">
+                <p>
+                    <a th:if="${begin_page > 10  and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page - 1)}__)}"><img src='../img/common/bbs_btn_next.gif' alt='이전' border='0'></a>
+                    <a th:if="${begin_page > 10  and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page - 1) + '&search_type=' + search_type + '&search_word=' + search_word}__)}"><img src='../img/common/bbs_btn_next.gif' alt='이전' border='0'></a>
+                    <a th:if="${begin_page <= max_page and page != begin_page and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page)}__)}" th:text="${begin_page}"></a>
+                    <a th:if="${begin_page <= max_page and page != begin_page and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page}"></a>
+                    <b th:if="${page == begin_page}" th:text="${begin_page}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 1 <= max_page and page != begin_page + 1 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 1)}__)}" th:text="${begin_page + 1}"></a>
+                    <a th:if="${begin_page + 1 <= max_page and page != begin_page + 1 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 1) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 1}"></a>
+                    <b th:if="${page == begin_page + 1}" th:text="${begin_page + 1}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 2 <= max_page and page != begin_page + 2 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 2)}__)}" th:text="${begin_page + 2}"></a>&nbsp;
+                    <a th:if="${begin_page + 2 <= max_page and page != begin_page + 2 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 2) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 2}"></a>
+                    <b th:if="${page == begin_page + 2}" th:text="${begin_page + 2}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 3 <= max_page and page != begin_page + 3 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 3)}__)}" th:text="${begin_page + 3}"></a>
+                    <a th:if="${begin_page + 3 <= max_page and page != begin_page + 3 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 3) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 3}"></a>
+                    <b th:if="${page == begin_page + 3}" th:text="${begin_page + 3}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 4 <= max_page and page != begin_page + 4 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 4)}__)}" th:text="${begin_page + 4}"></a>
+                    <a th:if="${begin_page + 4 <= max_page and page != begin_page + 4 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 4) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 4}"></a>
+                    <b th:if="${page == begin_page + 4}" th:text="${begin_page + 4}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 5 <= max_page and page != begin_page + 5 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 5)}__)}" th:text="${begin_page + 5}"></a>
+                    <a th:if="${begin_page + 5 <= max_page and page != begin_page + 5 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 5) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 5}"></a>
+                    <b th:if="${page == begin_page + 5}" th:text="${begin_page + 5}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 6 <= max_page and page != begin_page + 6 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 6)}__)}" th:text="${begin_page + 6}"></a>
+                    <a th:if="${begin_page + 6 <= max_page and page != begin_page + 6 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 6) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 6}"></a>
+                    <b th:if="${page == begin_page + 6}" th:text="${begin_page + 6}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 7 <= max_page and page != begin_page + 7 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 7)}__)}" th:text="${begin_page + 7}"></a>
+                    <a th:if="${begin_page + 7 <= max_page and page != begin_page + 7 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 7) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 7}"></a>
+                    <b th:if="${page == begin_page + 7}" th:text="${begin_page + 7}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 8 <= max_page and page != begin_page + 8 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 8)}__)}" th:text="${begin_page + 8}"></a>
+                    <a th:if="${begin_page + 8 <= max_page and page != begin_page + 8 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 8) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 8}"></a>
+                    <b th:if="${page == begin_page + 8}" th:text="${begin_page + 8}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 9 <= max_page and page != begin_page + 9 and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 9)}__)}" th:text="${begin_page + 9}"></a>
+                    <a th:if="${begin_page + 9 <= max_page and page != begin_page + 9 and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 9) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 9}"></a>
+                    <b th:if="${page == begin_page + 9}" th:text="${begin_page + 9}"></b>
+                    <a th:if="${begin_page + 10 <= max_page and search_word == ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 10)}__)}"><img src='../img/common/bbs_btn_next.gif' alt='다음' border='0'></a>
+                    <a th:if="${begin_page + 10 <= max_page and search_word != ''}" th:href="@{/mypage/admin/subject(__${'page=' + (begin_page + 10) + '&search_type=' + search_type + '&search_word=' + search_word}__)}"><img src='../img/common/bbs_btn_next.gif' alt='다음' border='0'></a>
+
+                </p>
+            </div>
+            <div class="btnArea">
+                <a th:if="${session.member_type == 'dd'} or ${session.member_type == 'st'} or ${session.member_type == 'ai'}"href="/menu/subject/write_page" style="background-image:url('/item/btn_gray.gif');color:white; width:200px; height:50px;">강의 등록</a>
+            </div>
+        </div>
+        <!--//contentsArea 끝-->
+    </div>
+    <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

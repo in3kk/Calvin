@@ -1,0 +1,183 @@
+/* member 공통 */
+span.inf{position:relative; display:inline-block; margin-bottom:0.5rem; padding-left:1rem; font-size:1.5rem;}
+span.inf.inf01{color:#dc3545;}
+span.inf.inf02{color:#333;}
+span.inf:before{content:""; position:absolute; top:1rem; left:0; display:inline-block; width:5px; height:5px; border-radius:50%;}
+span.inf.inf01:before{background:#dc3545;}
+span.inf.inf02:before{background:#333;}
+
+/* 로그인 */
+@keyframes bgAni01{
+	0%{background-position:0% 50%;}
+	50%{background-position:100% 50%;}
+	100%{background-position:0% 50%;}
+}
+div.member.login{position:relative; width:100%; height:100vh; overflow:hidden; background:#013a86; background:-moz-linear-gradient(-45deg,  #2b364a 0%, #013a86 50%, #0b6c88 100%); background:-webkit-linear-gradient(-45deg,  #2b364a 0%,#013a86 50%,#0b6c88 100%); background:linear-gradient(-45deg,  #2b364a 0%,#013a86 50%,#0b6c88 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b364a', endColorstr='#003777',GradientType=1 ); background-size:300% 300%; opacity:1; animation:bgAni01 6s infinite; z-index:1;}
+div.member.login:before{content:""; display:block; width:100%; height:100vh; background:url("/fro_end/img/login_bg.png") center top / cover no-repeat;}
+div.member.login div.inner{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:33rem; z-index:2;}
+div.member.login div.inner div.logo{width:100%; height:auto; margin:0 auto;}
+div.member.login div.inner div.logo img{display:inline-block; width:100%; height:auto;}
+div.member.login div.inner div.form{width:100%; background:#fff; padding:3rem; margin-top:1.5rem; box-shadow:0 5px 30px rgba(0, 0, 0, 0.4);}
+div.member.login div.inner div.form div.top{padding-bottom:2rem; margin-bottom:2rem; border-bottom:1px solid #ccc;}
+div.member.login div.inner div.form div.top input{height:4rem; line-height:4rem; background:#f0f0f0; border:0;}
+div.member.login div.inner div.form div.top input:first-child{margin-bottom:0.5rem;}
+div.member.login div.inner div.form div.top input:focus{background:#fff; outline:1px solid #333;}
+div.member.login div.inner div.form div.top a.btn-login{display:block; width:100%; height:4rem; line-height:4rem; margin-top:1.5rem; background:#013a86; text-align:center; font-size:1.5rem; color:#fff; font-family:"Montserrat_SB";}
+div.member.login div.inner div.form div.bot a{height:3rem; line-height:3rem; padding:0 1rem; margin:0; margin-right:0.3rem; font-size:1.125rem;}
+div.member.login div.inner div.form div.bot a:last-child{margin-right:0; margin-top:0.8rem;}
+
+/* 회원가입 */
+div.member.join{width:100%; height:auto; background:#f8f8f8;}
+div.member.join div.inner{width:55rem; height:auto; margin:0 auto;}
+div.member.join div.inner div.form{width:100%; height:auto; padding:3rem; background:#fff; box-shadow:0 0 10px rgba(0, 0, 0, 0.15);}
+div.member.join div.inner div.form div.list{width:100%; height:auto; margin-bottom:1.5rem; padding-bottom:1.5rem; border-bottom:1px solid #ddd;}
+div.member.join div.inner div.form div.list:last-child{margin-bottom:0; padding-bottom:0; border-bottom:0;}
+div.member.join div.inner div.form div.list div.tit{float:left; width:30%; height:3.5rem; line-height:3.5rem; font-size:1.5rem; font-family:"NotoKr_B"; text-align:center;}
+div.member.join div.inner div.form div.list div.con{float:left; width:70%;}
+div.member.join div.inner div.form div.list div.con span.bar{display:inline-block; height:3.5rem; line-height:3.5rem; text-align:center;}
+div.member.join div.inner div.form div.list div.con a.btn-form{display:block; width:100%; height:3.5rem; line-height:3.5rem; background:#333; color:#fff; text-align:center; font-size:1.25rem;}
+div.member.join div.inner div.form div.list div.input-wrap input{width:0; height:0; border:0;}
+div.member.join div.inner div.form div.list div.input-wrap label.c-input{float:left; width:100%; height:3.5rem; line-height:3.5rem; padding:0; border:1px solid #ccc; text-align:center; font-size:1.25rem; color:#aaa; cursor:pointer; -webkit-transition:0.3s; -o-transition:0.3s; -ms-transition:0.3s; -moz-transition:0.3s; transition:0.3s;}
+div.member.join div.inner div.form div.list div.input-wrap input:checked + label.c-input{border:1px solid #333; color:#333; font-family:"NotoKr_M";}
+div.member.join div.inner div.form div.list.birth div.con div.sel-wrap{float:left; width:31%; margin-right:3.5%;}
+div.member.join div.inner div.form div.list.birth div.con div.sel-wrap:last-child{margin-right:0;}
+div.member.join div.inner div.form div.list.gender div.con div.con01{float:left; width:48%;}
+div.member.join div.inner div.form div.list.gender div.con div.con02{float:right; width:48%;}
+div.member.join div.inner div.form div.list.phone div.con input,
+div.member.join div.inner div.form div.list.phone div.con div.sel-wrap{float:left; width:30%;}
+div.member.join div.inner div.form div.list.phone div.con span.bar{float:left; width:5%;}
+div.member.join div.inner div.form div.list.type div.con div.con01{float:left; width:48%;}
+div.member.join div.inner div.form div.list.type div.con div.con02{float:right; width:48%;}
+div.member.join div.inner div.form div.agree-fir{margin-bottom:1rem; font-size:1.125rem;}
+div.member.join div.inner div.form div.agree-wrap{margin-top:3rem;}
+div.member.join div.inner div.form div.agree-wrap label.all-agree{font-size:1.5rem;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li{border:1px solid #ccc; border-bottom:0;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li:last-child{border-bottom:1px solid #ccc;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-tit{position:relative; width:100%; height:auto; padding:0 1.5rem;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con{display:none; width:100%; height:auto; padding:1.5rem; background:#f5f5f5;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con{width:100%; height:auto; padding:1.5rem; margin-bottom:1.5rem; background:#fff; border:1px solid #ddd;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con:last-child{margin-bottom:0;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con table{border:1px solid #ddd; font-size:1rem; text-align:center; box-shadow:none;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con table tr th{padding:0.5rem; border-right:1px solid #ddd; background:#f8f8f8;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con table tr td{padding:0.5rem; border-right:1px solid #ddd;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con table tr th:last-child,
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con table tr td:last-child{border-right:0;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con table span.big{font-size:130%; font-family:"NotoKr_B";}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con ul{margin-top:0.5rem;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con ul.list01{margin-top:0;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con ul.list01 li{padding-left:0.8rem;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con div.terms-con ul.list01 li:before{top:0.5rem;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con01 div.terms-tit{margin-bottom:0.5rem; font-family:"NotoKr_B";}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-con01 div.terms-con textarea{width:100%; height:10rem; border:0; padding:0; resize:none;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-tit span.arrow{position:absolute; top:50%; right:0; transform:translateY(-50%); display:inline-block; width:3.5rem; height:3.5rem; background:url("/fro_end/img/arrow_bk.svg") center / 1rem auto no-repeat; cursor:pointer; -webkit-transition:0.3s; -o-transition:0.3s; -ms-transition:0.3s; -moz-transition:0.3s; transition:0.3s;}
+div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-tit span.arrow.open{transform:translateY(-50%) rotate(90deg);}
+
+div.member.join2 div.inner div.form div.list div.con span.input-after{display:inline-block; height:3.5rem; line-height:3.5rem; border:1px solid #ccc; padding:0 0.5rem; font-size:1.25rem;}
+div.member.join2 div.inner div.form div.list.name div.con span.input-after{border:0;}
+div.member.join2 div.inner div.form div.list.id div.con div.con01 input{float:left; width:60%;}
+div.member.join2 div.inner div.form div.list.id div.con div.con01 a.btn-form{float:right; width:35%;}
+div.member.join2 div.inner div.form div.list.id div.con div.con02{margin-top:0.3rem;}
+div.member.join2 div.inner div.form div.list.password div.con div.con01 input{float:left; width:48%;}
+div.member.join2 div.inner div.form div.list.password div.con div.con01 span.safety{display:inline-block; float:right; width:48%;}
+div.member.join2 div.inner div.form div.list.password div.con div.con02{margin-top:0.3rem;}
+div.member.join2 div.inner div.form div.list.birth div.con input{float:left; width:28%;}
+div.member.join2 div.inner div.form div.list.birth div.con span.bar{float:left; width:5.333%;}
+div.member.join2 div.inner div.form div.list.birth2 div.con span{float:left; display:inline-block;}
+div.member.join2 div.inner div.form div.list.birth2 div.con span.input-after{width:28%;}
+div.member.join2 div.inner div.form div.list.birth2 div.con span.bar{width:5.333%;}
+div.member.join2 div.inner div.form div.list.phone2 div.con span.input-after{float:left; width:30%;}
+div.member.join2 div.inner div.form div.list.phone2 div.con span.bar{float:left; width:5%;}
+div.member.join2 div.inner div.form div.list.photo div.con input{width:100%; height:3.5rem; line-height:3.5rem;}
+div.member.join2 div.inner div.form div.list.tel div.con input{float:left; width:30%;}
+div.member.join2 div.inner div.form div.list.tel div.con span.bar{float:left; width:5%;}
+div.member.join2 div.inner div.form div.list.post div.con input{float:left; width:60%;}
+div.member.join2 div.inner div.form div.list.post div.con a.btn-form{float:right; width:35%;}
+div.member.join2 div.inner div.form div.list.address div.con input:first-child{margin-bottom:0.5rem;}
+div.member.join2 div.inner div.form div.list.stu-num div.con div.con02{margin-top:0.3rem;}
+div.member.join2 div.inner div.form div.list.route div.con div.con02{margin-top:0.5rem;}
+div.member.join2 div.inner div.form div.list.route div.con div.con02 span.etc{float:left; width:15%; display:inline-block; height:3.5rem; line-height:3.5rem; font-size:1.25rem; text-align:center;}
+div.member.join2 div.inner div.form div.list.route div.con div.con02 input{float:left; width:85%;}
+div.member.join2 div.inner div.form div.list.reason div.con div.con01{height:3.5rem; line-height:3.5rem; font-size:1.25rem; font-family:"NotoKr_B";}
+div.member.join2 div.inner div.form div.list.reason div.con div.con02 > label{float:left; height:3rem; line-height:3rem; margin-right:1.5rem;}
+div.member.join2 div.inner div.form div.list.reason div.con div.con02 div.etc{clear:both; width:100%;}
+div.member.join2 div.inner div.form div.list.reason div.con div.con02 div.etc > label{float:left; width:20%; height:3rem; line-height:3rem; }
+div.member.join2 div.inner div.form div.list.reason div.con div.con02 div.etc > input{float:left; width:80%; height:3rem; line-height:3rem; }
+
+div.member.edit div.inner div.form div.list.id div.con span.input-after{border:0;}
+div.member.edit div.inner div.form div.list.password-ch div.con span.input-after{border:0;}
+div.member.edit div.inner div.form div.list.password-ch div.con a.btn-form{display:block; width:10rem;}
+div.member.edit div.inner div.form div.list.mail div.con span.input-after{width:100%;}
+div.member.edit div.inner div.form div.list.post div.con span.input-after{width:60%;}
+div.member.edit div.inner div.form div.list.address div.con span.input-after{width:100%;}
+div.member.edit div.inner div.form div.list.address div.con span.input-after:first-child{margin-bottom:0.5rem;}
+div.member.edit div.inner div.form div.list.pw-af div.con div.con01 input{float:left; width:48%;}
+div.member.edit div.inner div.form div.list.pw-af div.con div.con01 span.safety{display:inline-block; float:right; width:48%;}
+div.member.edit div.inner div.form div.list.pw-af div.con div.con02{margin-top:0.3rem;}
+
+/* 아이디 찾기 */
+div.member div.tabs{width:100%; margin-bottom:1.5rem;}
+div.member.find div.inner div.form{margin-top:1.5rem;}
+div.cs-modal div.inner div.cont div.txt01 span.id{display:block; font-size:2rem; font-family:"Montserrat_B";}
+
+/* 임시 비밀번호 발급 */
+div.member.password div.inner div.form{margin-top:1.5rem;}
+div.member.password div.inner div.form div.list.phone div.con > input{float:left; width:30%;}
+div.member.password div.inner div.form div.list.phone div.con > span{float:left; width:5%; text-align:center;}
+div.member.password div.inner div.form div.list.send div.con div.con01{float:left; width:48%;}
+div.member.password div.inner div.form div.list.send div.con div.con02{float:right; width:48%;}
+
+/* 비밀번호 변경 */
+div.member.join.password div.inner div.form div.list.mail div.con input[type="text"]{float:left; width:30%;}
+div.member.join.password div.inner div.form div.list.mail div.con span.bar{float:left; width:5%; text-align:center;}
+div.member.join.password div.inner div.form div.list.mail div.con div.sel-wrap{float:right; width:30%;}
+
+
+@media screen and (max-width:1024px){
+	div.member.join div.inner{padding-top:7rem;}
+}
+
+@media screen and (max-width:768px){
+	div.member.join div.inner{width:90%;}
+	div.member.join div.inner div.form{padding:2rem;}
+	div.member.join div.inner div.form div.list{border-bottom:0;}
+	div.member.join div.inner div.form div.list div.tit{float:none; width:100%; height:auto; line-height:normal; margin-bottom:0.3rem; text-align:left;}
+	div.member.join div.inner div.form div.list div.con{float:none; width:100%;}
+}
+
+
+
+@media screen and (max-width:480px){
+	/* 로그인 */
+	div.member.login div.inner{width:90%;}
+	div.member.login div.inner div.form{padding:2rem;}
+	div.member.login div.inner div.form div.top{padding-bottom:1.5rem; margin-bottom:1.5rem;}
+	div.member.login div.inner div.form div.top a.btn-login{margin-top:1rem;}
+	div.member.login div.inner div.form div.bot a{float:left; margin-right:0; padding:0;}
+	div.member.login div.inner div.form div.bot a:nth-of-type(1){width:38%; margin-right:2%;}
+	div.member.login div.inner div.form div.bot a:nth-of-type(2){width:60%;}
+	div.member.login div.inner div.form div.bot a:nth-of-type(3){width:100%; margin-top:0.5rem;}
+	
+	/* 회원가입 */
+	div.member.join div.inner div.form div.list div.input-wrap label.c-input{font-size:1.125rem; letter-spacing:-0.025rem;}
+	div.member.join div.inner div.form div.list.birth div.con input{width:23.333%;}
+	div.member.join div.inner div.form div.list.birth div.con span.bar{width:10%;}
+	div.member.join div.inner div.form div.list.phone div.con div.con02 a{font-size:1.125rem;}
+	div.member.join div.inner div.form div.agree-wrap label.all-agree{font-size:1.25rem;}
+	div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-tit{padding:0 1rem;}
+	div.member.join div.inner div.form div.agree-wrap ul.dropdown > li div.dd-tit label.c-input{max-width:85%; height:auto; line-height:normal; padding:0.8rem 0 0.8rem 2.25rem; font-size:1.125rem;}
+	
+	div.member.join2 div.inner div.form div.list.reason div.con div.con01{height:auto; line-height:normal; margin-bottom:1rem;}
+	div.member.join2 div.inner div.form div.list.reason div.con div.con02 div.etc > label{width:30%;}
+	div.member.join2 div.inner div.form div.list.reason div.con div.con02 div.etc > input{width:70%;}
+	
+	/* 아이디 찾기 */
+	div.cs-modal div.inner div.cont div.txt01 span.id{font-size:1.75rem;}
+	
+
+}
+
+
+@media screen and (max-width:375px){
+	/* 회원가입 */
+	
+}

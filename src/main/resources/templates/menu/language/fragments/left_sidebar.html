@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div class="lnb_warp" th:fragment="left_sidebar">
+    <!--왼쪽메뉴-->
+    <h2>언어교육원</h2>
+    <div class="lnb">
+        <ul>
+            <li>
+                <a th:if="${page_type == '6.1'}" href="/menu/special/list?type=언어&field=성경고전어" class='lnb_on'>성경고전어</a>
+                <a th:unless="${page_type == '6.1'}" href="/menu/special/list?type=언어&field=성경고전어">성경고전어</a>
+                <ol th:if="${page_type == '6.1'}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/menu/language/list?type=언어&field=성경고전어&name=히브리어">히브리어</a></dd>
+                        <dd><a href="/menu/language/list?type=언어&field=성경고전어&name=헬라어">헬라어</a></dd>
+                        <dd><a href="/menu/language/list?type=언어&field=성경고전어&name=라틴어">라틴어</a></dd>
+                    </dl>
+                </ol>
+            </li>
+            <li>
+                <a th:if="${page_type == '6.2'}" href="/menu/special/list?type=언어&field=제2외국어" class='lnb_on'>제 2외국어</a>
+                <a th:unless="${page_type == '6.2'}" href="/menu/special/list?type=언어&field=제2외국어">제 2외국어</a>
+                <ol th:if="${page_type == '6.2'}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/menu/language/list?type=언어&field=제2외국어&name=영어">영어</a></dd>
+                        <dd><a href="/menu/language/list?type=언어&field=제2외국어&name=독일어">독일어</a></dd>
+                    </dl>
+                </ol>
+            </li>
+            <li>
+                <a th:if="${page_type == '6.3'}" href="/menu/special/list?type=언어&field=한국어" class='lnb_on'>한국어</a>
+                <a th:unless="${page_type == '6.3'}" href="/menu/special/list?type=언어&field=한국어">한국어</a>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="left_con pb50">
+        <h3>수강신청</h3>
+        <div class="pl10">
+            <span><a href="">일반교양과정</a></span>
+            <span><a href="/menu/liberal_arts/list">특별교육과정</a></span>
+            <span><a href="/menu/subject/list">학점은행제 </a></span>
+        </div>
+        </ul>
+    </div>
+
+    <!--//왼쪽메뉴 끝-->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=1200">
+    <script type="text/javascript" src="/js/lnb.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/script.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+    <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+    <div th:replace="~{menu/info2/fragments/left_sidebar :: left_sidebar}">
+<!--    <div class="lnb_warp">-->
+<!--        &lt;!&ndash;왼쪽메뉴&ndash;&gt;-->
+<!--        <h2>평생교육원 소개</h2>-->
+<!--        <div class="lnb">-->
+<!--            <ul>-->
+<!--                <li><a href="" >원장 인사말</a></li>&lt;!&ndash; 변경 필요&ndash;&gt;-->
+<!--                <li><a href="" class='lnb_on'>연혁</a></li>-->
+<!--                <li><a href="" >조직도</a></li>-->
+<!--                <li><a href="" >캠퍼스 안내</a></li>-->
+<!--                <li><a href="" >찾아오시는 길</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+
+<!--        <div class="left_con pb50">-->
+<!--            <h3>수강신청 안내</h3>-->
+<!--            <div class="pl10">-->
+<!--                <span><a href="../entran/entran04_02.php">일반교육과정</a></span>-->
+<!--                <span><a href="../entran/entran04_03.php">특별교육과정</a></span>-->
+<!--                <span><a href="../entran/entran04_01.php">학점은행제 </a></span>-->
+<!--            </div>-->
+<!--            </ul>-->
+<!--        </div>-->
+
+        <!--//왼쪽메뉴 끝-->
+    </div>
+
+    <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+    <div class="right_warp">
+        <div class="local">
+            <p>HOME &gt; 정보광장 &gt; 공지사항</p>
+            <h3>공지사항</h3>
+        </div>
+        <div class="contentsArea">
+
+            <div class="bbs_search">
+                <form action="">
+                <fieldset class="bbs_search">
+                    <select name="search_type" style="width:60px" title="검색옵션">
+                        <option value="1">제목</option>
+                        <option value="2">내용</option>
+                    </select>
+                    <input type="text" size="20" name="search_word" title="검색어 입력"/>
+                    <a ></a><input type="image" src="/item/bbs_btn_search.gif" alt="검색" />
+                </fieldset>
+                </form>
+            </div>
+            <div class="bbsList">
+                <table width="100%" summary="다음의 표는 목록입니다." class="table table-hover">
+                    <caption>게시물 목록</caption>
+                    <thead>
+                    <tr>
+                        <th width="7%">번호</th>
+                        <th width="60%">제목</th>
+                        <th width="15%">작성자</th>
+                        <th width="10%">작성일</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each = "board : ${board_list}"><!--bgcolor="#fef8f9" -->
+                        <td th:text="${board.board_code}"></td><!--번호 -->
+                        <td class="subject_tal txpink" ><!--제목 -->
+                            <b><a th:href="@{/menu/board/view(id = ${board.board_code})}" th:text="${board.title}"></a></b>
+                        </td>
+                        <td  th:text="${board.name}"><!--작성자 -->
+                        </td>
+                        <td th:text="${board.created_date}"><!--작성일 -->
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="paging">
+                <p>
+                    <!--
+                    <a href="#"><img src="../images/common/bbs_btn_perv.gif" alt="이전"  /></a>
+                    <span>
+                      <a href="#" class="paging_on">1</a>
+                      <a href="#" >2</a>
+                      <a href="#" >3</a>
+                      <a href="#" >4</a>
+                      <a href="#" >5</a>
+                      <a href="#" >6</a>
+                      <a href="#" >7</a>
+                      <a href="#" >8</a>
+                      <a href="#" >9</a>
+                      <a href="#" >10</a>
+                    </span>
+                   <a href="#"><img src="../images/common/bbs_btn_next.gif" alt="다음"  /></a>
+                   -->
+
+
+                    <a th:if="${begin_page > 10 and search_word == ''}" th:href="@{/menu/board(page=${begin_page - 1},board_type=${board_type})}"><img src='../img/common/bbs_btn_next.gif' alt='이전' border='0'></a>
+                    <a th:if="${begin_page > 10 and search_word != ''}" th:href="@{/menu/board(page=${begin_page - 1},search_type=${search_type},search_word=${search_word},board_type=${board_type})}"><img src='../img/common/bbs_btn_next.gif' alt='이전' border='0'></a>
+                    <a th:if="${begin_page <= max_page and page != begin_page and search_word == ''}" th:href="@{/menu/board(page=${begin_page},board_type=${board_type})}" th:text="${begin_page}"></a>
+                    <a th:if="${begin_page <= max_page and page != begin_page and search_word != ''}" th:href="@{/menu/board(page=${begin_page},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page}"></a>
+                    <b th:if="${page == begin_page}" th:text="${begin_page}"></b>
+                    &nbsp;
+                     <a th:if="${begin_page + 1 <= max_page and page != begin_page + 1 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+1},board_type=${board_type})}" th:text="${begin_page + 1}"></a>
+                     <a th:if="${begin_page + 1 <= max_page and page != begin_page + 1 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+1},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 1}"></a>
+                    <b th:if="${page == begin_page + 1}" th:text="${begin_page + 1}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 2 <= max_page and page != begin_page + 2 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+2},board_type=${board_type})}" th:text="${begin_page + 2}"></a>&nbsp;
+                    <a th:if="${begin_page + 2 <= max_page and page != begin_page + 2 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+2},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 2}"></a>
+                    <b th:if="${page == begin_page + 2}" th:text="${begin_page + 2}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 3 <= max_page and page != begin_page + 3 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+3},board_type=${board_type})}" th:text="${begin_page + 3}"></a>
+                    <a th:if="${begin_page + 3 <= max_page and page != begin_page + 3 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+3},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 3}"></a>
+                    <b th:if="${page == begin_page + 3}" th:text="${begin_page + 3}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 4 <= max_page and page != begin_page + 4 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+4},board_type=${board_type})}" th:text="${begin_page + 4}"></a>
+                    <a th:if="${begin_page + 4 <= max_page and page != begin_page + 4 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+4},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 4}"></a>
+                    <b th:if="${page == begin_page + 4}" th:text="${begin_page + 4}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 5 <= max_page and page != begin_page + 5 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+5},board_type=${board_type})}" th:text="${begin_page + 5}"></a>
+                    <a th:if="${begin_page + 5 <= max_page and page != begin_page + 5 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+5},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 5}"></a>
+                    <b th:if="${page == begin_page + 5}" th:text="${begin_page + 5}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 6 <= max_page and page != begin_page + 6 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+6},board_type=${board_type})}" th:text="${begin_page + 6}"></a>
+                    <a th:if="${begin_page + 6 <= max_page and page != begin_page + 6 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+6},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 6}"></a>
+                    <b th:if="${page == begin_page + 6}" th:text="${begin_page + 6}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 7 <= max_page and page != begin_page + 7 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+7},board_type=${board_type})}" th:text="${begin_page + 7}"></a>
+                    <a th:if="${begin_page + 7 <= max_page and page != begin_page + 7 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+7},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 7}"></a>
+                    <b th:if="${page == begin_page + 7}" th:text="${begin_page + 7}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 8 <= max_page and page != begin_page + 8 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+8},board_type=${board_type})}" th:text="${begin_page + 8}"></a>
+                    <a th:if="${begin_page + 8 <= max_page and page != begin_page + 8 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+8},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 8}"></a>
+                    <b th:if="${page == begin_page + 8}" th:text="${begin_page + 8}"></b>
+                    &nbsp;
+                    <a th:if="${begin_page + 9 <= max_page and page != begin_page + 9 and search_word == ''}" th:href="@{/menu/board(page=${begin_page+9},board_type=${board_type})}" th:text="${begin_page + 9}"></a>
+                    <a th:if="${begin_page + 9 <= max_page and page != begin_page + 9 and search_word != ''}" th:href="@{/menu/board(page=${begin_page+9},search_type=${search_type},search_word=${search_word},board_type=${board_type})}" th:text="${begin_page + 9}"></a>
+                    <b th:if="${page == begin_page + 9}" th:text="${begin_page + 9}"></b>
+                    <a th:if="${begin_page + 10 <= max_page and search_word == ''}" th:href="@{/menu/board(page=${begin_page+10},board_type=${board_type})}"><img src='../img/common/bbs_btn_next.gif' alt='다음' border='0'></a>
+                    <a th:if="${begin_page + 10 <= max_page and search_word != ''}" th:href="@{/menu/board(page=${begin_page+10},search_type=${search_type},search_word=${search_word},board_type=${board_type}))}"><img src='../img/common/bbs_btn_next.gif' alt='다음' border='0'></a>
+
+                </p>
+            </div>
+            <div class="btnArea">
+                <a th:if="${session.member_type == 'dd'} or ${session.member_type == 'st'} or ${session.member_type == 'ai'}"href="/menu/board/write" style="background-image:url('/item/btn_gray.gif');color:white; width:200px; height:50px;">새 글 등록</a>
+            </div>
+        </div>
+        <!--//contentsArea 끝-->
+    </div>
+    <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html><!--#2f4aa1-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=1200">
+    <script type="text/javascript" src="/js/lnb.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/btn.js" ></script>
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+    <div id="warp">
+        <div th:replace="~{fragments/header :: header}"></div>
+    </div>
+    <div id="contents">
+        <div th:replace="~{menu/special/fragments/left_sidebar :: left_sidebar}"></div>
+
+        <style>
+			.w { text-align: left; }
+			.x { text-align: right; }
+			.y { text-align:  justify; width:73%; word-break:break-all; }
+			.z { text-align: justify; width:45%; word-break:break-all; }
+		</style>
+        <div class="right_warp">
+            <div class="local">
+                <p th:if="${page_type == '5.1'}">HOME &gt; 특별교육과정 &gt; 용인학아카데미</p>
+                <p th:if="${page_type == '5.2'}">HOME &gt; 특별교육과정 &gt; 서현정치경제아카데미</p>
+                <p th:if="${page_type == '5.3'}">HOME &gt; 특별교육과정 &gt; 경기교육아카데미</p>
+                <p th:if="${page_type == '5.5'}">HOME &gt; 특별교육과정 &gt; 레이번스축구아카데미</p>
+                <p th:if="${page_type == '5.6'}">HOME &gt; 특별교육과정 &gt; 연예아카데미</p>
+                <h3 th:if="${page_type == '5.1'}">용인학아카데미</h3>
+                <h3 th:if="${page_type == '5.2'}">서현정치경제아카데미</h3>
+                <h3 th:if="${page_type == '5.3'}">경기교육아카데미</h3>
+                <h3 th:if="${page_type == '5.5'}">레이번스축구아카데미</h3>
+                <h3 th:if="${page_type == '5.6'}">연예아카데미</h3>
+            </div>
+            <div class="contentsArea">
+                <div class="bbsList">
+                    <table width="100%">
+                        <tr>
+                            <th width="30%">강좌명</th>
+                            <td width="70%" th:text="${subject.subject_name}"></td>
+                        </tr>
+                        <tr>
+                            <th>모집인원</th>
+                            <td th:text="${subject.personnel}+'명'"></td>
+                        </tr>
+                        <tr>
+                            <th >강의시간</th>
+                            <td th:text="${subject.lecture_time}"></td>
+                        </tr>
+                        <tr>
+                            <th>강의기간</th>
+                            <td th:text="${subject.period}+'주'"></td>
+                        </tr>
+                        <tr>
+                            <th>교ㆍ강사</th>
+                            <td th:text="${subject.member_name}"></td>
+                        </tr>
+                        <tr>
+                            <th>수강료</th>
+                            <td th:text="${subject.fee}+'원'"></td>
+                        </tr>
+                        <tr>
+                            <th>강의계획서</th>
+                            <td><a th:href="@{/download/{save_name}/{original_name}(save_name = ${file.save_name},original_name = ${file.original_name})}" th:text="${file.original_name}"></a></td>
+                        </tr>
+                    </table>
+                    <div class="btnArea">
+                        <img th:if="(${session.member_type == 'ai'} or ${session.member_type == 'st'} or ${session.member_type == 'dd'}) and ${subject.subject_stat == 1}" th:onclick="'ChangeSubjectStat('+${subject.subject_code}+',2)'" src="/item/apply_btn02.png"/>
+                        <img th:if="(${session.member_type == 'ai'} or ${session.member_type == 'st'} or ${session.member_type == 'dd'}) and ${subject.subject_stat != 1}" th:onclick="'ChangeSubjectStat('+${subject.subject_code}+',1)'" src="/item/apply_btn02_2.png"/>
+                        <img th:if="(${session.member_type == 'ai'} or ${session.member_type == 'st'} or ${session.member_type == 'dd'}) and (${subject.subject_stat == 1} or ${subject.subject_stat == 2})" th:onclick="'ChangeSubjectStat('+${subject.subject_code}+',3)'" src="/item/apply_btn03.png"/>
+                        <img th:if="${session.member_type == 'ai'} or ${session.member_type == 'st'} or ${session.member_type == 'dd'}" th:onclick="'ModifyApply('+${subject.subject_code}+')'" src="/item/apply_btn04.png"/>
+                        <img th:if="${session.member_type == 'ai'} or ${session.member_type == 'st'} or ${session.member_type == 'dd'}" th:onclick="'DeleteSubject('+${subject.subject_code}+')'" src="/item/apply_btn03_2.png"/>
+                        <img th:if="${session.member_type == 'mb'} and ${subject.subject_stat == 1}" th:onclick="'ApplyYn('+${subject.subject_code}+')'" src="/item/apply_btn.png"/>
+                        <img th:if="${session.member_type == 'mb'} and ${subject.subject_stat == 2}" src="/item/apply_btn02.png"/>
+                    </div>
+                </div>
+            </div>
+            <!--//contentsArea 끝-->
+        </div>
+        <!--//right_warp 끝-->
+    </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

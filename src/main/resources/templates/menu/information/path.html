@@ -1,0 +1,75 @@
+<!DOCTYPE html><!-- 제목:원장 인사말 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=1200">
+  <script type="text/javascript" src="/js/lnb.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+  <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/script.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+  <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+  <div th:replace="~{menu/information/fragments/left_sidebar :: left_sidebar}">
+  </div>
+
+  <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+  <div class="right_warp">
+    <div class="local">
+      <p>HOME &gt; 평생교육원 소개 &gt; 찾아오시는 길</p>
+      <h3>찾아오시는 길</h3>
+    </div>
+
+    <div class="bbsList">
+      <table width="100%">
+        <tr>
+          <th width="15%" height="50">주소</th>
+          <td width="35%" height="50">경기도 용인시 기흥구 마북로 184</td>
+          <th width="15%" height="50">TEL</th>
+          <td width="35%" height="50">031-284-4752~5</td>
+        </tr>
+        <tr>
+          <th height="50">버스이용</th>
+          <td colspan="3" height="50">서울, 성남, 수원, 안양 출발</td>
+        </tr>
+        <tr>
+          <th height="150">전철이용</th>
+          <td colspan="3" height="50">
+            <ul>
+              <li>(구성역3번 출구) 하차 마을버스 26-2번 이용</li>
+              <li>(죽전역 1번 출구) 하차 마을버스 26-1번 이용</li>
+              <li>(미금역3번, 오리역4번, 보정역1번 출구) 하차 마을버스 26번 이용</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d793.4005214121302!2d127.12762581826524!3d37.30456349227615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b50a7269acbfb%3A0x8fa31e7bccd65a49!2z7Lm867mI64yA7ZWZ6rWQIOuzuOq0gA!5e0!3m2!1sko!2skr!4v1706035943759!5m2!1sko!2skr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+  </div>
+    </div>
+    <!--//contentsArea 끝-->
+  </div>
+  <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

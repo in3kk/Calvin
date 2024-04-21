@@ -1,0 +1,126 @@
+/* ���� �����*/
+#main_visual_warp { width:100%; height:450px; overflow:hidden; background: url(../item/main_visual01.png) no-repeat center}
+
+
+#visual{position:relative; width:100%; height:450px; clear:both; overflow:hidden;}
+.mainVisual {position:relative; width:100%;  margin:0 auto; height:450px; overflow:hidden; }
+.mainVisual .visualBg {height:450px; margin:0 auto; position:absolute; top:0; left:0; width:100%; z-index:100; text-indent:-2000%; }
+.mainVisual .visualBg1{background:url("../item/main_visual01.png") no-repeat center center;}
+.mainVisual .visualBg2{background:url("../item/main_visual02.png") no-repeat center center;}
+.mainVisual .visualBg3{background:url("../item/main_visual03.png") no-repeat center center;}
+.mainVisual .visualBg4{background:url("../item/main_visual04.jpg") no-repeat center center;}
+.mainVisual .visualBg5{background:url("../item/main_visual05.png") no-repeat center center;}
+.mainVisual .visualBg6{background:url("../item/main_visual06.png") no-repeat center center;}
+.mainVisual .visualBg7{background:url("../item/main_visual07.png") no-repeat center center;}
+.mainVisual .visualBg8{background:url("../item/main_visual08.png") no-repeat center center;}
+.mainVisual .visualBg9{background:url("../item/main_visual09.png") no-repeat center center;}
+.mainVisual .visualBg10{background:url("../item/main_visual10.png") no-repeat center center;}
+.mainVisual .visualBg11{background:url("../item/main_visual11.png") no-repeat center center;}
+.mainVisual .visualBg12{background:url("../item/main_visual12.png") no-repeat center center;}
+.mainVisual .visualBg13{background:url("../item/main_visual13.png") no-repeat center center;}
+
+
+.mainVisual .controller{width:1200px; position:absolute; z-index:400; left:50%; margin-left:-600px;}
+.mainVisual .controller .btns {position:absolute; top:190px; width:100%;}
+.mainVisual .controller .btns .next {float:right;}
+.mainVisual .controller2{width:10px; position:relative;  z-index:80; margin:0 auto; overflow:hidden;}
+.mainVisual .controller2 .visualTxt{padding: 0 0 0 99px; }
+.mainVisual .controller2 .rollBtnD {position:absolute; top:390px; left:50%;}
+
+
+#main_contents { position:relative; width:1000px; margin:0 auto; overflow:hidden; margin-top:25px; padding-bottom:20px}
+.popupzone_iframe { float:left; position:relative; width:491px; margin-right:9px; }
+
+/* 
+.ban1_con {position:relative; overflow:hidden; float:left; margin-right:9px}
+.ban1_con a:link, .loca_con a:visited {display:block; width:240px; height:235px; background: url('../item/cont_ban1.png') center 0 no-repeat; text-align:center}
+.ban1_con a:hover {text-decoration:none}
+.ban1_con h3 {font-size:18px; color:#333; font-weight:400; letter-spacing:-1pt; padding:22px 0 145px 0; line-height:18px;}
+.ban1_con p.stit { font-size:13px; color:#333; font-weight:400; letter-spacing:-0.5pt;}
+*/
+/* 1��° */
+.ban1_con { position:relative; overflow:hidden; float:left; width:240px; height:235px; background: url('../item/cont_ban3_calvin.png') center 0 no-repeat; background-color: lightblue; background-size: 140px auto; background-position: 38% 38px;text-align:center; margin-right:9px}
+.ban1_con h3 {font-size:18px; color:#333; font-weight:600; letter-spacing:-1pt; padding:22px 0 88px 0;  line-height:18px;}
+.ban1_con span a { float:left; background:#fff; color:#333;  border-bottom:1px solid #92c9ed; width:200px; line-height:30px; text-align:center; font-weight:600; margin-right:-1px}
+.ban1_con span a:hover { background:#193694; color:#fff}
+
+
+/* 2��° */ 
+.ban2_con {position:relative; overflow:hidden; float:left; width:240px; height:235px; background: url('../item/cont_ban2_calvin.png') center 0 no-repeat; background-color: #f18367;background-size: 140px auto; background-position: 35% 36px; text-align:center}
+.ban2_con h3 {font-size:18px; color:#333; font-weight:600; letter-spacing:-1pt; padding:22px 0 88px 0; line-height:18px;}
+.ban2_con span a { float:left; background:#fff;   color:#333;  border-bottom:1px solid #d9775d; width:200px; line-height:30px;text-align:center; font-weight:600; margin-right:-1px }
+.ban2_con span a:hover { background:#e8522b; color:#fff}
+
+/* 3��° */
+.ban3_con2 {position:relative; overflow:hidden; float:left; width:240px; height:115px; background: url('../item/cont_ban1_02.png') center 0 no-repeat; text-align:center; margin-right:9px}
+.ban3_con2 h3 {font-size:18px; color:#333; font-weight:600; letter-spacing:-1pt; padding:22px 0 25px 0; line-height:18px;}
+.ban3_con2 span a { float:left; background:#fff; color:#333; border:1px solid #66c5b0;  width:200px; /* width:98px; �ٷΰ��� �ϳ��ϰ��*/ line-height:30px;  text-align:center; font-weight:600; margin-right:-1px}
+.ban3_con2 span a:hover { background:#08886c; color:#fff}
+
+/* 4��° */
+.ban4_con2 {position:relative; overflow:hidden; float:left; width:240px; height:115px; background: url('../item/cont_ban1_03.png') center 0 no-repeat; text-align:center; margin-right:9px}
+.ban4_con2 h3 {font-size:18px; color:#333; font-weight:600; letter-spacing:-1pt; padding:22px 0 25px 0; line-height:18px;}
+.ban4_con2 span a { float:left; background:#fff; color:#333; border:1px solid #eeba81; width:200px; line-height:30px;  text-align:center; font-weight:600; margin-right:-1px}
+.ban4_con2 span a:hover { background:#d97e1b; color:#fff}
+
+/* 5��° */ 
+.ban5_con {position:relative; overflow:hidden; float:left; width:490px; height:115px; background: url('../item/cont_ban4_02.png') center 0 no-repeat; text-align:center}
+.ban5_con ul { text-align:center;}
+.ban5_con li { float:left;  font-weight:600}
+.ban5_con li a {display:block; width:116px; padding:90px 0 5px 5px;}
+.ban5_con li a:hover { color:#193694;}
+
+
+
+/* ���� 2���϶�
+.ban2_con {position:relative; overflow:hidden; float:left; width:240px; height:235px; background: url('../item/cont_ban2.png') center 0 no-repeat; text-align:center}
+.ban2_con h3 {font-size:18px; color:#193694; font-weight:600; letter-spacing:-1pt; padding:22px 0 145px 0; line-height:18px;}
+.ban2_con span a { float:left; border:1px solid #193694; width:97px; line-height:30px; color:#193694; text-align:center; font-weight:600; margin-right:-1px}
+.ban2_con span a:hover { background:#193694; color:#fff}
+*/
+
+
+
+
+
+
+
+
+.notice_con {  position:relative; float:left; width:490px; border:1px solid #ddd; margin-right:9px }
+.notice_tab { overflow:hidden; border-bottom:1px solid #ddd; }
+.notice_tab ul { }
+.notice_tab li { list-style:none; position:relative; float:left; width:120px; font-weight:600}
+.notice_tab li a { display:block; font-size:15px; color:#333; text-decoration:none; text-align:center; border-right:1px solid #ddd; padding:15px 0px 15px 0px}
+.notice_tab li a:hover {  text-decoration:none; color:#108e72; border-top:2px solid #108e72;  }
+.notice_tab li.active a { color:#108e72; border-top:2px solid #108e72; }
+.notice_tab li.active a:hover { text-decoration:none; border-top:2px solid #108e72;}
+.notice_list { position:relative; float:left; clear:both; width:485px; height:182px}
+.notice_list ul { padding-top:15px}
+.notice_list li { position:relative; background:url(../item/notice_dot.png) no-repeat 15px 10px; padding: 0px 0 5px 25px;}
+.notice_list li>.data { position:absolute; right:0; top:3px; color:#333; font-size:11px; z-index:999}
+.notice_list>.more a {position:absolute; top:-30px; right:0; z-index:99}
+.notice_list a { text-decoration: none;  }
+.notice_list a:hover { text-decoration: none; color:#1d7fd0 }
+
+.protf_con {position:relative; width:520px; height:253px; overflow:hidden; float:left; background:#e9e9e9}
+.protf_con h3 {font-size:16px; color:#222; font-weight:600; letter-spacing:-1pt; padding:20px 0 10px 15px; line-height:18px;}
+.bx-wrapper {width:490px; margin:0 auto;}
+	.bxslider {height:180px;}
+	.bxslider li {float:left; width:50%; text-align:center;}
+	.bxslider dl { width:230px; margin:0 auto;}
+	.bxslider dt {text-align:center; padding-bottom:5px;}
+	.bxslider dd {padding:0px 2px; text-align:center;}	
+	.bxslider dd a.subject:link, 
+	.bxslider dd a.subject:visited {font-weight:bold; color:#333;}
+	.bxslider dd span {display:block; padding-top:2px; color:#f16600;}
+
+	.btnLeftM {position:absolute; right:22px; top:-15px; width:25px; height:25px; text-align:right;}
+	.btnLeftM img {margin-top:30px;}
+	.btnRightM {position:absolute; right:45px; top:-15px; width:25px; height:25px;}
+	.btnRightM img {margin-top:30px;}
+
+html > body .bxslider li {margin:0;}
+*html .bxslider li  {margin:0;}
+
+
+

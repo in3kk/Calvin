@@ -1,0 +1,68 @@
+
+<!Doctype html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Untitled Document</title>
+    <link href="/css/base.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+.popupzone_con { float:left; position:relative; width:489px; border:1px solid #ddd;}
+.popupzone_con h3 {font-size:16px; color:#333; font-weight:600; border-bottom:1px solid #ddd; text-indent:28px; line-height:45px}
+.popupzone_con img { padding-left:0px}
+</style>
+</head>
+
+<body>
+<div class="popupzone_con">
+    <h3>팝업존</h3>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.banner.js"></script>
+    <script type="text/javascript">
+                <!--
+                $(function() {
+                    $("#image_list_1").jQBanner({	//롤링을 할 영역의 ID 값
+                        nWidth:489,					//영역의 width
+                        nHeight:187,				//영역의 height
+                        nCount:2,					//돌아갈 이미지 개수
+                        isActType:"left",				//움직일 방향 (left, right, up, down)
+                        nOrderNo:1,					//초기 이미지
+                        nDelay:7000			//롤링 시간 타임 (1000 = 1초)
+                        /*isBtnType:"li"*/			//라벨(버튼 타입) - 여기는 안쓰임
+                        }
+                    );
+
+                    //$("#image_list_2").jQBanner({nWidth:230,nHeight:270,nCount:3,isActType:"left",nOrderNo:1,isStartAct:"Y",isStartDelay:"Y",nDelay:4000,isBtnType:"img"});
+                   // $("#image_list_3").jQBanner({nWidth:980,nHeight:348,nCount:3,isActType:"fade",nOrderNo:1,isStartAct:"Y",isStartDelay:"Y",nDelay:4000,isBtnType:"img"});
+                });
+                //-->
+            </script>
+    <div id="popupzone">
+        <style type="text/css">
+				.clsBannerScreen {position:relative; overflow:hidden; width:489px; margin:0 auto;}
+				.clsBannerScreen .images {position:absolute; display:none; }
+				.clsBannerButton {position:absolute; float:left; left:410px; top:16px; width:120px; z-index:999;} /* 팝업이미지 추가시 left:430px 값 변경*/
+				.clsBannerButton li {float:left; width:20px; }
+				.clsBannerButton li img{cursor:pointer;}
+				</style>
+        <div id="image_list_1">
+            <div class="clsBannerScreen">
+                <div class="images" style="display:block"><a href="" target="_parent"><img src="item/popzone_img03.jpg"/></a></div>
+                <div class="images"><a href="" target="_parent"><img src="item/popzone_img02.jpg"/></a></div>
+                <!--
+                  <div class="images"><a href="http://jcec.dankook.ac.kr/communi/content.php?pid=720&s_que=&strsearch=&boardid=1&hak=&ban=&cpage=1" target="_parent"><img src="../img/main/popzone_img03.png"/></a></div>
+                  <div class="images"><a href="#" onclick="window.open('../popup/140328.html', '', 'top=10px, left=-50%, width=550px, height=400px')" title="새창으로 열림" ><img src="../img/main/popzone_img04.png"/></a></div>
+                -->
+            </div>
+            <ul class="clsBannerButton" id="label_3">
+                <li><img src="item/popzone_btn_on.png" oversrc="item/popzone_btn_on.png" outsrc="item/popzone_btn_off.png"/></li>
+                <li><img src="item/popzone_btn_off.png" oversrc="item/popzone_btn_on.png" outsrc="item/popzone_btn_off.png"/></li>
+                <!--
+                <li><img src="../img/main/popzone_btn_on.png" oversrc="../img/main/popzone_btn_on.png" outsrc="../img/main/popzone_btn_off.png"/></li>
+                -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html><!-- 제목:원장 인사말 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=1200">
+  <script type="text/javascript" src="/js/lnb.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+  <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/script.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+  <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+  <div th:replace="~{menu/info2/fragments/left_sidebar :: left_sidebar}">
+  </div>
+
+  <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+  <div class="right_warp">
+    <div class="local">
+      <p>HOME &gt; 정보광장 &gt; 장학제도</p>
+      <h3>장학제도</h3>
+    </div>
+    <div class="contentsArea">
+
+      <div class="entran_ment2">
+        <div class="entran_ment_tit">장학제도 및 수강료 감면기준 안내</div>
+        <p> 단국대학교 평생교육원에서 아래와 같이 <span class="tx_pink">장학제도 및 수강료 감면기준을 알려드립니다.</span><br />
+          아래 내용을 숙지하시고 참고해 주시기 바랍니다.</p>
+      </div>
+
+
+      <script type="text/javascript">
+				$(function(){
+
+					$(".tabmenu ul li:eq(0) a").addClass("active");
+					$(".tabmenu ul li:eq(0) a").css("color","#1692cd")
+
+					$(".tabmenu ul li a").click(function(){
+						$(".tabmenu ul li a").removeClass("active");
+						$(this).addClass("active");
+						$(".tabmenu ul li a").css("color","#333");
+						$(this).css("color","#1692cd")
+						tabno=$(".tabmenu ul li a").index($(this))+1;
+						for (i=1;i<8 ;i++ ){
+							$("#tabcon"+i).hide()
+						}
+						$("#tabcon"+tabno).show()
+					})
+
+
+				})
+				</script>
+
+      <div class="tabmenu">
+        <ul>
+          <li style="width:50%"><a href="#;">일반교육과정</a></li>
+          <li style="width:50%"><a href="#;">학점은행제</a></li>
+        </ul>
+      </div>
+
+      <div id="tabcon1">
+        <h4 class="h4_tit mt40">일반교육과정 장학금 지급 기준</h4>
+
+
+        <table class="table_style3"  summary="단국대 평생교육원 일반과정 일반과정 장학급 지급 기준입니다.">
+          <caption>일반교육과정 장학급 지급 기준</caption>
+          <thead>
+          <tr>
+            <th width="13%">감면율</th>
+            <th width="20%">구분</th>
+            <th width="*%">조건</th>
+            <th width="29%">제출서류</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><span class="tx_pink">50%</span></td>
+            <td>교직원 장학금</td>
+            <td class="td_tal">학교법인 단국대학의 임원·정규직원, 우리 대학의 교직원 중 재직 및 퇴직자(특별교원, 비정년트랙교원, 임시직 제외)</td>
+            <td class="td_tal">- 재직 또는 경력증명서</td>
+          </tr>
+          <tr>
+            <td><span class="tx_pink">30%</span></td>
+            <td>교직원 가족 장학금</td>
+            <td class="td_tal">교직원 장학금 해당자의 가족</td>
+            <td class="td_tal">
+              - 재직 또는 경력증명서<br />
+              - 가족관계증명서
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="8"><span class="tx_pink">20%</span></td>
+            <td>동문 장학금</td>
+            <td class="td_tal">우리 대학 학부 및 대학원 재학생·졸업생 본인, 우리 대학 총장 명의 학사학위 취득자</td>
+            <td class="td_tal"> - 재학 또는 졸업증명서</td>
+          </tr>
+          <tr>
+            <td class="border_le">동문 가족 장학금</td>
+            <td class="td_tal">우리 대학 학부 및 대학원 재학생의 가족</td>
+            <td class="td_tal">
+              - 재학증명서<br />
+              - 가족관계증명서
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="border_le">단국 가족 장학금</td>
+            <td class="td_tal">우리 대학 계약직·조교·연구원 재직자</td>
+            <td class="td_tal">- 재직증명서</td>
+          </tr>
+          <tr>
+            <td class="td_tal border_le">우리 대학 가족회사 재직자</td>
+            <td class="td_tal">
+              - 재직증명서 또는 그에 준하는 서류<br />
+              - 단국대학교와 체결한 협약서
+            </td>
+          </tr>
+          <tr>
+            <td class="border_le">경로우대 장학금</td>
+            <td class="td_tal">만 65세 이상인 자</td>
+            <td class="td_tal">- 신분증(개강일 기준)</td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="border_le">보훈 장학금</td>
+            <td class="td_tal">국가유공자</td>
+            <td class="td_tal">- 국가유공자증명서 또는 국가유공자확인서</td>
+          </tr>
+          <tr>
+            <td class="td_tal border_le">국가유공자 직계가족</td>
+            <td class="td_tal">
+              - 국가유공자확인서<br />
+              - 가족관계증명서
+            </td>
+          </tr>
+          <tr>
+            <td class="border_le">다수강 장학금</td>
+            <td class="td_tal">해당 학기 3개 강좌 이상 수강자</td>
+            <td class="td_tal">- 수강증명서</td>
+          </tr>
+
+          </tbody>
+        </table>
+
+        <h4 class="h4_tit mt20">신청방법</h4>
+        <ul class="icon_li">
+          <li>방문 신청 : 평생교육원 교학팀으로 직접 방문하여 장학금 신청서를 작성한 후 관련 서류를 제출하여야 함</li>
+          <li> 이메일 신청 : [정보광장]-[서식자료실]에서 장학금 신청서 양식을 작성한 후, 신청서 및 관련 서류를 메일(cecbear@dankook.ac.kr)로 제출하여야 함 </li>
+        </ul>
+
+        <p class="icon_point mt15">
+          주의사항<br />
+          1) 장학금 신청기간을 반드시 엄수해야 함(공지사항 참고)<br />
+          2) 장학금 자동 신청은 되지 않으므로 매 학기 장학금 신청해야 하며, 직전 학기 장학금 수령자 또한 신청기간 내 반드시 신청해야 함<br />
+          3) 신청기간 내 미신청 및 서류 미제출로 인한 장학금 미지급은 수강생 본인에게 책임이 있음<br />
+          4) 장학금은 1인 1장학을 원칙으로 하며, 최고 수강료 강좌 1개에 한하여 장학 혜택을 적용함
+        </p>
+
+      </div>
+
+
+
+      <div id="tabcon2" class="dn">
+        <h4 class="h4_tit mt20">학점은행제 수강생 장학금 및 감면기준</h4>
+        <table class="table_style3"  summary="단국대 평생교육원 학점은행제과정 수강생 장학금입니다.">
+          <caption>학점은행제 수강생 장학금</caption>
+          <thead>
+          <tr>
+            <th width="12%">감면율</th>
+            <th width="12%">구분</th>
+            <th width="*%">조건</th>
+            <th width="25%">제출서류</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td valign="center"><span class="tx_pink">전액감면</span></td>
+            <td valign="center">교직원자녀</td>
+            <td class="td_tal">
+              정규직원 및 전임교원 자녀(특별교원·비정년트랙교원·임시직제외)<br />
+              ▷ 신규 수강생 :첫 학기에 한하여 성적 제한 없음<br />
+              ▷ 기존 수강생 :평균평점 75(2.5/F학점포함) 이상 (직전학기에 따름)
+            </td>
+            <td class="td_tal">
+              - 재직증명서 혹은 경력증명서<br />
+              - 가족관계증명서
+            </td>
+          </tr>
+          <tr>
+            <td valign="center"><span class="tx_pink">300,000원</span></td>
+            <td valign="center">성적</td>
+            <td class="td_tal">전공별 성적우수자 각1명(전·현학기 각4강좌 이상 수강)</td>
+            <td class="td_tal"></td>
+          </tr>
+          <tr>
+            <td valign="center"><span class="tx_pink">200,000원</span></td>
+            <td valign="center">전공대표</td>
+            <td class="td_tal">주임교수 추천 학생 각1명(전·현학기 각4강좌 이상 수강)</td>
+            <td class="td_tal"></td>
+          </tr>
+          <tr>
+            <td valign="center"><span class="tx_pink">500,000원</span></td>
+            <td valign="center" rowspan="3">공로<br />(개인, 단체)</td>
+            <td class="td_tal">국제대회 1,2,3위 입상자 및 이에 준하는 자</td>
+            <td class="td_tal" rowspan="3">- 수상 실적 증빙 서류</td>
+          </tr>
+          <tr>
+            <td valign="center"><span class="tx_pink">300,000원</span></td>
+            <td class="td_tal">전국 시·도 단위 이상 기관에서 주최하는 국내대회 1,2,3위 입상자 및 이에 준하는 자(단국대 소속 수상자)</td>
+          </tr>
+          <tr>
+            <td valign="center"><span class="tx_pink">200,000원</span></td>
+            <td class="td_tal">전국 시·도 단위 이상 기관에서 주최하는 공모전 등 1,2,3위 입상자 및 이에 준하는 자(협회 공모전 제외, 단국대 소속 수상자)</td>
+          </tr>
+          <tr>
+            <td valign="center"><span class="tx_pink">수강료10%</span></td>
+            <td valign="center">복지</td>
+            <td class="td_tal">국민기초생활수급자, 차상위계층</td>
+            <td class="td_tal">- 차상위계층 증명서 혹은 국민기초생활수급자증명서</td>
+          </tr>
+          <tr>
+            <td valign="center"><span class="tx_pink">전액감면</span></td>
+            <td valign="center">국가보훈</td>
+            <td class="td_tal">국가유공자 및 직계가족</td>
+            <td class="td_tal">- 교육지원대상자 증명서(본인)대학 수업료 등 면제 대상자 증명서(직계가족)</td>
+          </tr>
+          </tbody>
+        </table>
+        <br />
+
+
+
+        <h4 class="h4_tit mt20">공로장학금 세부기준</h4>
+        <table class="table_style3"  summary="단국대 평생교육원 학점은행제 공로장학금 세부기준입니다.">
+          <caption>학점은행제 공로장학금 세부기준</caption>
+          <thead>
+          <tr>
+            <th>분류</th>
+            <th colspan="2">장학금액(개인,단체)</th>
+            <th>비고</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td valign="center">국제대회 1,2,3위 입상자 및 이에 준하는 자</td>
+            <td colspan="2" valign="center"> 500,000원</td>
+            <td valign="center">-</td>
+          </tr>
+          <tr>
+            <td valign="center">전국 시·도 단위 이상 기관에서 주최하는 <br />
+              국내 대회 1,2,3위 입상자 및 이에 준하는 자<br />(단국대 소속 수상자)</td>
+            <td colspan="2" valign="center"> 300,000원</td>
+            <td valign="center">-</td>
+          </tr>
+          <tr>
+            <td valign="center">전국 시·도 단위 이상 기관에서 주최하는 <br />
+              공모전 등 1,2,3위 입상자 및 이에 준하는 자<br />(협회 공모전 제외, 단국대 소속 수상자)</td>
+            <td colspan="2" valign="center"> 200,000원</td>
+            <td valign="center">-</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <h4 class="h4_tit mt20"> 장학금 제도 안내 </h4>
+        <ul class="icon_li">
+          <li>국가보훈, 북한이탈주민, 교직원 자녀, 복지 장학금은 관련 증명서를 매학기 교학팀으로 제출 </li>
+          <li>장학금 중복수혜 불가(단, 공로장학금 및 복지장학금은 중복 수혜 가능) </li>
+          <li>장학금 총액은 수강료 총액을 초과할 수 없음 </li>
+        </ul>
+
+      </div>
+    </div>
+    <!--//contentsArea 끝-->
+  </div>
+  <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

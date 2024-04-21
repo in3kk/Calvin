@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div class="lnb_warp" th:fragment="left_sidebar">
+    <!--왼쪽메뉴-->
+    <h2>특별교육과정</h2>
+    <div class="lnb">
+        <ul>
+            <li>
+                <a th:if="${page_type == '5.1'}" href="/menu/special/list?type=특별교육과정&field=용인" class='lnb_on'>용인학아카데미</a>
+                <a th:unless="${page_type == '5.1'}" href="/menu/special/list?type=특별교육과정&field=용인">용인학아카데미</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '5.2'}" href="/menu/special/list?type=특별교육과정&field=서현정치경제" class='lnb_on'>서현정치경제아카데미</a>
+                <a th:unless="${page_type == '5.2'}" href="/menu/special/list?type=특별교육과정&field=서현정치경제">서현정치경제아카데미</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '5.3'}" href="/menu/special/list?type=특별교육과정&field=경기교육" class='lnb_on'>경기교육아카데미</a>
+                <a th:unless="${page_type == '5.3'}" href="/menu/special/list?type=특별교육과정&field=경기교육">경기교육아카데미</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '5.5'}" href="/menu/special/list?type=특별교육과정&field=레이번스축구아카데미" class='lnb_on'>레이번스축구아카데미</a>
+                <a th:unless="${page_type == '5.5'}" href="/menu/special/list?type=특별교육과정&field=레이번스축구아카데미">레이번스축구아카데미</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '5.6'}" href="/menu/special/list?type=특별교육과정&field=연예" class='lnb_on'>연예아카데미</a>
+                <a th:unless="${page_type == '5.6'}" href="/menu/special/list?type=특별교육과정&field=연예">연예아카데미</a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="left_con pb50">
+        <h3>수강신청</h3>
+        <div class="pl10">
+            <span><a href="">일반교양과정</a></span>
+            <span><a href="/menu/liberal_arts/list">특별교육과정</a></span>
+            <span><a href="/menu/subject/list">학점은행제 </a></span>
+        </div>
+        </ul>
+    </div>
+
+    <!--//왼쪽메뉴 끝-->
+</div>
+
+</body>
+</html>

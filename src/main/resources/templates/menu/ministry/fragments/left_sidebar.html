@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div class="lnb_warp" th:fragment="left_sidebar">
+    <!--왼쪽메뉴-->
+    <h2>목회연수원</h2>
+    <div class="lnb">
+        <ul>
+            <li>
+                <a th:if="${page_type == '7.1'}" href="/menu/ministry/list?type=목회" class='lnb_on'>목회포럼</a>
+                <a th:unless="${page_type == '7.1'}" href="/menu/ministry/list?type=목회">목회포럼</a>
+                <ol th:if="${page_type == '7.1'}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/menu/ministry/list?type=목회&field=성경강해">- 성경강해</a></dd>
+                        <dd><a href="/menu/ministry/list?type=목회&field=성경주해">- 성경주해</a></dd>
+                        <dd><a href="/menu/ministry/list?type=목회&field=목회트렌드">- 목회트렌드</a></dd>
+                    </dl>
+                </ol>
+            </li>
+            <li>
+                <a th:if="${page_type == '7.2'}" href="/menu/ministry/presbyter" class='lnb_on'>장로권사집사포럼</a>
+                <a th:unless="${page_type == '7.2'}" href="/menu/ministry/presbyter">장로권사집사포럼</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '7.4'}" href="/menu/ministry/f_pastor" class='lnb_on'>여교역자포럼</a>
+                <a th:unless="${page_type == '7.4'}" href="/menu/ministry/f_pastor">여교역자포럼</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '5.4'}" href="/menu/special/list?type=특별교육과정&field=사모포럼" class='lnb_on'>사모포럼</a>
+                <a th:unless="${page_type == '5.4'}" href="/menu/special/list?type=특별교육과정&field=사모포럼">사모포럼</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="left_con pb50">
+        <h3>수강신청</h3>
+        <div class="pl10">
+            <span><a href="">일반교양과정</a></span>
+            <span><a href="/menu/liberal_arts/list">특별교육과정</a></span>
+            <span><a href="/menu/subject/list">학점은행제 </a></span>
+        </div>
+        </ul>
+    </div>
+
+    <!--//왼쪽메뉴 끝-->
+</div>
+
+</body>
+</html>

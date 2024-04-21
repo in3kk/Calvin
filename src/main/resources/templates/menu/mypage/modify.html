@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=1200">
+    <script type="text/javascript" src="/js/lnb.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/script.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+    <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+    <div th:replace="~{menu/board/fragments/left_sidebar :: left_sidebar}">
+    </div>
+
+    <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+    <div class="right_warp">
+        <div class="local">
+            <p>HOME &gt; 마이페이지 &gt; 정보 변경</p>
+            <h3>정보 변경</h3>
+        </div>
+        <div class="contentsArea">
+
+            <form action="/member/mypage/modify/pro" method="post">
+                <input type="hidden" name="member_id" th:value="${session.member_id}">
+                <div class="bbsView">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th width="20%" >아이디</th>
+                            <td width="70%" th:text="${info.id}"></td>
+                        </tr>
+                        <tr>
+                            <th>새 비밀번호</th>
+                            <td>
+                                <input id="pwd" name="pwd" type="password" class="input" onchange="check_pw()" placeholder="비밀번호를 입력하세요."
+                                       th:value="${member.pwd}" style="width:45%;"><br>
+                                <span style="font-size:10pt; color:gray;">&nbsp;&nbsp;비밀번호는 영문, 숫자, 특수문자를 조합한 10자리 이상 25자리 이하 여야 합니다.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>새 비밀번호 확인</th>
+                            <td>
+                                <input id="pwd2" name="pwd2" type="password" class="input" onchange="check_pw()"
+                                       placeholder="비밀번호를 한번 더 입력하세요." th:value="${member.pwd}" style="width:45%;">
+                                <span id="check"></span>
+                                <input type="hidden" value="x" id="pwd_check_value">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>이름</th>
+                            <td th:text="${info.name}"></td>
+                        </tr>
+                        <tr>
+                            <th>생년월일</th>
+                            <td th:text="${info.birth}"></td>
+                        </tr>
+                        <tr>
+                            <th>전화번호</th>
+                            <td><input type="String" name="phone_number" th:value="${info.phone_number}"/></td>
+                        </tr>
+                        <tr>
+                            <th>현재 주소</th>
+                            <td th:text="${info.address}"></td>
+                        </tr>
+                        <tr>
+                            <th>새 주소</th>
+                            <td> <input type="text" id="sample6_postcode" class="input" placeholder="우편번호" style="width:45%;">
+                                <input type="button" onclick="sample6_execDaumPostcode()"  value="우편번호 찾기"><br>
+                                <input type="text" th:name="address" id="sample6_address" class="input" placeholder="주소" style="width:95%;"><br>
+                                <input type="text" th:name="address2" id="sample6_detailAddress" class="input" placeholder="상세주소" style="width:45%;"  onchange="check_address()">
+                                <input type="text" id="sample6_extraAddress" class="input" placeholder="참고항목" style="width:45%;">
+                                <input type="hidden" value="x" id="address_check_value">
+                                <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                                <script>
+                                    function sample6_execDaumPostcode() {
+                                        new daum.Postcode({
+                                            oncomplete: function(data) {
+                                                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                                                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                                                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                                                var addr = ''; // 주소 변수
+                                                var extraAddr = ''; // 참고항목 변수
+
+                                                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                                                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                                                    addr = data.roadAddress;
+                                                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                                                    addr = data.jibunAddress;
+                                                }
+
+                                                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                                                if(data.userSelectedType === 'R'){
+                                                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                                                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                                                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                                                        extraAddr += data.bname;
+                                                    }
+                                                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                                                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                                                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                                                    }
+                                                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                                                    if(extraAddr !== ''){
+                                                        extraAddr = ' (' + extraAddr + ')';
+                                                    }
+                                                    // 조합된 참고항목을 해당 필드에 넣는다.
+                                                    document.getElementById("sample6_extraAddress").value = extraAddr;
+
+                                                } else {
+                                                    document.getElementById("sample6_extraAddress").value = '';
+                                                }
+
+                                                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                                                document.getElementById('sample6_postcode').value = data.zonecode;
+                                                document.getElementById("sample6_address").value = addr;
+                                                // 커서를 상세주소 필드로 이동한다.
+                                                document.getElementById("sample6_detailAddress").focus();
+                                            }
+                                        }).open();
+                                    }
+                                </script></td>
+                        </tr>
+                        <tr>
+                            <th>기존 비밀번호</th>
+                            <td><input type="password" name="o_pwd"id="o_pwd"/></td>
+                        </tr>
+                    </table>
+                    <span style="color:gray;font-size:10px;display:block">아이디, 이름, 생년월일은 변경하실 수 없습니다.</span>
+                </div>
+                <div class="btnArea">
+                    <input type="submit" class="btn btn-primary btn-sm" style="background:#082996;color:white;" value="수정완료"/>
+                </div>
+            </form>
+        </div>
+        <!--//contentsArea 끝-->
+    </div>
+    <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

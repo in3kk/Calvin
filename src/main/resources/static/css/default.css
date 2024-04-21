@@ -1,0 +1,359 @@
+/*noto sans_서버용*/
+@font-face {
+font-family: 'NotoKr_BK';
+src: url('../fonts/NotoKr_BK.eot');
+src: url('../fonts/NotoKr_BK.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NotoKr_BK.woff2') format('woff2'),
+    url('../fonts/NotoKr_BK.woff') format('woff'),
+    url('../fonts/NotoKr_BK.ttf') format('truetype'),
+    url('../fonts/NotoKr_BK.svg#NotoKr_BK') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'NotoKr_B';
+src: url('../fonts/NotoKr_B.eot');
+src: url('../fonts/NotoKr_B.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NotoKr_B.woff2') format('woff2'),
+    url('../fonts/NotoKr_B.woff') format('woff'),
+    url('../fonts/NotoKr_B.ttf') format('truetype'),
+    url('../fonts/NotoKr_B.svg#NotoKr_B') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'NotoKr_DL';
+src: url('../fonts/NotoKr_DL.eot');
+src: url('../fonts/NotoKr_DL.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NotoKr_DL.woff2') format('woff2'),
+    url('../fonts/NotoKr_DL.woff') format('woff'),
+    url('../fonts/NotoKr_DL.ttf') format('truetype'),
+    url('../fonts/NotoKr_DL.svg#NotoKr_DL') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'NotoKr_L';
+src: url('../fonts/NotoKr_L.eot');
+src: url('../fonts/NotoKr_L.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NotoKr_L.woff2') format('woff2'),
+    url('../fonts/NotoKr_L.woff') format('woff'),
+    url('../fonts/NotoKr_L.ttf') format('truetype'),
+    url('../fonts/NotoKr_L.svg#NotoKr_L') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'NotoKr_M';
+src: url('../fonts/NotoKr_M.eot');
+src: url('../fonts/NotoKr_M.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NotoKr_M.woff2') format('woff2'),
+    url('../fonts/NotoKr_M.woff') format('woff'),
+    url('../fonts/NotoKr_M.ttf') format('truetype'),
+    url('../fonts/NotoKr_M.svg#NotoKr_M') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'NotoKr_R';
+src: url('../fonts/NotoKr_R.eot');
+src: url('../fonts/NotoKr_R.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NotoKr_R.woff2') format('woff2'),
+    url('../fonts/NotoKr_R.woff') format('woff'),
+    url('../fonts/NotoKr_R.ttf') format('truetype'),
+    url('../fonts/NotoKr_R.svg#NotoKr_R') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'NotoKr_T';
+src: url('../fonts/NotoKr_T.eot');
+src: url('../fonts/NotoKr_T.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NotoKr_T.woff2') format('woff2'),
+    url('../fonts/NotoKr_T.woff') format('woff'),
+    url('../fonts/NotoKr_T.ttf') format('truetype'),
+    url('../fonts/NotoKr_T.svg#NotoKr_T') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+/* 영문폰트 */
+@font-face {
+font-family: 'Montserrat_TI';
+src: url('../fonts/Montserrat_TI.eot');
+src: url('../fonts/Montserrat_TI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_TI.woff2') format('woff2'),
+    url('../fonts/Montserrat_TI.woff') format('woff'),
+    url('../fonts/Montserrat_TI.ttf') format('truetype'),
+    url('../fonts/Montserrat_TI.svg#Montserrat_TI') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_T';
+src: url('../fonts/Montserrat_T.eot');
+src: url('../fonts/Montserrat_T.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_T.woff2') format('woff2'),
+    url('../fonts/Montserrat_T.woff') format('woff'),
+    url('../fonts/Montserrat_T.ttf') format('truetype'),
+    url('../fonts/Montserrat_T.svg#Montserrat_T') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_SBI';
+src: url('../fonts/Montserrat_SBI.eot');
+src: url('../fonts/Montserrat_SBI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_SBI.woff2') format('woff2'),
+    url('../fonts/Montserrat_SBI.woff') format('woff'),
+    url('../fonts/Montserrat_SBI.ttf') format('truetype'),
+    url('../fonts/Montserrat_SBI.svg#Montserrat_SBI') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_SB';
+src: url('../fonts/Montserrat_SB.eot');
+src: url('../fonts/Montserrat_SB.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_SB.woff2') format('woff2'),
+    url('../fonts/Montserrat_SB.woff') format('woff'),
+    url('../fonts/Montserrat_SB.ttf') format('truetype'),
+    url('../fonts/Montserrat_SB.svg#Montserrat_SB') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_R';
+src: url('../fonts/Montserrat_R.eot');
+src: url('../fonts/Montserrat_R.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_R.woff2') format('woff2'),
+    url('../fonts/Montserrat_R.woff') format('woff'),
+    url('../fonts/Montserrat_R.ttf') format('truetype'),
+    url('../fonts/Montserrat_R.svg#Montserrat_R') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_MI';
+src: url('../fonts/Montserrat_MI.eot');
+src: url('../fonts/Montserrat_MI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_MI.woff2') format('woff2'),
+    url('../fonts/Montserrat_MI.woff') format('woff'),
+    url('../fonts/Montserrat_MI.ttf') format('truetype'),
+    url('../fonts/Montserrat_MI.svg#Montserrat_MI') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_M';
+src: url('../fonts/Montserrat_M.eot');
+src: url('../fonts/Montserrat_M.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_M.woff2') format('woff2'),
+    url('../fonts/Montserrat_M.woff') format('woff'),
+    url('../fonts/Montserrat_M.ttf') format('truetype'),
+    url('../fonts/Montserrat_M.svg#Montserrat_M') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_LI';
+src: url('../fonts/Montserrat_LI.eot');
+src: url('../fonts/Montserrat_LI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_LI.woff2') format('woff2'),
+    url('../fonts/Montserrat_LI.woff') format('woff'),
+    url('../fonts/Montserrat_LI.ttf') format('truetype'),
+    url('../fonts/Montserrat_LI.svg#Montserrat_LI') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_L';
+src: url('../fonts/Montserrat_L.eot');
+src: url('../fonts/Montserrat_L.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_L.woff2') format('woff2'),
+    url('../fonts/Montserrat_L.woff') format('woff'),
+    url('../fonts/Montserrat_L.ttf') format('truetype'),
+    url('../fonts/Montserrat_L.svg#Montserrat_L') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_I';
+src: url('../fonts/Montserrat_I.eot');
+src: url('../fonts/Montserrat_I.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_I.woff2') format('woff2'),
+    url('../fonts/Montserrat_I.woff') format('woff'),
+    url('../fonts/Montserrat_I.ttf') format('truetype'),
+    url('../fonts/Montserrat_I.svg#Montserrat_I') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_ELI';
+src: url('../fonts/Montserrat_ELI.eot');
+src: url('../fonts/Montserrat_ELI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_ELI.woff2') format('woff2'),
+    url('../fonts/Montserrat_ELI.woff') format('woff'),
+    url('../fonts/Montserrat_ELI.ttf') format('truetype'),
+    url('../fonts/Montserrat_ELI.svg#Montserrat_ELI') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_EL';
+src: url('../fonts/Montserrat_EL.eot');
+src: url('../fonts/Montserrat_EL.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_EL.woff2') format('woff2'),
+    url('../fonts/Montserrat_EL.woff') format('woff'),
+    url('../fonts/Montserrat_EL.ttf') format('truetype'),
+    url('../fonts/Montserrat_EL.svg#Montserrat_EL') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_EBI';
+src: url('../fonts/Montserrat_EBI.eot');
+src: url('../fonts/Montserrat_EBI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_EBI.woff2') format('woff2'),
+    url('../fonts/Montserrat_EBI.woff') format('woff'),
+    url('../fonts/Montserrat_EBI.ttf') format('truetype'),
+    url('../fonts/Montserrat_EBI.svg#Montserrat_EBI') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_EB';
+src: url('../fonts/Montserrat_EB.eot');
+src: url('../fonts/Montserrat_EB.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_EB.woff2') format('woff2'),
+    url('../fonts/Montserrat_EB.woff') format('woff'),
+    url('../fonts/Montserrat_EB.ttf') format('truetype'),
+    url('../fonts/Montserrat_EB.svg#Montserrat_EB') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_BI';
+src: url('../fonts/Montserrat_BI.eot');
+src: url('../fonts/Montserrat_BI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_BI.woff2') format('woff2'),
+    url('../fonts/Montserrat_BI.woff') format('woff'),
+    url('../fonts/Montserrat_BI.ttf') format('truetype'),
+    url('../fonts/Montserrat_BI.svg#Montserrat_BI') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_B';
+src: url('../fonts/Montserrat_B.eot');
+src: url('../fonts/Montserrat_B.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_B.woff2') format('woff2'),
+    url('../fonts/Montserrat_B.woff') format('woff'),
+    url('../fonts/Montserrat_B.ttf') format('truetype'),
+    url('../fonts/Montserrat_B.svg#Montserrat_B') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_BKI';
+src: url('../fonts/Montserrat_BKI.eot');
+src: url('../fonts/Montserrat_BKI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_BKI.woff2') format('woff2'),
+    url('../fonts/Montserrat_BKI.woff') format('woff'),
+    url('../fonts/Montserrat_BKI.ttf') format('truetype'),
+    url('../fonts/Montserrat_BKI.svg#Montserrat_BKI') format('svg');
+}
+
+@font-face {
+font-family: 'Montserrat_Bk';
+src: url('../fonts/Montserrat_Bk.eot');
+src: url('../fonts/Montserrat_Bk.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat_Bk.woff2') format('woff2'),
+    url('../fonts/Montserrat_Bk.woff') format('woff'),
+    url('../fonts/Montserrat_Bk.ttf') format('truetype'),
+    url('../fonts/Montserrat_Bk.svg#Montserrat_Bk') format('svg');
+}
+
+@font-face {
+font-family: 'ggbatang_Regular';
+src: url('../fonts/ggbatang_Regular.eot');
+src: url('../fonts/ggbatang_Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ggbatang_Regular.woff2') format('woff2'),
+    url('../fonts/ggbatang_Regular.woff') format('woff'),
+    url('../fonts/ggbatang_Regular.ttf') format('truetype'),
+    url('../fonts/ggbatang_Regular.svg#ggbatang_Regular') format('svg');
+}
+
+@font-face {
+font-family: 'ggbatang_Bold';
+src: url('../fonts/ggbatang_Bold.eot');
+src: url('../fonts/ggbatang_Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ggbatang_Bold.woff2') format('woff2'),
+    url('../fonts/ggbatang_Bold.woff') format('woff'),
+    url('../fonts/ggbatang_Bold.ttf') format('truetype'),
+    url('../fonts/ggbatang_Bold.svg#ggbatang_Bold') format('svg');
+}
+
+
+
+/*font------------------------------------------------------------------------------------------------------------------ */
+.Nt_R{ font-family:'NotoKr_R' !important; } 
+.Nt_BK{ font-family:'NotoKr_BK' !important; } 
+.Nt_B{ font-family:'NotoKr_B' !important; } 
+.Nt_DL{ font-family:'NotoKr_DL' !important; } 
+.Nt_L{ font-family:'NotoKr_L' !important; } 
+.Nt_M{ font-family:'NotoKr_M' !important; } 
+.Nt_T{ font-family:'NotoKr_T' !important; }
+
+.Mont_R{font-family: 'Montserrat_R', sans-serif;}
+.Mont_L{font-family: 'Montserrat_L', sans-serif;}
+.Mont_EL{font-family: 'Montserrat_EL', sans-serif;}
+.Mont_M{font-family: 'Montserrat_M' , sans-serif;}
+.Mont_SB{font-family: 'Montserrat_SB', sans-serif;}
+.Mont_B{font-family: 'Montserrat_B' , sans-serif;}
+.Mont_EB{font-family: 'Montserrat_EB' , sans-serif;}
+.Mont_T{font-family: 'Montserrat_T' , sans-serif;}
+
+.ggbatang_R{font-family: 'ggbatang_Regular', serif;}
+.ggbatang_B{font-family: 'ggbatang_Bold', serif;}
+
+/*set_up-----------------------------------------------------------------------------------------------------------------*/
+*{box-sizing: border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;}
+html{font-size:16px;}
+body{margin:0; padding:0; font-family:"NotoKr_R" , sans-serif;  width:100%; height:auto; color:#333;} 
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,
+b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video{margin:0; padding:0; border:0;}
+ul, ol, dl{list-style:none;}
+fieldset{border:none;}
+legend{display:none;}
+img{border:none;}
+
+/*텍스트 밑줄 없애기*/
+a{ text-decoration:none; }
+a:hover{ text-decoration:none;}
+
+/*인용구*/
+blockquote:before, blockquote:after,
+q:before, q:after{content: ''; content: none;}
+table{border-collapse: collapse;border-spacing: 0;}
+blockquote, q{quotes: none;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main{display: block;}
+
+/*clearfix*/
+.cf:after{clear:both; content:""; display:block;}
+
+/*float*/
+.FL {float:left}
+.FR {float:right}
+
+/*set_up-----------------------------------------------------------------------------------------------------------------*/
+
+/*custom-----------------------------------------------------------------------------------------------------------------*/
+
+
+/*추가 편의*/
+a{color:#333;}
+*:focus{outline:none; border:none;}
+
+select{border-radius:0; /* 아이폰 사파리 보더 없애기 */ -webkit-appearance:none; /* 화살표 없애기 for chrome*/ -moz-appearance:none; /* 화살표 없애기 for firefox*/ appearance:none; /* 화살표 없애기 공통*/}
+select::-ms-expand{display:none; /* 화살표 없애기 for IE10, 11*/ }
+
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+
+
+/*폰트사이즈*/
+.font15{font-size: 1.5rem;}

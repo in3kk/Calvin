@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div class="lnb_warp" th:fragment="left_sidebar">
+    <!--왼쪽메뉴-->
+    <h2>일반교양과정</h2>
+    <div class="lnb">
+        <ul>
+            <li>
+                <a th:if="${page_type == '3.1'}" href="/menu/subject/list?type=일반교양" class='lnb_on'>개설교과목안내</a>
+                <a th:unless="${page_type == '3.1'}" href="/menu/subject/list">개설교과목 안내</a>
+                <ol th:if="${page_type == '3.1'}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/menu/subject/list?type=일반교양&field=논술강좌">- 논술강좌</a></dd>
+                        <dd><a href="/menu/subject/list?type=일반교양&field=자기계발">- 자기계발강좌</a></dd>
+                        <dd><a href="/menu/subject/list?type=일반교양&field=생활건강">- 생활건강</a></dd>
+                        <dd><a href="/menu/subject/list?type=일반교양&field=생활교양">- 생활교양</a></dd>
+                        <dd><a href="/menu/subject/list?type=일반교양&field=생활예술">- 생활예술</a></dd>
+                    </dl>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <div class="left_con pb50">
+        <h3>수강신청</h3>
+        <div class="pl10">
+            <span><a href="">일반교양과정</a></span>
+            <span><a href="/menu/liberal_arts/list">특별교육과정</a></span>
+            <span><a href="/menu/subject/list">학점은행제 </a></span>
+        </div>
+        </ul>
+    </div>
+
+    <!--//왼쪽메뉴 끝-->
+</div>
+
+</body>
+</html>

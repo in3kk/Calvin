@@ -1,0 +1,105 @@
+<!DOCTYPE html><!-- 제목:원장 인사말 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=1200">
+  <script type="text/javascript" src="/js/lnb.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+  <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/script.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+  <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+  <div th:replace="~{menu/info2/fragments/left_sidebar :: left_sidebar}">
+  </div>
+
+  <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+  <div class="right_warp">
+    <div class="local">
+      <p>HOME &gt; 정보광장 &gt; 수강신청안내</p>
+      <h3>수강신청안내</h3>
+    </div>
+    <div class="contentsArea">
+
+      <h4 class="h4_tit">홈페이지 수강신청</h4>
+
+      <div class="step_icon">
+        <ul>
+          <li class="step_icon01"><p>회원가입</p></li>
+          <li class="step_icon02"><p>수강신청</p></li>
+          <li class="step_icon03"><p>결제</p></li>
+          <li class="step_icon04"><p>수강신청완료</p></li>
+        </ul>
+      </div>
+
+      <div class="clear"></div>
+      <p class="icon_point mt10">증빙자료를 평생교육원 교학팀(대학원동 506호)에 제출해주셔야 장학 및 감면 혜택이 적용됩니다.(제출서류 : 장학제도 및 수강료 감면기준 참고)</p>
+
+      <h4 class="h4_tit mt30">접수방법</h4>
+      <!--<p class="right"><a href="2018-1.hwp"  target="_blank"><img src="../img/entran/down_sugang.gif"></a></p>-->
+      <h5 class="h5_tit">일반교육과정</h5>
+      <ul class="icon_li">
+        <li>1. 전화접수  <!--<a href="160803.hwp"  target="_blank"><img src="../img/entran/down.gif"></a>--> </li>
+        <p class="pl40">- 전화 : </p>
+        <p class="pl40">※ 전화 접수는 기존 수강생만 가능합니다.</p>
+        <li>2. 방문접수 : 단국대학교 평생교육원 교학팀(대학원동 506호)</li>
+        <li>3. 인터넷접수</li>
+        <p class="pl40">- 칼빈대학교 평생교육원 홈페이지 상단의[로그인/회원가입]메뉴 클릭</p>
+        <p class="pl40">- 기존 수강생일 경우 로그인 : 이메일, 비밀번호로 로그인</p>
+        <p class="pl40">- 신규 수강생일 경우 회원가입 : 이메일 주소로 회원가입</p>
+        <p class="pl40">- 수강신청을 원하는 강의의 페이지로 이동후 수강신청</p>
+      </ul>
+
+      <h4 class="h4_tit mt40">수강료 입금</h4>
+      <p>- 카드결제가 되지 않으며, 현금영수증 발행되지 않습니다.<br>
+        -<span class="tx_blue"> 입금시 <strong>수강생의 성명기재</strong></span>를 하며, 입금 후 반드시 <span class="tx_pink">전화로 등록을 확인</span>하시기 바랍니다.</p>
+
+
+      <div>
+        <table class="table_style6 mt10"  summary="단국대 평생교육원 수강료 환불규정입니다.">
+          <caption>칼빈대학교 평생교육원 수강료 환불규정</caption>
+          <thead>
+          <tr>
+            <th colspan="2" >금융기관</th>
+            <th>계좌번호</th>
+            <th>예금주</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td colspan="2" ></td>
+            <td ></td>
+            <td ></td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <h4 class="h4_tit mt40">수강신청 절차</h4>
+      <p><img src="../img/entran/04_process.png" alt="수강신청철자안내입니다."></p>
+
+    </div>
+    <!--//contentsArea 끝-->
+    <!--//contentsArea 끝-->
+  </div>
+  <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

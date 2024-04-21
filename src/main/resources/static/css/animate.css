@@ -1,0 +1,83 @@
+/* 공통 */
+.animate__animated{-webkit-animation-duration:1s; animation-duration:1s; -webkit-animation-duration:var(--animate-duration); animation-duration:var(--animate-duration); -webkit-animation-fill-mode:both; animation-fill-mode:both; --animate-duration:1s; --animate-delay:1s; --animate-repeat:1;}
+
+/* 팝업 */
+@-webkit-keyframes fadeInDown{
+	from{opacity:0; -webkit-transform:translate3d(0, -100%, 0); transform:translate3d(0, -100%, 0);}
+	to{opacity:1; -webkit-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0);}
+}
+@keyframes fadeInDown{
+	from{opacity:0; -webkit-transform:translate3d(0, -100%, 0); transform:translate3d(0, -100%, 0);}
+	to{opacity:1; -webkit-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0);}
+}
+.animate__fadeInDown{-webkit-animation-name:fadeInDown; animation-name:fadeInDown;}
+
+@-webkit-keyframes fadeOutUp{
+	from{opacity:1;}
+	to{opacity:0; -webkit-transform:translate3d(0, -100%, 0); transform:translate3d(0, -100%, 0);}
+}
+@keyframes fadeOutUp {
+	from{opacity:1;}
+	to{opacity:0; -webkit-transform:translate3d(0, -100%, 0); transform:translate3d(0, -100%, 0);}
+}
+.animate__fadeOutUp{-webkit-animation-name:fadeOutUp; animation-name:fadeOutUp;}
+
+/* 서브 */
+/* 서브테마 */
+@-webkit-keyframes theme01 {
+	from{background-size:115% auto;}
+	50%{background-size:120% auto;}
+}
+@keyframes theme01 {
+	from{background-size:115% auto;}
+	50%{background-size:120% auto;}
+}
+
+@-webkit-keyframes theme02 {
+	from{background-size:100% auto;}
+	50%{background-size:110% auto;}
+}
+@keyframes theme02 {
+	from{background-size:100% auto;}
+	50%{background-size:110% auto;}
+}
+
+@-webkit-keyframes theme02-mo {
+	from{background-size:100%;}
+	50%{background-size:110%;}
+}
+@keyframes theme02-mo {
+	from{background-size:100%;}
+	50%{background-size:110%;}
+}
+
+/* fadeIn */
+@-webkit-keyframes fadeIn{
+	from{opacity:0;}
+	to{opacity:1;}
+}
+@keyframes fadeIn {
+	from{opacity:0;}
+	to{opacity:1;}
+}
+
+@-webkit-keyframes fadeInUp {
+	from{-webkit-transform:translateX(-50%) translate3d(0, 100%, 0); transform:translateX(-50%) translate3d(0, 100%, 0);}
+	to{-webkit-transform:translateX(-50%) translate3d(0, 0, 0); transform:translateX(-50%) translate3d(0, 0, 0);}
+}
+@keyframes fadeInUp {
+	from{-webkit-transform:translateX(-50%) translate3d(0, 100%, 0); transform:translateX(-50%) translate3d(0, 100%, 0);}
+	to{-webkit-transform:translateX(-50%) translate3d(0, 0, 0); transform:translateX(-50%) translate3d(0, 0, 0);}
+}
+
+/* 테이블 스크롤 아이콘 */
+@-webkit-keyframes tableScroll{
+	0%{left:0;}
+	50%{left:0.8rem;}
+	100%{left:0;}
+}
+@keyframes tableScroll{
+	0%{left:0;}
+	50%{left:0.8rem;}
+	100%{left:0;}
+}

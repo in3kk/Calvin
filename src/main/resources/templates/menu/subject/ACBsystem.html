@@ -1,0 +1,298 @@
+<!DOCTYPE html><!-- 제목:원장 인사말 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=1200">
+  <script type="text/javascript" src="/js/lnb.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+  <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/script.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+  <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+  <div th:replace="~{menu/subject/fragments/left_sidebar :: left_sidebar}">
+  </div>
+
+  <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+  <div class="right_warp">
+    <div class="local">
+      <p>HOME &gt; 학점은행제 &gt; 학점은행제 소개</p>
+      <h3>학점은행제 소개</h3>
+    </div>
+    <div class="">
+      <!-- //tab  -->
+      <!-- 2021.12.06 수정 - 학점은행제 안내동영상 링크 수정  -->
+      <h4 class="subTit">정의</h4>
+      <p class="cntTxt01">학점은행제는 「학점인정 등에 관한 법률」에 의거하여 학교에서 뿐만 아니라 학교 밖에서 이루어지는 다양한 형태의 학습 및 자격을 학점으로 인정받을 수 있도록 하고, 학점이 누적되어 일정 기준을 충족하면 학위취득을 가능하게 함으로써 궁극적으로 열린 학습사회, 평생학습사회를 구현하기 위한 제도입니다. 또한 학점은행제는 평생학습체제 실현을 위한 제도적 기반으로서 학교교육은 물론 다종다양한 평생교육의 학습결과를 사회적으로 공정하게 평가인정하고, 그 교육의 결과를 학교교육과 평생교육 간에 상호 인정하며, 이들이 상호 유기적으로 연계를 맺도록 함으로써 개개인의 학습력을 극대화할 수 있도록 하는 제도입니다. <a href="https://youtu.be/Hl0PnHST1YQ" target="_blank" class="sBtns sbtnSt01 ml5" title="새창 열림"><span>학점은행제 안내 동영상</span></a></p>
+
+      <div class="imgArea mt50">
+        <img src="/item/img_eduIntro_0101.png" class="rs-img" alt="학점은행제 의미 순서에 대한 이미지입니다. 아래글 참조" />
+      </div>
+      <div class="listTxtWrap defineList">
+        <ul>
+          <li>
+            <div class="badgeWrap"><span class="badge"><em>학점인정 등에 관한 법률<br />제1조(목적)</em></span></div>
+            <div class="txtArea">이 법은 평가인정을 받은 학습과정을 마친 자 등에게 학점인정을 통하여 학력인정과 학위취득의 기회를 줌으로써 평생교육의 이념을 구현하고 개인의 자아실현과 국가사회의 발전에 이바지함을 목적으로 한다.</div>
+          </li>
+          <li>
+            <div class="badgeWrap"><span class="badge"><em>학점인정 등에 관한 법률<br />제8조제1항(학력인정)</em></span></div>
+            <div class="txtArea">제7조에 따라 일정한 학점을 인정받은 자는 「고등교육법」 제2조제1호에 따른 대학이나 같은 법 제2조제4호에 따른 전문대학을 졸업한 자와 같은 수준 이상의 학력이 있는 것으로 인정한다.</div>
+          </li>
+        </ul>
+      </div>
+
+      <h4 class="subTit">도입배경</h4>
+      <p class="cntTxt01">1995년 5월, 대통령 직속 교육개혁위원회는 열린 평생학습사회의 발전을 조성하는 새로운 교육체제에 대한 비젼을 제시하면서, 학점은행제를 제안하였으며 학점인정 등에 관한 법률 등 관련 법령을 제정하고 1998년 3월부터 시행하게 되었습니다. </p>
+      <div class="cautionList01">
+        <dl>
+          <dt class="disn">주의사항</dt>
+          <dd>국민의 평생 학습권 보장 및 학습경험의 다양화</dd>
+          <dd>대학교육 불수혜 집단을 위한 대안적 방식의 대학 학력 취득 기회 제공</dd>
+          <dd>교육 부문 간 균형 발전을 위한 평생교육 이수 결과의 제도적 인정</dd>
+          <dd>교육력 극대화를 위한 평생교육과 학교교육 간의 연계 강화 </dd>
+        </dl>
+      </div>
+
+      <h4 class="subTit">이용대상</h4>
+      <div class="imgArea mt50">
+        <img src="/item/img_eduIntro_0102.png" class="rs-img" alt="학점은행제 이용대상 순서에 대한 이미지입니다. 아래글 참조" />
+      <h4 class="subTit tblMb" style="text-align:left;">학점은행제와 대학교의 차이</h4>
+      <div class="tblData">
+        <table>
+          <caption>
+            <strong>학점은행제와 대학교의 차이 표</strong>
+            <p>학점은행제와 대학교의 차이로 구분(같은점, 다른점), 내용 정보를 제공</p>
+          </caption>
+          <colgroup>
+            <col style="width:15%">
+            <col style="width:20%">
+            <col class="sm-wd">
+          </colgroup>
+          <thead>
+          <tr>
+            <th scope="col" colspan="2">구분</th>
+            <th scope="col">내용</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>같은점</th>
+            <th>학점은행제/대학교</th>
+            <td class="tal" align="left" style="text-align:left;">
+              <ul class="cntList04">
+                <li>학위취득 시 법적으로 동일한 학력을 인정받음.</li>
+                <li>각종 자격 취득, 취업, 진학 가능함.</li>
+                <li>전공을 선택해야 함.</li>
+                <li>2월, 8월 학위를 수여함.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th rowspan="2" class="borBn">다른점</th>
+            <th>학점은행제</th>
+            <td class="tal" style="text-align:left;">
+              <ul class="cntList04">
+                <li>「학점인정 등에 관한 법률」에 의거 운영&middot;진입 장벽이 낮음.</li>
+                <li>스스로 표준교육과정을 기준으로 필요한 학점 이수</li>
+                <li>다양한 학점취득방법이 있음.</li>
+                <li>전문학사, 학사, 전문학사 타전공, 학사 타전공 과정이 있음.</li>
+                <li>필요한 등록(신청)절차를 이행해야 함.
+
+                  <p class="cntTxt04">학습자 등록, 학점인정 신청, 학위 신청 등</p>
+                </li>
+                <li>등록에 따른 수수료 발생
+                  <ul class="cntList03">
+                    <li>학습자등록(4,000원)</li>
+                    <li>학점인정신청 (1학점 당 1,000원)</li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr><tr>
+            <th>대학교</th>
+            <td class="tal" style="text-align:left;">
+              <ul class="cntList04">
+                <li>대학교 학칙에 따라 운영</li>
+                <li>수능 등 입학전형을 통해 입학</li>
+                <li>입학정원 등 정해져 있음.</li>
+                <li>학교에서 제공하는 교육과정에 따라 수업 이수</li>
+                <li>학칙에 따라 학점교류 가능</li>
+                <li>부(복수)전공 과정이 있음.</li>
+                <li>입학금, 등록금 납부</li>
+                <li>캠퍼스가 있음.</li>
+                <li>입학, 졸업 개념이 있으며, 졸업연한이 정해져 있음.</li>
+              </ul>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="subTit" style="text-align:left;">최종학력에 따른 학위과정 선택방법</h4>
+      <p class="cntTxt01">학점은행제는 최종학력에 따라 등록할 수 있는 학위과정이 다릅니다. 아래 도식표는 일반적인 사례를 나타낸표이므로 제도 이용에 참고하시기 바랍니다.</p>
+
+      <!-- 최종학력에 따른 학위과정 선택방법 표 -->
+      <div class="finalEduTbl">
+
+        <table style="border-collapse:separate; border-spacing:10px;">
+          <caption>
+            <strong>최종학력에 따른 학위과정 선택방법 표</strong>
+            <p>최종학력에 따른 학위과정 선택방법으로 최종학력, 전문대학&middot;대학 제적, 전문대학 졸, 대학 졸 별  가능 학위과정 및 학위요건 정보를 제공</p>
+          </caption>
+          <colgroup>
+            <col style="width:70px">
+            <col style="width:70px">
+            <col style="width:165px">
+            <col style="width:165px">
+            <col style="width:165px">
+            <col style="width:165px">
+          </colgroup>
+          <thead>
+          <tr>
+            <th scope="col" colspan="2" style="background:#123867; color:white; margin:5px;">최종학력</th>
+            <th scope="col" style="background:#005E93; color:white;">고등학교 졸업<br />전문대학&middot;대학 재학
+              <div class="">
+                <ol>
+                  <li>학위과정 중 전문학사, 학사 가능</li>
+                </ol>
+              </div>
+            </th>
+            <th scope="col" style="background:#005E93; color:white;">전문대학&middot;대학 제적
+              <div class="">
+                <ol>
+                  <li>학위과정 중 전문학사, 학사 가능</li>
+                </ol>
+              </div>
+            </th>
+            <th scope="col" style="background:#005E93; color:white;">전문대학 졸
+              <div class="">
+                <ol>
+                  <li>학위과정 중 학사, 전문학사 타전공 가능</li>
+                </ol>
+              </div>
+            </th>
+            <th scope="col" style="background:#005E93; color:white;">대학 졸
+              <div class="">
+                <ol>
+                  <li>학위과정 중 전문학사 타전공, 학사 타전공 가능</li>
+                </ol>
+              </div>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td colspan="6" align="right" ><img src="/item/bg_eduIntro_0103.png" width="85%"> </td>
+          </tr>
+          <tr>
+            <th scope="col" colspan="2" style="background:#123867; color:white;">학위과정<br /><em>(학습자등록 시 선택)</em></th>
+            <th scope="col" style="border:2px #005E93 solid"><span>전문학사</span></th>
+            <th scope="col" style="border:2px #005E93 solid"><span>학사</span></th>
+            <th scope="col" style="border:2px #005E93 solid"><span>전문학사 타전공</span></th>
+            <th scope="col" style="border:2px #005E93 solid"><span>학사 타전공</span></th>
+          </tr>
+          <tr>
+            <th rowspan="3" style="background:#123867; color:white;">학위요건</th>
+            <th rowspan="2"  class="bg" style="background:#7188a4; color:white;">교육부<br />장관<em class="num">3)</em></th>
+            <td class="tal" style="background:#f5f5f5;">
+              <div class="cntTxt05">총 80학점
+                <ul class="cntList03">
+                  <li>전공 45학점</li>
+                  <li>교양 15학점</li>
+                  <li>일선 20학점</li>
+                </ul>
+              </div>
+            </td>
+            <td class="tal" style="background:#f5f5f5;">
+              <div class="cntTxt05">총 140학점
+                <ul class="cntList03">
+                  <li>전공 60학점</li>
+                  <li>교양 30학점</li>
+                  <li>일선 50학점<em class="num">5)</em></li>
+                </ul>
+              </div>
+            </td>
+            <td class="tal vat" style="background:#f5f5f5;"><span class="cntTxt05">전공 36학점</span></td>
+            <td class="tal vat" style="background:#f5f5f5;"><span class="cntTxt05">전공 48학점</span></td>
+          </tr>
+          <tr>
+            <td  class="tal" colspan="2" style="background:#f5f5f5;">
+              <ul class="cntList01">
+                <li>전공필수 요건 포함</li>
+                <li><strong class="pt02">학습구분 관계없이</strong> 평가인정학습과정 또는 시간제등록을 통해 18학점 이상 이수/포함</li>
+              </ul>
+            </td>
+            <td class="tal" colspan="2" style="background:#f5f5f5;">
+              <ul class="cntList01">
+                <li>전공필수 요건 포함</li>
+                <li><strong class="pt02">전공과목으로</strong> 평가인정학습과정 또는 시간제등록을 통해 18학점 이상 이수/포함</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th class="bg" style="background:#123867;  color:white;">대학의<br />장 명<em class="num">4)</em></th>
+            <td class="tal" colspan="4" style="background:#f5f5f5;">
+              <ul class="cntList01">
+                <li>대학의 장 등에 의한 학위수여는 전공필수 요건 등 학점은행제 기본 학위수여 요건을 포함함.</li>
+                <li>대학의 장 등에 의한 학위수여는 학칙으로 반영되어 있는 일부 대학에서 이루어지고 있으므로 대학의 장 등에 의한 학위수여 가능여부 및 세부 학위수여요건은 각 대학에 속한 학점은행제 교육훈련기관으로 문의해야 함.
+                  <p class="cau01">제도 이용 전에 교육훈련기관과 사전 상담을 요함.</p>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="6" align="center"><img src="/item/bg_arrow_down.png" style=""></td>
+          </tr>
+          <tr>
+            <th colspan="2" style="background:#123867; color:white;">학점취득<br /><em>(학점인정 신청)</em></th>
+            <td style="background:#f5f5f5;">제적한 전문대학&middot;대학<br />에서 이수한 학점<br />인정 가능</td>
+            <td style="background:#f5f5f5;">제적한 전문대학&middot;대학 및 졸업한 전문대학에서 이수한 학점 인정 가능</td>
+            <td colspan="2" style="background:#f5f5f5;" >학위취득 이후 이수한 학점만 등록 가능</td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+            <th colspan="2" style="background:#123867; color:white;"><span>학위요건 충족<br /><em>(학위 신청)</em></span></th>
+            <td colspan="4" style="background:#005E93; text-align:center; color:white;"><span>학위 취득</span></td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+      <!-- //최종학력에 따른 학위과정 선택방법 표 -->
+      <div class="boxWarning01 mt30">
+        <h4 class="tit">주의사항</h4>
+        <ul class="cntList01" style="text-align:left;">
+          <li>1)고등교육법 제50조에 따른 전문학사학위 취득자(이와 동등 이상의 학력이 있다고 인정되는 자 포함)</li>
+          <li>2)고등교육법 제35조에 따른 학사학위 취득자(이와 동등 이상의 학력이 있다고 인정되는 자 포함)</li>
+          <li>3)전문학사 3년제 과정인 이료 전공은 전공 54학점 이상(전필 포함), 교양 21학점 이상, 총 120학점 이상 취득해야 함. 전문학사 타전공 과정으로 진행할 경우 전공 42학점(전필 포함) 이상 취득해야 함</li>
+          <li>4)대학의장에 의한 학위수여의 경우 학위신청을 해당 기관으로 해야 함.</li>
+          <li>5)일선은 의무학점 아님(전공, 교양, 일선 학습구분에 상관없이 자유롭게 채울 수 있음)</li>
+        </ul>
+      </div>
+
+    </div>
+      <br>
+    </div>
+    <!--//contentsArea 끝-->
+  </div>
+  <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

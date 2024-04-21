@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+</head>
+<body>
+<div class="lnb_warp" th:fragment="left_sidebar">
+    <!--왼쪽메뉴-->
+    <h2>일반교육과정</h2>
+    <div class="lnb">
+        <ul>
+            <li><a href="../gen_course/gen_course01.php" >개설교과목안내</a></li>
+            <li><a href="http://jcec.dankook.ac.kr/gen_course/list_new.php?mjCd=2000004421" class='lnb_on'>수강신청</a></li><!--2차메뉴 해당 페이지에서만 3차메뉴 활성화-->
+            <ol class="lnb_on_3depth"><!--3차 메뉴-->
+                <dl>
+                    <dd><a href=""><!--<a href="#" class="lnb_on_3depth">-->- 도예교육과정</a></dd>
+                    <dd><a href="">- 복식교육과정</a></dd>
+                    <dd><a href="">- 생활건강교육과정</a></dd>
+                    <dd><a href="">- 생활교양교육과정</a></dd>
+                    <dd><a href="">- 생활예술교육과정</a></dd>
+                    <dd><a href="">- 음악교육과정</a></dd>
+                    <dd><a href="">- 자격증교육과정</a></dd>
+                </dl>
+            </ol>
+        </ul>
+    </div>
+
+    <div class="left_con pb50">
+        <h3>수강신청 안내</h3>
+        <div class="pl10">
+            <span><a href="../entran/entran04_02.php">일반교육과정</a></span>
+            <span><a href="../entran/entran04_03.php">특별교육과정</a></span>
+            <span><a href="../entran/entran04_01.php">학점은행제 </a></span>
+        </div>
+        </ul>
+    </div>
+
+    <!--//왼쪽메뉴 끝-->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div class="lnb_warp" th:fragment="left_sidebar">
+    <!--왼쪽메뉴-->
+    <h2>정보광장</h2>
+    <div class="lnb">
+        <ul>
+            <li>
+                <a th:if="${page_type == '8.1'}" href="/menu/info2/recruit" class='lnb_on'>모집안내</a>
+                <a th:unless="${page_type == '8.1'}" href="/menu/info2/recruit">모집안내</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '8.2'}" href="/menu/info2/calendar" class='lnb_on'>학사일정</a>
+                <a th:unless="${page_type == '8.2'}" href="/menu/info2/calendar">학사일정</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '8.3'}" href="/menu/info2/scholarship" class='lnb_on'>장학제도</a>
+                <a th:unless="${page_type == '8.3'}" href="/menu/info2/scholarship">장학제도</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '8.4'}" href="/menu/info2/apply_guide" class='lnb_on'>수강신청안내</a>
+                <a th:unless="${page_type == '8.4'}" href="/menu/info2/apply_guide">수강신청안내</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '8.5'}" href="/menu/board?board_type=공지사항" class='lnb_on'>공지사항</a>
+                <a th:unless="${page_type == '8.5'}" href="/menu/board?board_type=공지사항">공지사항</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '8.6'}" href="" class='lnb_on'>평생교육원소식</a>
+                <a th:unless="${page_type == '8.6'}" href="">평생교육원소식</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '8.7'}" href="" class='lnb_on'>서식자료실</a>
+                <a th:unless="${page_type == '8.7'}" href="">서식자료실</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="left_con pb50">
+        <h3>수강신청 안내</h3>
+        <div class="pl10">
+            <span><a href="../entran/entran04_02.php">일반교육과정</a></span>
+            <span><a href="../entran/entran04_03.php">특별교육과정</a></span>
+            <span><a href="../entran/entran04_01.php">학점은행제 </a></span>
+        </div>
+        </ul>
+    </div>
+
+    <!--//왼쪽메뉴 끝-->
+</div>
+
+</body>
+</html>

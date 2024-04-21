@@ -1,0 +1,137 @@
+<!DOCTYPE html><!-- 제목:원장 인사말 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=1200">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script type="text/javascript" src="/js/lnb.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/btn.js"></script>
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+    <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+    <div th:replace="~{menu/mypage/fragments/left_sidebar :: left_sidebar}">
+    </div>
+
+    <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+    <div class="right_warp">
+        <div class="local">
+            <p>HOME &gt; 관리자 페이지 &gt; 개설 강의 관리</p>
+            <h3>신규 강의 등록</h3>
+        </div>
+        <div class="contentsArea">
+
+            <form action="/menu/subject/write" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="member_id" th:value="${session.member_id}">
+            <div class="bbsView">
+                    <input type="hidden" th:value="${subject_code}" name="subject_code"/>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th width="30%">강좌명</th>
+                            <td width="70%">
+                                <input th:if="${subject.subject_name != null}" type="text" style="width:60%;" name="subject_name" th:value="${subject.subject_name}"/>
+                                <input th:if="${subject.subject_name == null}" type="text" style="width:60%;" name="subject_name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">과정명</th>
+                            <td width="70%">
+                                <input th:if="${subject.subject_field != null}" type="text" style="width:60%;" name="subject_field" th:value="${subject.subject_field}"/>
+                                <input th:if="${subject.subject_field == null}" type="text" style="width:60%;" name="subject_field"/>
+                                <span style="color:red;font-size:10px;display:none" id="add_file_warning" th:value="${subject.subject_field}">띄어쓰기 없이 입력해주세요</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">분류</th>
+                            <td width="70%">
+                                <select name="subject_type" style="width:60%;">
+                                    <option th:if="${subject.subject_type == null}" selected value="" style="display:none;">분류를 선택해 주세요</option>
+                                    <option th:if="${subject.subject_type != '학점은행제'}" value="학점은행제">학점은행제</option>
+                                    <option th:if="${subject.subject_type != '일반교양'}" value="일반교양">일반교양</option>
+                                    <option th:if="${subject.subject_type != '자격증/취창업'}" value="자격증/취창업">자격증/취창업</option>
+                                    <option th:if="${subject.subject_type != '특별교육과정'}" value="특별교육과정">특별교육과정</option>
+                                    <option th:if="${subject.subject_type != '언어'}" value="언어">언어</option>
+                                    <option th:if="${subject.subject_type == '학점은행제'}" value="학점은행제" selected>학점은행제</option>
+                                    <option th:if="${subject.subject_type == '일반교양'}" value="일반교양" selected>일반교양</option>
+                                    <option th:if="${subject.subject_type == '자격증/취창업'}" value="자격증/취창업" selected>자격증/취창업</option>
+                                    <option th:if="${subject.subject_type == '특별교육과정'}" value="특별교육과정" selected>특별교육과정</option>
+                                    <option th:if="${subject.subject_type == '언어'}" value="언어" selected>언어</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>모집인원</th>
+                            <td >
+                                <input th:if="${subject.personnel != null}" type="number" name="personnel" style="width:60%;" placeholder="모집인원을 입력해주세요." th:value="${subject.personnel}"/>
+                                <input th:if="${subject.personnel == null}" type="number" name="personnel" style="width:60%;" placeholder="모집인원을 입력해주세요." />명
+                            </td>
+                        </tr>
+                        <tr>
+                            <th >강의시간</th>
+                            <td >
+                                <input th:if="${subject.lecture_time != null}" type="text" name="lecture_time" style="width:60%;" placeholder="강의시간을 입력해주세요. ex) 수/09:00 ~ 15:00" th:value="${subject.lecture_time}"/>
+                                <input th:if="${subject.lecture_time == null}" type="text" name="lecture_time" style="width:60%;" placeholder="강의시간을 입력해주세요. ex) 수/09:00 ~ 15:00"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>강의기간</th>
+                            <td >
+                                <input th:if="${subject.period != null}" type="number" name="period"style="width:60%;" placeholder="강의기간을 주 단위로 입력해주세요. ex) 15주 => 15" th:value="${subject.period}"/>
+                                <input th:if="${subject.period == null}" type="number" name="period"style="width:60%;" placeholder="강의기간을 주 단위로 입력해주세요. ex) 15주 => 15" />주
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>교ㆍ강사</th>
+                            <td>
+                                <select name="member_code" th:each="pro : ${professor}" style="width:60%;">
+                                    <option th:if="${subject.member_code == null}" value="0" style="display:none;" selected >교강사를 선택해 주세요</option>
+                                    <option th:if="${pro.member_code == subject.member_code}" th:value="${pro.member_code}"th:text="${pro.name}+'/'+${pro.id}" selected></option>
+                                    <option th:if="${pro.member_code != subject.member_code}" th:value="${pro.member_code}"th:text="${pro.name}+'/'+${pro.id}" ></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>수강료</th>
+                            <td >
+                                <input th:if="${subject.fee != null}" type="number" name="fee" style="width:60%;" placeholder="수강료를 입력해 주세요" th:value="${subject.fee}"/>
+                                <input th:if="${subject.fee == null}" type="number" name="fee" style="width:60%;" placeholder="수강료를 입력해 주세요" />원
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>강의계획서</th>
+                            <td>
+                                <input type="file" style="width:100%;height:100%;display:block;margin:0 0 2px 0;" id="file1" name="file1" >
+                                <span  th:if="${subject_code != null}" style="color:red;font-size:10px;display:none" th:value="${subject.subject_field}">파일을 선택하지 않으면 기존의 파일이 유지됩니다.</span>
+                            </td>
+                        </tr>
+                    </table>
+
+            </div>
+            <div class="btnArea">
+                <input type="submit" class="btn btn-primary btn-sm" style="background:#082996" value="작성완료"/>
+                <button type="button" class="btn btn-primary btn-sm" style="background:#f9f9f9; color:black;"onclick="history_back()">취소</button></div>
+            </form>
+
+        </div>
+        <!--//contentsArea 끝-->
+    </div>
+    <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

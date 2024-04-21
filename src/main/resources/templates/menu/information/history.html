@@ -1,0 +1,130 @@
+<!DOCTYPE html><!-- 제목:원장 인사말 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=1200">
+  <script type="text/javascript" src="/js/lnb.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
+  <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
+  <script type="text/javascript" src="/js/script.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div id="warp">
+  <div th:replace="~{fragments/header :: header}"></div>
+</div>
+<div id="contents">
+  <div th:replace="~{menu/information/fragments/left_sidebar :: left_sidebar}">
+  </div>
+
+  <style>
+              .w { text-align: left; }
+              .x { text-align: right; }
+              .y { text-align:  justify; width:73%; word-break:break-all; }
+              .z { text-align: justify; width:45%; word-break:break-all; }
+    </style>
+
+  <div class="right_warp">
+    <div class="local">
+      <p>HOME &gt; 평생교육원 소개 &gt; 연혁</p>
+      <h3>연혁</h3>
+    </div>
+    <div class="contentsArea">
+      <div class="contentsArea">
+        <div id="tabcon1" class="history_con">
+
+          <div class="history">
+            <div class="year">2023</div>
+            <div class="history_list">
+              <ul>
+                <li><span><strong>2월</strong></span>
+                  <span>제6대 이봉근 원장 취임</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="history">
+            <div class="year">2021</div>
+            <div class="history_list">
+              <ul>
+                <li><span><strong>12월</strong></span>
+                  <span>제5대 김태성 원장 취임</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="history">
+            <div class="year">2018</div>
+            <div class="history_list">
+              <ul>
+                <li><span><strong>1월</strong></span>
+                  <span>제4대 한귀란 원장 취임</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="history">
+            <div class="year">2013</div>
+            <div class="history_list">
+              <ul>
+                <li><span><strong>12월</strong></span>
+                  <span>제3대 배광영 원장 취임</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="history">
+            <div class="year">2009</div>
+            <div class="history_list">
+              <ul>
+                <li><span><strong>10월</strong></span>
+                  <span>교육과학기술부로부터 칼빈대학교 평생교육원 학점은행제 운영기관으로 인정</span>
+                </li>
+                <li><span><strong></strong></span>
+                  <span>제2대 김석현 원장 취임</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="history">
+            <div class="year">2003</div>
+            <div class="history_list">
+              <ul>
+                <li><span><strong></strong></span>
+                  <span>김두석 초대 원장 취임</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="history">
+            <div class="year">2001</div>
+            <div class="history_list">
+              <ul>
+                <li><span><strong>8월</strong></span>
+                  <span>교육인적자원부로부터 칼빈대학교 부설 평생교육원 인가</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <!--//contentsArea 끝-->
+  </div>
+  <!--//right_warp 끝-->
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
