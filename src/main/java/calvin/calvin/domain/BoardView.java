@@ -20,8 +20,9 @@ public class BoardView {
     private int file_code5;
     private String name;
     private String board_type;
+    private String board_thumbnail;
 
-    public BoardView(int board_code, int member_code, int file_code1, int file_code2,int file_code3,int file_code4,int file_code5,String title, String contents, String created_date, String name, String board_type){
+    public BoardView(String board_thumbnail,int board_code, int member_code, int file_code1, int file_code2,int file_code3,int file_code4,int file_code5,String title, String contents, String created_date, String name, String board_type){
         this.board_code = board_code;
         this.member_code = member_code;
         this.title = title;
@@ -34,6 +35,7 @@ public class BoardView {
         this.file_code5 = file_code5;
         this.name = name;
         this.board_type = board_type;
+        this.board_thumbnail = board_thumbnail;
     }
 
     public BoardView(){}

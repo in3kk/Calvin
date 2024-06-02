@@ -1,5 +1,6 @@
 package calvin.calvin.service;
 
+import calvin.calvin.configuration.WebConfig;
 import calvin.calvin.domain.BoardView;
 import calvin.calvin.domain.Calvin_Board;
 import calvin.calvin.domain.Calvin_file;
@@ -36,18 +37,18 @@ public class CalvinBoardService {
 
     //게시글 작성
     @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
-    public int insertBoard(String title, String contents, String member_id){
+    public int insertBoard(String title, String contents, String member_id, String board_type){
         String sql = "SELECT member_code FROM calvin_member WHERE id = ?";
         int code = jdbcTemplate.queryForObject(sql, new Object[]{member_id}, Integer.class);
-        sql = "INSERT INTO calvin_board(member_code,title, contents, created_date,file_code) VALUES(?,?,?,SYSDATE(),-1)";
+        sql = "INSERT INTO calvin_board(member_code,title, contents, created_date,file_code, board_type) VALUES(?,?,?,SYSDATE(),-1,?)";
         System.out.println("contents size : "+contents);
-        int result = jdbcTemplate.update(sql, code, title, contents);
+        int result = jdbcTemplate.update(sql, code, title, contents,board_type);
         return result;
     }
 
     //게시글 작성 첨부파일
     @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
-    public int insertBoard(String title, String contents, String member_id, List<MultipartFile> file_list){
+    public int insertBoard(String title, String contents, String member_id, List<MultipartFile> file_list, String board_type){
         int result = 0;
         try{
             String sql = "SELECT member_code FROM calvin_member WHERE id = ?";
@@ -74,8 +75,8 @@ public class CalvinBoardService {
                 }
             }
             int code = jdbcTemplate.queryForObject(sql, new Object[]{member_id}, Integer.class);
-            sql = "INSERT INTO calvin_board(member_code,title, contents, created_date,file_code1,file_code2, file_code3, file_code4, file_code5) VALUES(?,?,?,SYSDATE(),?,?,?,?,?)";
-            result = jdbcTemplate.update(sql, code, title, contents,file_code_list[0],file_code_list[1],file_code_list[2],file_code_list[3],file_code_list[4]);
+            sql = "INSERT INTO calvin_board(member_code,title, contents, created_date,file_code1,file_code2, file_code3, file_code4, file_code5,board_type) VALUES(?,?,?,SYSDATE(),?,?,?,?,?,?)";
+            result = jdbcTemplate.update(sql, code, title, contents,file_code_list[0],file_code_list[1],file_code_list[2],file_code_list[3],file_code_list[4],board_type);
         }catch (Exception e){
             System.out.println("에러 : "+e);
         }
@@ -109,7 +110,11 @@ public class CalvinBoardService {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 boardView.setBoard_code(rs.getInt("board_code"));
                 boardView.setMember_code(rs.getInt("member_code"));
-                boardView.setTitle(rs.getString("title"));
+                String title = rs.getString("title");
+                if(title.length() > 25){
+                    title = title.substring(0,26)+"...";
+                }
+                boardView.setTitle(title);
                 boardView.setContents(rs.getString("contents"));
                 boardView.setCreated_date(sdf.format(rs.getTimestamp("created_date")));
                 boardView.setName(rs.getString("member_name"));
@@ -125,7 +130,9 @@ public class CalvinBoardService {
         List<BoardView> result = new ArrayList<>();
 //        String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board_code DESC) AS num,board_code, b.member_code, title, " +//
 //                "contents, board_type,created_date, member_name FROM calvin_board b, calvin_member m where b.member_code = m.member_code) t WHERE num >= ? AND num <= ? AND board_type = ?";
-        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code,b.member_code, title,contents,created_date,member_name FROM calvin_board b, calvin_member m, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND board_type = ? ORDER BY board_code DESC) t LIMIT ?, ? ";//서버
+//        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code,b.member_code, title,contents,created_date,member_name FROM calvin_board b, calvin_member m, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND board_type = ? ORDER BY board_code DESC) t LIMIT ?, ? ";//서버
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code,b.member_code, title,contents,b.created_date,member_name, f.save_name FROM calvin_board b, calvin_member m,calvin_file f, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND b.file_code1 = f.file_code AND board_type = ? ORDER BY board_code DESC) t LIMIT ?, ? ";//서버
+
         result = jdbcTemplate.query(sql, new Object[]{board_type,(page-1)*20,20}, new RowMapper<BoardView>() {
             @Override
             public BoardView mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -133,8 +140,18 @@ public class CalvinBoardService {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 boardView.setBoard_code(rs.getInt("board_code"));
                 boardView.setMember_code(rs.getInt("member_code"));
-                boardView.setTitle(rs.getString("title"));
+                String title = rs.getString("title");
+                if(title.length() > 25){
+                    title = title.substring(0,26)+"...";
+                }
+                boardView.setTitle(title);
                 boardView.setContents(rs.getString("contents"));
+                String thumbnail = rs.getString("save_name");
+                if(thumbnail.equals("-1")){
+                    boardView.setBoard_thumbnail("/imgPath/white.png");
+                }else{
+                    boardView.setBoard_thumbnail("/imgPath/"+thumbnail);
+                }
                 boardView.setCreated_date(sdf.format(rs.getTimestamp("created_date")));
                 boardView.setName(rs.getString("member_name"));
                 return boardView;
@@ -207,7 +224,7 @@ public class CalvinBoardService {
     public List<BoardView> SelectByTitle(String word, int page, int max_code){
 //        String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board_code DESC) AS num, board_code, m.member_code, title, contents, created_date, m.member_name FROM calvin_board b, calvin_member m WHERE b.member_code = m.member_code AND title REGEXP ?) t WHERE num >= ? AND num <= ?";
         //
-        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, created_date, m.member_name FROM calvin_board b, calvin_member m, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND title REGEXP ?) t LIMIT ?, ?";
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, b.created_date, m.member_name,f.save_name FROM calvin_board b, calvin_member m, calvin_file f, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND b.file_code1 = f.file_code AND title REGEXP ?) t LIMIT ?, ?";
         //서버
         List<BoardView> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*", (page-1)*20,20}, new RowMapper<BoardView>() {
             @Override
@@ -216,9 +233,19 @@ public class CalvinBoardService {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 boardView.setBoard_code(rs.getInt("board_code"));
                 boardView.setMember_code(rs.getInt("member_code"));
-                boardView.setTitle(rs.getString("title"));
+                String title = rs.getString("title");
+                if(title.length() > 25){
+                    title = title.substring(0,26)+"...";
+                }
+                boardView.setTitle(title);
                 boardView.setContents(rs.getString("contents"));
                 boardView.setName(rs.getString("member_name"));
+                String thumbnail = rs.getString("save_name");
+                if(thumbnail.equals("-1")){
+                    boardView.setBoard_thumbnail("/imgPath/white.png");
+                }else{
+                    boardView.setBoard_thumbnail("/imgPath/"+thumbnail);
+                }
                 boardView.setCreated_date(sdf.format(rs.getTimestamp("created_date")));
                 return boardView;
             }
@@ -229,7 +256,7 @@ public class CalvinBoardService {
     public List<BoardView> SelectByTitle(String board_type, String word, int page, int max_code){
 //        String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board_code DESC) AS num, board_code, m.member_code, title, contents, created_date, m.member_name FROM calvin_board b, calvin_member m WHERE b.member_code = m.member_code AND title REGEXP ?) t WHERE num >= ? AND num <= ? AND board_type = ?";
         //
-        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, created_date, m.member_name FROM calvin_board b, calvin_member m, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND title REGEXP ?  AND board_type = ?) t LIMIT ?, ?";
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, b.created_date, m.member_name, f.save_name FROM calvin_board b, calvin_member m, calvin_file f,(SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND f.file_code = b.file_code1 AND title REGEXP ?  AND board_type = ?) t LIMIT ?, ?";
         //서버
         List<BoardView> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*",board_type, (page-1)*20,20}, new RowMapper<BoardView>() {
             @Override
@@ -238,9 +265,79 @@ public class CalvinBoardService {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 boardView.setBoard_code(rs.getInt("board_code"));
                 boardView.setMember_code(rs.getInt("member_code"));
-                boardView.setTitle(rs.getString("title"));
+                String title = rs.getString("title");
+                if(title.length() > 25){
+                    title = title.substring(0,26)+"...";
+                }
+                boardView.setTitle(title);
                 boardView.setContents(rs.getString("contents"));
                 boardView.setName(rs.getString("member_name"));
+                String thumbnail = rs.getString("save_name");
+                if(thumbnail.equals("-1")){
+                    boardView.setBoard_thumbnail("/imgPath/white.png");
+                }else{
+                    boardView.setBoard_thumbnail("/imgPath/"+thumbnail);
+                }
+                boardView.setCreated_date(sdf.format(rs.getTimestamp("created_date")));
+                return boardView;
+            }
+        });
+        return result;
+    }
+    //내용으로 검색(어드민용)
+    public List<BoardView> SelectByContents(String word, int page, int max_code){
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, b.created_date, m.member_name,f.save_name FROM calvin_board b, calvin_member m, calvin_file f, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND b.file_code1 = f.file_code AND contents REGEXP ?) t LIMIT ?, ?";
+        //서버
+        List<BoardView> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*", (page-1)*20,20}, new RowMapper<BoardView>() {
+            @Override
+            public BoardView mapRow(ResultSet rs, int rowNum) throws SQLException {
+                BoardView boardView = new BoardView();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                boardView.setBoard_code(rs.getInt("board_code"));
+                boardView.setMember_code(rs.getInt("member_code"));
+                String title = rs.getString("title");
+                if(title.length() > 25){
+                    title = title.substring(0,26)+"...";
+                }
+                boardView.setTitle(title);
+                boardView.setContents(rs.getString("contents"));
+                boardView.setName(rs.getString("member_name"));
+                String thumbnail = rs.getString("save_name");
+                if(thumbnail.equals("-1")){
+                    boardView.setBoard_thumbnail("/imgPath/white.png");
+                }else{
+                    boardView.setBoard_thumbnail("/imgPath/"+thumbnail);
+                }
+                boardView.setCreated_date(sdf.format(rs.getTimestamp("created_date")));
+                return boardView;
+            }
+        });
+        return result;
+    }
+    //내용으로 검색(일반용)
+    public List<BoardView> SelectByContents(String board_type, String word, int page, int max_code){
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, created_date, m.member_name,f.save_name FROM calvin_board b, calvin_member m, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND contents REGEXP ?  AND board_type = ?) t LIMIT ?, ?";
+        //서버
+        List<BoardView> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*",board_type, (page-1)*20,20}, new RowMapper<BoardView>() {
+            @Override
+            public BoardView mapRow(ResultSet rs, int rowNum) throws SQLException {
+                BoardView boardView = new BoardView();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                boardView.setBoard_code(rs.getInt("board_code"));
+                boardView.setMember_code(rs.getInt("member_code"));
+                String title = rs.getString("title");
+                if(title.length() > 25){
+                    title = title.substring(0,26)+"...";
+                }
+                boardView.setTitle(title);
+                boardView.setContents(rs.getString("contents"));
+                boardView.setName(rs.getString("member_name"));
+                String thumbnail = rs.getString("save_name");
+                if(thumbnail.equals("-1")){
+                    boardView.setBoard_thumbnail("/imgPath/white.png");
+                }else{
+                    boardView.setBoard_thumbnail("/imgPath/"+thumbnail);
+                }
                 boardView.setCreated_date(sdf.format(rs.getTimestamp("created_date")));
                 return boardView;
             }

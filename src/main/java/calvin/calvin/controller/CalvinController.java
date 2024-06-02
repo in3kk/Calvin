@@ -430,21 +430,47 @@ public class CalvinController {
                     throw new CustomException(ErrorCode.INVALID_PERMISSION);
                 }
 
-            }else{
+            }else if(board_type.equals("공지사항")){
                 count = calvinBoardService.paging(board_type);
                 board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
                 result = "menu/board/board01";
+                page_type = "8.5";
+            }else if(board_type.equals("갤러리")){
+                count = calvinBoardService.paging(board_type);
+                board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
+                result = "menu/info2/gallery";
+                page_type = "8.6";
+            }else if(board_type.equals("서식자료실")){
+                count = calvinBoardService.paging(board_type);
+                board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
+                result = "menu/info2/format";
+                page_type = "8.7";
             }
         }else{
             if(board_type.equals("")){
-                count = calvinBoardService.paging(search_type,search_word);
-                board_list = calvinBoardService.SelectByTitle(search_word,page, count);
-                result = "menu/mypage/admin_board";
-                page_type = "9.3";
-            }else{
+                if(httpSession.getAttribute("member_type").equals("dd")||httpSession.getAttribute("member_type").equals("st")||httpSession.getAttribute("member_type").equals("ai")){
+                    count = calvinBoardService.paging(search_type,search_word);
+                    board_list = calvinBoardService.SelectByTitle(search_word,page, count);
+                    result = "menu/mypage/admin_board";
+                    page_type = "9.3";
+                }else{
+                    throw new CustomException(ErrorCode.INVALID_PERMISSION);
+                }
+            }else if(board_type.equals("공지사항")){
                 count = calvinBoardService.paging(board_type,search_type,search_word);
                 board_list = calvinBoardService.SelectByTitle(board_type,search_word,page, count);
                 result = "menu/board/board01";
+                page_type = "8.5";
+            }else if(board_type.equals("갤러리")){
+                count = calvinBoardService.paging(board_type,search_type,search_word);
+                board_list = calvinBoardService.SelectByTitle(board_type,search_word,page, count);
+                result = "menu/info2/gallery";
+                page_type = "8.6";
+            }else if(board_type.equals("서식자료실")){
+                count = calvinBoardService.paging(board_type);
+                board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
+                result = "menu/info2/format";
+                page_type = "8.7";
             }
         }
         int begin_page;
@@ -510,6 +536,7 @@ public class CalvinController {
     @PostMapping("/menu/board/write")
     public String InsertBoard(@RequestParam(value = "title") String title, @RequestParam(value = "contents") String board_contents,
                               @RequestParam(value = "member_id") String member_id,
+                              @RequestParam(value= "board_type") String board_type,
                               @RequestParam(value = "file1", required = false) MultipartFile file1,
                               @RequestParam(value = "file2", required = false) MultipartFile file2,
                               @RequestParam(value = "file3", required = false) MultipartFile file3,
@@ -540,9 +567,9 @@ public class CalvinController {
         }
         int insert_result;
         if(token){
-            insert_result = calvinBoardService.insertBoard(title,board_contents,member_id,file_list);
+            insert_result = calvinBoardService.insertBoard(title,board_contents,member_id,file_list,board_type);
         }else{
-            insert_result = calvinBoardService.insertBoard(title,board_contents,member_id);
+            insert_result = calvinBoardService.insertBoard(title,board_contents,member_id,board_type);
         }
         if(insert_result == 1){
             result = "redirect:/menu/board";
