@@ -32,12 +32,12 @@
                 <a th:unless="${page_type == '8.5'}" href="/menu/board?board_type=공지사항">공지사항</a>
             </li>
             <li>
-                <a th:if="${page_type == '8.6'}" href="" class='lnb_on'>평생교육원소식</a>
-                <a th:unless="${page_type == '8.6'}" href="">평생교육원소식</a>
+                <a th:if="${page_type == '8.6'}" href="/menu/board?board_type=갤러리" class='lnb_on'>평생교육원소식</a>
+                <a th:unless="${page_type == '8.6'}" href="/menu/board?board_type=갤러리">평생교육원소식</a>
             </li>
             <li>
-                <a th:if="${page_type == '8.7'}" href="" class='lnb_on'>서식자료실</a>
-                <a th:unless="${page_type == '8.7'}" href="">서식자료실</a>
+                <a th:if="${page_type == '8.7'}" href="/menu/board?board_type=서식자료실" class='lnb_on'>서식자료실</a>
+                <a th:unless="${page_type == '8.7'}" href="/menu/board?board_type=서식자료실">서식자료실</a>
             </li>
         </ul>
     </div>

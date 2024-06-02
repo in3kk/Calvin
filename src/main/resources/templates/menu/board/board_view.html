@@ -61,7 +61,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td height="100" colspan="4" valign="top" th:utext="${boardView.contents}"></td>
+                            <td style="min-height:100;"; colspan="4" valign="top" th:utext="${boardView.contents}"></td>
+                            <!--오류 방지용 주석-->
                         </tr>
                     </table>
                 </form>
@@ -72,7 +73,7 @@
             </div>
             <script>
                 function delete_open(board_code){
-                    const url = 'http://localhost:8080/menu/board/delete?board_code='+board_code;
+                    const url = '/menu/board/delete?board_code='+board_code;
                     window.location.href = url;
                 }
             </script>
