@@ -435,7 +435,7 @@ public class CalvinController {
                 board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
                 result = "menu/board/board01";
                 page_type = "8.5";
-            }else if(board_type.equals("갤러리")){
+            }else if(board_type.equals("사진자료실")){
                 count = calvinBoardService.paging(board_type);
                 board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
                 result = "menu/info2/gallery";
@@ -461,7 +461,7 @@ public class CalvinController {
                 board_list = calvinBoardService.SelectByTitle(board_type,search_word,page, count);
                 result = "menu/board/board01";
                 page_type = "8.5";
-            }else if(board_type.equals("갤러리")){
+            }else if(board_type.equals("사진자료실")){
                 count = calvinBoardService.paging(board_type,search_type,search_word);
                 board_list = calvinBoardService.SelectByTitle(board_type,search_word,page, count);
                 result = "menu/info2/gallery";
@@ -517,6 +517,14 @@ public class CalvinController {
         model.addAttribute("file4",calvinFile4);
         model.addAttribute("file5",calvinFile5);
         model.addAttribute("page_type", "8.5");
+        String board_type = boardView.getBoard_type();
+        if(board_type.equals("공지사항")){
+            model.addAttribute("page_type", "8.5");
+        }else if(board_type.equals("사진자료실")){
+            model.addAttribute("page_type", "8.6");
+        }else if(board_type.equals("서식자료실")){
+            model.addAttribute("page_type", "8.7");
+        }
         return "menu/board/board_view";
     }
     //게시글 작성 페이지
@@ -765,14 +773,18 @@ public class CalvinController {
     @ResponseBody
     public String boardDelete(@RequestParam(value = "board_code") int board_code, HttpSession httpSession, Model model){
         String result;
+        System.out.println("삭제 컨트롤러 진입");
         if(httpSession.getAttribute("member_id") == null || httpSession.getAttribute("member_type") == null){
             throw new CustomException(ErrorCode.UNAUTHORIZED_USER);
         }else{
             if(httpSession.getAttribute("member_type").equals("dd") || httpSession.getAttribute("member_type").equals("ai") || httpSession.getAttribute("member_type").equals("st")){
                 int dt_result = calvinBoardService.DeleteBoard(board_code);
+                System.out.println("삭제 실행");
                 if(dt_result == 1){
+                    System.out.println("삭제 성공");
                     result = "<script>alert('게시글이 삭제되었습니다.');history.back();</script>";
                 }else{
+                    System.out.println("삭제 실패");
                     result = "<script>alert('게시글 삭제에 실패했습니다.');history.back();</script>";
                 }
             }else {
