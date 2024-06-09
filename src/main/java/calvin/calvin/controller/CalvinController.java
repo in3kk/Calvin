@@ -18,6 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Controller
 public class CalvinController {
@@ -60,7 +62,29 @@ public class CalvinController {
     @ResponseBody
     public String memberJoin(JoinMember member, Model model){
         String result = "";
-        int rowCnt = calvinMemberService.JoinMember(member.getId()+"@"+member.getId2(),member.getPwd(),member.getName(),member.getBirth(),member.getPhone_number(),member.getAddress()+" "+member.getAddress2());
+        Pattern id1_pattern = Pattern.compile("[A-Za-z0-9]{4,15}");
+        Pattern id2_pattern = Pattern.compile("[a-z]{4,10}.(com|net|ac.kr)");
+        Pattern pwd_pattern = Pattern.compile("[a-zA-Z0-9!@#$%^&\\*()_\\+]{10,25}");
+        Pattern name_pattern = Pattern.compile("[가-힣A-Za-z]{2,10}");
+        Pattern birth_pattern = Pattern.compile("(19[0-9][0-9]|20[0-9]{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])");
+        Pattern pnum_pattern = Pattern.compile("0[0-9]{1,2}[0-9]{3,4}[0-9]{4}");
+        Pattern address1_pattern = Pattern.compile("[가-힣0-9\\s-]*");
+        Pattern address2_pattern = Pattern.compile("[가-힣0-9\\s-]*");
+        System.out.println(member.getBirth());
+        Matcher m1 = id1_pattern.matcher(member.getId());
+        Matcher m2 = id2_pattern.matcher(member.getId2());
+        Matcher m3 = pwd_pattern.matcher(member.getPwd());
+        Matcher m4 = name_pattern.matcher(member.getName());
+        Matcher m5 = birth_pattern.matcher(member.getBirth());
+        Matcher m6 = pnum_pattern.matcher(member.getPhone_number());
+        Matcher m7 = address1_pattern.matcher(member.getAddress());
+        Matcher m8 = address2_pattern.matcher(member.getAddress2());
+        System.out.println(m1.matches()+" "+m2.matches()+" "+m3.matches()+" "+m4.matches()+" "+m5.matches()+" "+m6.matches()+" "+m7.matches()+" "+m8.matches());
+        int rowCnt = 0;
+        if(m1.matches()&&m2.matches()&&m3.matches()&&m4.matches()&&m5.matches()&&m6.matches()&&m7.matches()&&m8.matches()){
+            rowCnt = calvinMemberService.JoinMember(member.getId()+"@"+member.getId2(),member.getPwd(),member.getName(),member.getBirth(),member.getPhone_number(),member.getAddress()+" "+member.getAddress2());
+        }
+
         if(rowCnt == 1){
             result = "<script>alert('회원가입이 완료되었습니다.');window.location.href='/member/login'</script>";
 //            result = "<script>alert('회원가입이 완료되었습니다.');window.location.href='http://localhost:8080/member/login'</script>";
@@ -345,6 +369,11 @@ public class CalvinController {
                               @RequestParam(value = "search_type", required = false, defaultValue = "1") int search_type,
                               Model model,HttpSession httpSession){
         String result = "menu/mypage/admin_member";
+        if(!search_word.equals("")){
+            Pattern RegPattern1 = Pattern.compile("/[^(A-Za-z가-힣0-9\\s.,@)]/");
+            Matcher m = RegPattern1.matcher(search_word);
+            search_word = m.replaceAll(" ");
+        }
         if(httpSession.getAttribute("member_id") != null && httpSession.getAttribute("member_type") != null){
             if(httpSession.getAttribute("member_type").equals("dd")||httpSession.getAttribute("member_type").equals("st")||httpSession.getAttribute("member_type").equals("ai")) {
                 int count;
@@ -412,7 +441,11 @@ public class CalvinController {
                             @RequestParam(value = "search_type", required = false, defaultValue = "1") int search_type,
                             @RequestParam(value = "board_type",required = false, defaultValue = "") String board_type,
                             HttpSession httpSession, Model model){
-
+        if(!search_word.equals("")){
+            Pattern RegPattern1 = Pattern.compile("/[^(A-Za-z가-힣0-9\\s.,)]/");
+            Matcher m = RegPattern1.matcher(search_word);
+            search_word = m.replaceAll(" ");
+        }
         int count = 0;
         List<BoardView> board_list = new ArrayList<>();
         String result = "";
@@ -829,6 +862,11 @@ public class CalvinController {
                                   @RequestParam(value = "search_type", required = false, defaultValue = "1") int search_type,
                                   @RequestParam(value = "search_word", required = false, defaultValue = "")String search_word,
                                   HttpSession httpSession){
+        if(!search_word.equals("")){
+            Pattern RegPattern1 = Pattern.compile("/[^(A-Za-z가-힣0-9\\s.,)]/");
+            Matcher m = RegPattern1.matcher(search_word);
+            search_word = m.replaceAll(" ");
+        }
         String result = "";
         if(httpSession.getAttribute("member_id") == null || httpSession.getAttribute("member_type") == null){
             result = "redirect:/member/login";
@@ -946,6 +984,11 @@ public class CalvinController {
                                 @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                                 @RequestParam(value = "search_type", required = false, defaultValue = "1") int search_type,
                                 HttpSession httpSession){
+        if(!search_word.equals("")){
+            Pattern RegPattern1 = Pattern.compile("/[^(A-Za-z가-힣0-9\\s.,)]/");
+            Matcher m = RegPattern1.matcher(search_word);
+            search_word = m.replaceAll(" ");
+        }
         String result ="";
         if(httpSession.getAttribute("member_id") == null || httpSession.getAttribute("member_type")==null){
             result = "redirect:/member/login";

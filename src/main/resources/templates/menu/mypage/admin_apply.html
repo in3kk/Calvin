@@ -112,8 +112,8 @@
       </div>
       <div class="paging">
         <p>
-          <a th:if="${begin_page > 10  and search_word == ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page - 1)}__)}"><img src='../img/common/bbs_btn_next.gif' alt='이전' border='0'></a>
-          <a th:if="${begin_page > 10  and search_word != ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page - 1) + '&search_type=' + search_type + '&search_word=' + search_word}__)}"><img src='../img/common/bbs_btn_next.gif' alt='이전' border='0'></a>
+          <a th:if="${begin_page > 10  and search_word == ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page - 1)}__)}"><img src='/item/bbs_btn_perv.gif' alt='이전' border='0'></a>
+          <a th:if="${begin_page > 10  and search_word != ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page - 1) + '&search_type=' + search_type + '&search_word=' + search_word}__)}"><img src='/item/bbs_btn_next.gif' alt='이전' border='0'></a>
           <a th:if="${begin_page <= max_page and page != begin_page and search_word == ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page)}__)}" th:text="${begin_page}"></a>
           <a th:if="${begin_page <= max_page and page != begin_page and search_word != ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page}"></a>
           <b th:if="${page == begin_page}" th:text="${begin_page}"></b>
@@ -153,8 +153,8 @@
           <a th:if="${begin_page + 9 <= max_page and page != begin_page + 9 and search_word == ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page + 9)}__)}" th:text="${begin_page + 9}"></a>
           <a th:if="${begin_page + 9 <= max_page and page != begin_page + 9 and search_word != ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page + 9) + '&search_type=' + search_type + '&search_word=' + search_word}__)}" th:text="${begin_page + 9}"></a>
           <b th:if="${page == begin_page + 9}" th:text="${begin_page + 9}"></b>
-          <a th:if="${begin_page + 10 <= max_page and search_word == ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page + 10)}__)}"><img src='../img/common/bbs_btn_next.gif' alt='다음' border='0'></a>
-          <a th:if="${begin_page + 10 <= max_page and search_word != ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page + 10) + '&search_type=' + search_type + '&search_word=' + search_word}__)}"><img src='../img/common/bbs_btn_next.gif' alt='다음' border='0'></a>
+          <a th:if="${begin_page + 10 <= max_page and search_word == ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page + 10)}__)}"><img src='/item/bbs_btn_next.gif' alt='다음' border='0'></a>
+          <a th:if="${begin_page + 10 <= max_page and search_word != ''}" th:href="@{/mypage/admin/apply(__${'page=' + (begin_page + 10) + '&search_type=' + search_type + '&search_word=' + search_word}__)}"><img src='/item/bbs_btn_next.gif' alt='다음' border='0'></a>
 
         </p>
       </div>

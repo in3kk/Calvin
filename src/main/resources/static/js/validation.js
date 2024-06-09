@@ -52,7 +52,7 @@ function check_pn(){
 }
 
 function check_name(){
-    const regex = /[가-힣]{2,10}/;
+    const regex = /[가-힣A-Za-z]{2,10}/;
 
     if(regex.test(document.getElementById('name').value)){
         document.getElementById('name_check').innerHTML='';
@@ -70,7 +70,7 @@ function check_birth(){
     check_value();
 }
 function check_address(){
-    const regex = /\s*/;
+    const regex = /[가-힣0-9\s-]*/;
     if(regex.test(document.getElementById('sample6_detailAddress').value)){
         document.getElementById('address_check_value').value='pass';
         check_value();
@@ -81,7 +81,7 @@ function check_address(){
 }
 function check_id(){
     const regex = /[A-Za-z0-9]{4,15}/;
-    const regex2 = /[a-z]{4,10}\.[com|net|ac.kr]/;
+    const regex2 = /[a-z]{4,10}.(com|net|ac.kr)/;
     if(regex.test(document.getElementById('id').value) && regex2.test(document.getElementById('id2').value)){
         document.getElementById('id_check').innerHTML='';
         $.ajax({
