@@ -348,7 +348,7 @@ public class CalvinBoardService {
     //게시글 확인
     public BoardView SelectBoardDetail(int board_id){
         BoardView result;
-        String sql = "SELECT  board_code, b.member_code, title, contents, created_date, file_code1,file_code2,file_code3,file_code4,file_code5, member_name" +
+        String sql = "SELECT  board_code, b.member_code, board_type, title, contents, created_date, file_code1,file_code2,file_code3,file_code4,file_code5, member_name" +
                 " FROM calvin_board b, calvin_member m WHERE b.member_code = m.member_code AND" +
                 " board_code = ?";
         result = jdbcTemplate.query(sql, new Object[]{board_id}, new ResultSetExtractor<BoardView>() {
@@ -357,6 +357,7 @@ public class CalvinBoardService {
                 BoardView boardView = new BoardView();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 if(rs.next()){
+                    boardView.setBoard_type(rs.getString("board_type"));
                     boardView.setBoard_code(rs.getInt("board_code"));
                     boardView.setMember_code(rs.getInt("member_code"));
                     boardView.setTitle(rs.getString("title"));

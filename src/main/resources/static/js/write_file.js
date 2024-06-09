@@ -4,6 +4,7 @@ function add_file(){
     let document_name = "file";
     for(let i = 2; i <= 5; i++){
         if(document.getElementById(document_name+i).style.display == 'none'){
+            document.getElementById(document_name+i+'_label').style.display = 'block';
             document.getElementById(document_name+i).style.display = 'block';
             if(i == 5){
                 document.getElementById("add_file_btn").style.display = 'none';

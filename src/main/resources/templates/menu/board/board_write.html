@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-    <meta name="viewport" content="width=1200">
+    <meta name="viewport" content="width=1700">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script type="text/javascript" src="/js/lnb.js"></script>
 <!--    <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js"></script>&lt;!&ndash; 스마트에디터 &ndash;&gt;-->
@@ -41,8 +41,8 @@
     </script>
     <div class="right_warp">
         <div class="local">
-            <p>HOME &gt; 정보광장 &gt; 공지사항</p>
-            <h3>공지사항</h3>
+            <p>HOME &gt; 정보광장 &gt; 게시글작성</p>
+            <h3>게시글작성</h3>
         </div>
         <div class="contentsArea">
 
@@ -60,7 +60,7 @@
                                 <select onchange="TypeCheck()" id="board_type" name="board_type">
                                     <option selected value="" style="display:none;">분류를 선택해 주세요</option>
                                     <option value="공지사항">공지사항</option>
-                                    <option value="갤러리">갤러리</option>
+                                    <option value="사진자료실">사진자료실</option>
                                     <option value="서식자료실">서식자료실</option>
                                 </select>
                             </td>
@@ -68,16 +68,31 @@
                         <tr>
                             <th >첨부파일</th>
                             <td colspan="3">
+                                <label style="display:block;" for="file1"id="file1_label">
+                                    1번 파일
+                                </label>
                                 <input type="file" style="width:100%;height:100%;display:block;margin:0 0 2px 0;" id="file1" name="file1" >
+                                <label style="display:none;" for="file2" id="file2_label">
+                                    2번 파일
+                                </label>
                                 <input type="file" style="width:100%;height:100%;display:none;margin:2px 0 2px 0;" id="file2" name="file2">
+                                <label style="display:none;" for="file3" id="file3_label">
+                                    3번 파일
+                                </label>
                                 <input type="file" style="width:100%;height:100%;display:none;margin:2px 0 2px 0;" id="file3" name="file3">
+                                <label style="display:none;" for="file4" id="file4_label">
+                                    4번 파일
+                                </label>
                                 <input type="file" style="width:100%;height:100%;display:none;margin:2px 0 2px 0;" id="file4" name="file4">
+                                <label style="display:none;" for="file5" id="file5_label">
+                                    5번 파일
+                                </label>
                                 <input type="file" style="width:100%;height:100%;display:none;margin:2px 0 2px 0;" id="file5" name="file5">
                                 <input type="button" style="background:url(/item/plus.png) no-repeat;width:32px;height:32px;border:none;" id="add_file_btn" onclick="add_file()">
                                 <span style="color:red;font-size:10px;display:none" id="add_file_warning">파일은 최대 5개까지 추가할 수 있습니다.</span>
                                 <span style="color:gray;font-size:10px;display:block" id="add_img_warning">이미지 파일은 &lt;&lt;&lt;번호&gt;&gt;&gt;를 통해 본문에 추가할 수 있습니다. (jpg, png, jpeg, gif, bmp 확장자만 가능)</span>
                                 <span style="color:gray;font-size:10px;display:block" id="add_img_warning2">ex) &lt;&lt;&lt;2&gt;&gt;&gt; 본문에 2번 이미지 추가</span>
-                                <span style="color:gray;font-size:10px;display:block" >갤러리 게시글 썸네일은 1번 파일입니다. 1번파일이 비어있거나 이미지 파일이 아니면 제대로 표현되지 않습니다.</span>
+                                <span style="color:gray;font-size:10px;display:block" >사진자료실 썸네일은 1번 파일입니다. 1번파일이 비어있거나 이미지 파일이 아니면 제대로 표현되지 않습니다.</span>
                             </td>
                         </tr>
                         <tr>
