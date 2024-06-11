@@ -172,7 +172,7 @@ public class CalvinMemberService {
         if(search_type == 1){//아이디
             sql = "SELECT COUNT(*) FROM calvin_member WHERE id REGEXP ?";
         }else if(search_type == 2){//이름
-            sql = "SELECT COUNT(*) FROM calvin_member WHERE name REGEXP ?";
+            sql = "SELECT COUNT(*) FROM calvin_member WHERE member_name REGEXP ?";
         }
 
         result = jdbcTemplate.queryForObject(sql,new Object[]{search_word},Integer.class);
@@ -181,7 +181,7 @@ public class CalvinMemberService {
 
     public List<Calvin_Member> SelectById(String word, int page, int max_code){
 
-        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, member_code, id, member_type, member_name, birth, phone_number FROM calvin_member FROM calvin_member, (SELECT @rownum := 0) r WHERE id REGEXP ?) t LIMIT ?, ?";
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, member_code, id, member_type, member_name, birth, phone_number FROM calvin_member , (SELECT @rownum := 0) r WHERE id REGEXP ?) t LIMIT ?, ?";
         //서버
         List<Calvin_Member> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*", (page-1)*20,20}, new RowMapper<Calvin_Member>() {
             @Override
@@ -199,7 +199,7 @@ public class CalvinMemberService {
     }
     public List<Calvin_Member> SelectByName(String word, int page, int max_code){
 
-        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, member_code, id, member_type, member_name, birth, phone_number FROM calvin_member FROM calvin_member, (SELECT @rownum := 0) r WHERE name REGEXP ?) t LIMIT ?, ?";
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, member_code, id, member_type, member_name, birth, phone_number FROM calvin_member , (SELECT @rownum := 0) r WHERE member_name REGEXP ?) t LIMIT ?, ?";
         //서버
         List<Calvin_Member> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*", (page-1)*20,20}, new RowMapper<Calvin_Member>() {
             @Override
@@ -207,7 +207,13 @@ public class CalvinMemberService {
                 Calvin_Member calvin_member = new Calvin_Member();
                 calvin_member.setMember_code(rs.getLong("member_code"));
                 calvin_member.setId(rs.getString("id"));
-                calvin_member.setName(rs.getString("member_name"));
+                String name = rs.getString("member_name");
+                if(name.length() == 2){
+                    name = name.substring(0,1)+"*";
+                }else{
+                    name = name.substring(0,1)+"*"+name.substring(2);
+                }
+                calvin_member.setName(name);
                 calvin_member.setMember_type(rs.getString("member_type"));
                 calvin_member.setPhone_number(rs.getString("phone_number"));
                 return calvin_member;

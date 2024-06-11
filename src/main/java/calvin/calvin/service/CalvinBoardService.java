@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class CalvinBoardService {
@@ -34,7 +36,17 @@ public class CalvinBoardService {
     private CalvinFileService calvinFileService;
     @Value("${upload.dir}")
     private String uploadDir;
-
+    //유효성 검사 코드
+    public String WordValidationPro(String word){
+        String [] word_data = {"select", "insert", "delete", "update", "create", "drop", "exec", "union", "fetch", "declare", "truncate"};
+        for(String data : word_data){
+            word = word.replaceAll(data,"");
+        }
+        Pattern p = Pattern.compile("(%|#|-|>|<|=|'|\")");
+        Matcher m = p.matcher(word);
+        word = m.replaceAll("");
+        return word;
+    }
     //게시글 작성
     @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
     public int insertBoard(String title, String contents, String member_id, String board_type){
