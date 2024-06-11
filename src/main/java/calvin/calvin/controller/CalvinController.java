@@ -445,7 +445,9 @@ public class CalvinController {
             Pattern RegPattern1 = Pattern.compile("/[^(A-Za-z가-힣0-9\\s.,)]/");
             Matcher m = RegPattern1.matcher(search_word);
             search_word = m.replaceAll(" ");
+            search_word = calvinBoardService.WordValidationPro(search_word);
         }
+        System.out.println(search_word);
         int count = 0;
         List<BoardView> board_list = new ArrayList<>();
         String result = "";
