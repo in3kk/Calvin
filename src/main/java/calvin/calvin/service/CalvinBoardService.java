@@ -61,6 +61,9 @@ public class CalvinBoardService {
     //게시글 작성 첨부파일
     @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
     public int insertBoard(String title, String contents, String member_id, List<MultipartFile> file_list, String board_type){
+        Pattern p1 = Pattern.compile("<([a-zA-Z]+)(\\s[^>]*)?>(?![\\s\\S]*<\\/\\1>)");
+        Matcher m = p1.matcher(contents);
+        contents = m.replaceAll("");//드래그앤드롭 이미지 입력 방지 코드
         int result = 0;
         try{
             String sql = "SELECT member_code FROM calvin_member WHERE id = ?";
