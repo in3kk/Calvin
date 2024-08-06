@@ -70,7 +70,6 @@ public class CalvinController {
         Pattern pnum_pattern = Pattern.compile("0[0-9]{1,2}[0-9]{3,4}[0-9]{4}");
         Pattern address1_pattern = Pattern.compile("[가-힣0-9\\s-]*");
         Pattern address2_pattern = Pattern.compile("[가-힣0-9\\s-]*");
-        System.out.println(member.getBirth());
         Matcher m1 = id1_pattern.matcher(member.getId());
         Matcher m2 = id2_pattern.matcher(member.getId2());
         Matcher m3 = pwd_pattern.matcher(member.getPwd());
@@ -79,7 +78,6 @@ public class CalvinController {
         Matcher m6 = pnum_pattern.matcher(member.getPhone_number());
         Matcher m7 = address1_pattern.matcher(member.getAddress());
         Matcher m8 = address2_pattern.matcher(member.getAddress2());
-        System.out.println(m1.matches()+" "+m2.matches()+" "+m3.matches()+" "+m4.matches()+" "+m5.matches()+" "+m6.matches()+" "+m7.matches()+" "+m8.matches());
         int rowCnt = 0;
         if(m1.matches()&&m2.matches()&&m3.matches()&&m4.matches()&&m5.matches()&&m6.matches()&&m7.matches()&&m8.matches()){
             rowCnt = calvinMemberService.JoinMember(member.getId()+"@"+member.getId2(),member.getPwd(),member.getName(),member.getBirth(),member.getPhone_number(),member.getAddress()+" "+member.getAddress2());
@@ -447,7 +445,6 @@ public class CalvinController {
             search_word = m.replaceAll(" ");
             search_word = calvinBoardService.WordValidationPro(search_word);
         }
-        System.out.println(search_word);
         int count = 0;
         List<BoardView> board_list = new ArrayList<>();
         String result = "";
@@ -776,15 +773,12 @@ public class CalvinController {
 
         }else{
             if(!member.getPwd().equals("")){
-                System.out.println("pwd : "+member.getPwd());
                 update_result = calvinMemberService.MemberInfoUpdatePwd(member.getPwd(),httpSession.getAttribute("member_id").toString());
             }
             if(!member.getPhone_number().equals("")){
-                System.out.println("pwd : "+member.getPhone_number());
                 update_result = calvinMemberService.MemberInfoUpdatePn(member.getPhone_number(),httpSession.getAttribute("member_id").toString());
             }
             if(!member.getAddress().equals("")){
-                System.out.println("pwd : "+member.getAddress());
                 update_result = calvinMemberService.MemberInfoUpdateAddress(member.getAddress(),httpSession.getAttribute("member_id").toString());
             }
 
@@ -808,18 +802,14 @@ public class CalvinController {
     @ResponseBody
     public String boardDelete(@RequestParam(value = "board_code") int board_code, HttpSession httpSession, Model model){
         String result;
-        System.out.println("삭제 컨트롤러 진입");
         if(httpSession.getAttribute("member_id") == null || httpSession.getAttribute("member_type") == null){
             throw new CustomException(ErrorCode.UNAUTHORIZED_USER);
         }else{
             if(httpSession.getAttribute("member_type").equals("dd") || httpSession.getAttribute("member_type").equals("ai") || httpSession.getAttribute("member_type").equals("st")){
                 int dt_result = calvinBoardService.DeleteBoard(board_code);
-                System.out.println("삭제 실행");
                 if(dt_result == 1){
-                    System.out.println("삭제 성공");
                     result = "<script>alert('게시글이 삭제되었습니다.');history.back();</script>";
                 }else{
-                    System.out.println("삭제 실패");
                     result = "<script>alert('게시글 삭제에 실패했습니다.');history.back();</script>";
                 }
             }else {
