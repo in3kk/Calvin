@@ -28,7 +28,7 @@
 .mainVisual .controller2 .rollBtnD {position:absolute; top:390px; left:50%;}
 
 
-#main_contents { position:relative; width:1000px; margin:0 auto; overflow:hidden; margin-top:25px; padding-bottom:20px}
+#main_contents { position:relative; width:1000px; margin:0 auto; overflow:hidden; margin-top:25px; padding-bottom:20px; min-width:1000px;}
 .popupzone_iframe { float:left; position:relative; width:491px; margin-right:9px; }
 
 /* 
