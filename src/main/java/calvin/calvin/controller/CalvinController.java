@@ -209,9 +209,10 @@ public class CalvinController {
                 result = "menu/ministry/subject_list";
             }else if(field.equals("레이번스축구아카데미")){
                 model.addAttribute("page_type","5.5");
-            }else if(field.equals("연예아카데미")){
+            }else if(field.equals("연예")){
                 model.addAttribute("page_type","5.6");
-                model.addAttribute("page_type","5.6");
+            } else if (field.equals("미디어")) {
+                model.addAttribute("page_type","5.7");
             }
         }else if(type.equals("언어")){
             result = "menu/language/subject_list";
