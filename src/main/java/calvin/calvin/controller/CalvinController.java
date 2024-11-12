@@ -261,12 +261,18 @@ public class CalvinController {
             }
         }else if(subject.getSubject_type().equals("특별교육과정")){
             result = "menu/special/apply";
-            if(subject.getSubject_field().equals("보육교직원보수교육")){
+            if(subject.getSubject_field().equals("용인")){
                 model.addAttribute("page_type","5.1");
-            }else if(subject.getSubject_field().equals("진로진학상담원양성")){
+            }else if(subject.getSubject_field().equals("서현정치경제")){
                 model.addAttribute("page_type","5.2");
-            }else if(subject.getSubject_field().equals("용인학")){
+            }else if(subject.getSubject_field().equals("경기교육")){
                 model.addAttribute("page_type","5.3");
+            }else if(subject.getSubject_field().equals("레이번스축구아카데미")){
+                model.addAttribute("page_type","5.5");
+            }else if(subject.getSubject_field().equals("연예")){
+                model.addAttribute("page_type","5.6");
+            } else if (subject.getSubject_field().equals("미디어")) {
+                model.addAttribute("page_type","5.7");
             }
         }else if(subject.getSubject_type().equals("언어")){
             result = "menu/language/apply";
