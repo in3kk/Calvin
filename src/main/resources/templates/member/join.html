@@ -115,7 +115,7 @@
   <div>
     <label for="phone_number"><b>전화번호:</b> </label><br>
     <input id="phone_number" name="phone_number" type="name" class="input" placeholder="전화번호를 입력하세요."
-           th:value="${member.name}" style="width:45%;" onchange="check_pn()">
+           th:value="${member.phone_number}" style="width:45%;" onchange="check_pn()">
     <input type="hidden" value="x" id="pn_check_value">
     <span id="pn_check"></span><br>
     <span style="font-size:10pt; color:gray;">&nbsp;&nbsp;&nbsp;&nbsp;'-'없이 숫자만 입력해 주세요</span>
