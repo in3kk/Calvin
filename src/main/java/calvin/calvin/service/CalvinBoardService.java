@@ -117,7 +117,8 @@ public class CalvinBoardService {
         List<BoardView> result = new ArrayList<>();
 //        String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board_code DESC) AS num,board_code, b.member_code, title, board_type," +//
 //                "contents, created_date, member_name FROM calvin_board b, calvin_member m where b.member_code = m.member_code) t WHERE num >= ? AND num <= ?";
-        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code,board_type,b.member_code, title,contents,created_date,member_name FROM calvin_board b, calvin_member m, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code ORDER BY board_code DESC) t LIMIT ?, ?";//서버
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code,board_type,b.member_code, title,contents,created_date,member_name " +
+                "FROM calvin_board b, calvin_member m, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code ORDER BY board_code DESC) t LIMIT ?, ?";//서버
         result = jdbcTemplate.query(sql, new Object[]{(page-1)*20,20}, new RowMapper<BoardView>() {
             @Override
             public BoardView mapRow(ResultSet rs, int rowNum) throws SQLException {
