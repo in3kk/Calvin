@@ -29,6 +29,7 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	compileOnly("org.projectlombok:lombok")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+	implementation ("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.2")
 }
 
 tasks.withType<Test> {

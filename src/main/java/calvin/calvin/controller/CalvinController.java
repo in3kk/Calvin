@@ -16,6 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -446,6 +448,7 @@ public class CalvinController {
                             @RequestParam(value = "search_type", required = false, defaultValue = "1") int search_type,
                             @RequestParam(value = "board_type",required = false, defaultValue = "") String board_type,
                             HttpSession httpSession, Model model){
+
         if(!search_word.equals("")){
             Pattern RegPattern1 = Pattern.compile("/[^(A-Za-z가-힣0-9\\s.,)]/");
             Matcher m = RegPattern1.matcher(search_word);
@@ -470,10 +473,14 @@ public class CalvinController {
                 }
 
             }else if(board_type.equals("공지사항")){
+                LocalDateTime startTime = LocalDateTime.now();
                 count = calvinBoardService.paging(board_type);
                 board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
                 result = "menu/board/board01";
                 page_type = "8.5";
+                LocalDateTime now = LocalDateTime.now();
+                System.out.println("소요시간 : "+ ChronoUnit.MILLIS.between(startTime,now)+"밀리초");
+                System.out.println("소요시간 : "+ ChronoUnit.NANOS.between(startTime,now)+"나노초");
             }else if(board_type.equals("사진자료실")){
                 count = calvinBoardService.paging(board_type);
                 board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
@@ -534,9 +541,9 @@ public class CalvinController {
         model.addAttribute("begin_page",begin_page);
         model.addAttribute("max_page", max_page);
         model.addAttribute("board_list",board_list);
-
         model.addAttribute("page_type",page_type);
         model.addAttribute("board_type", board_type);
+
         return result;
     }
 
