@@ -215,6 +215,8 @@ public class CalvinController {
                 model.addAttribute("page_type","5.6");
             } else if (field.equals("미디어")) {
                 model.addAttribute("page_type","5.7");
+            } else if (field.equals("골프")) {
+                model.addAttribute("page_type", "5.8");
             }
         }else if(type.equals("언어")){
             result = "menu/language/subject_list";
@@ -479,8 +481,6 @@ public class CalvinController {
                 result = "menu/board/board01";
                 page_type = "8.5";
                 LocalDateTime now = LocalDateTime.now();
-                System.out.println("소요시간 : "+ ChronoUnit.MILLIS.between(startTime,now)+"밀리초");
-                System.out.println("소요시간 : "+ ChronoUnit.NANOS.between(startTime,now)+"나노초");
             }else if(board_type.equals("사진자료실")){
                 count = calvinBoardService.paging(board_type);
                 board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
