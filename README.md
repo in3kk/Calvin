@@ -15,17 +15,8 @@
 
 ## 페이지 구현
 ![main](https://github.com/in3kk/Calvin/assets/125864887/66839e71-c642-4a91-ae04-cc91f834e645)
-![info](https://github.com/in3kk/Calvin/assets/125864887/a81a9024-49c8-4db2-808f-28c441ced2cc)
-![info2](https://github.com/in3kk/Calvin/assets/125864887/8a4b4959-aed3-42dd-9d68-f72b9b127189)
-![info3](https://github.com/in3kk/Calvin/assets/125864887/2ce9d5b7-8a10-4f90-8069-b101d5db39b3)
-![special](https://github.com/in3kk/Calvin/assets/125864887/fd06edd4-6e0c-40b0-8eba-bde87dcb83c3)
-![notice](https://github.com/in3kk/Calvin/assets/125864887/470b3c84-5c17-4a61-b0c2-edb916dcd1f9)
-![notice_c](https://github.com/in3kk/Calvin/assets/125864887/89fcab6a-43ed-49f5-8978-5d87a93fc779)
 ![notice_w](https://github.com/in3kk/Calvin/assets/125864887/2252a9f1-a6cc-4fb8-b4df-2a7930163c44)
-![joinmember](https://github.com/in3kk/Calvin/assets/125864887/1bd77f2e-a047-4e85-8394-2cb74f85b7bc)
-![mypage](https://github.com/in3kk/Calvin/assets/125864887/f6f566fe-cf8d-4b49-9c99-7d655bcbd4e2)
 ![adminpage](https://github.com/in3kk/Calvin/assets/125864887/06eddd9f-ec79-4fc8-90db-5d6717c0b75d)
-![new_subject](https://github.com/in3kk/Calvin/assets/125864887/8dd739c6-def8-4aab-99ef-0ff5edd54671)
 ![subject_detail](https://github.com/in3kk/Calvin/assets/125864887/3c23dbf0-9a29-4d6f-94ef-1f52062878e3)
 
 ## Tech Stack
