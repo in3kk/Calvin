@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>칼빈대학교 평생교육원</title>
+</head>
+<body>
+<div class="lnb_warp" th:fragment="left_sidebar">
+    <!--왼쪽메뉴-->
+    <h2>국제문화원</h2>
+    <div class="lnb">
+        <ul>
+            <li>
+                <a th:if="${page_type == '7.1'}" href="?type=국젬문화원&field=한베문화원" class='lnb_on'>한베문화원</a>
+                <a th:unless="${page_type == '7.1'}" href="?type=국젬문화원&field=한베문화원">한베문화원</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '7.2'}" href="?type=국젬문화원&field=한몽문화원" class='lnb_on'>한몽문화원</a>
+                <a th:unless="${page_type == '7.2'}" href="?type=국젬문화원&field=한몽문화원">한몽문화원</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '7.4'}" href="?type=국젬문화원&field=한우문화원" class='lnb_on'>한우문화원</a>
+                <a th:unless="${page_type == '7.4'}" href="?type=국젬문화원&field=한우문화원">한우문화원</a>
+            </li>
+            <li>
+                <a th:if="${page_type == '5.4'}" href="?type=국젬문화원&field=한네문화원" class='lnb_on'>한네문화원</a>
+                <a th:unless="${page_type == '5.4'}" href="?type=국젬문화원&field=한네문화원">한네문화원</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="left_con pb50">
+        <h3>수강신청</h3>
+        <div class="pl10">
+            <span><a href="">일반교양과정</a></span>
+            <span><a href="/menu/liberal_arts/list">특별교육과정</a></span>
+            <span><a href="/menu/subject/list">학점은행제 </a></span>
+        </div>
+        </ul>
+    </div>
+
+    <!--//왼쪽메뉴 끝-->
+</div>
+
+</body>
+</html>
