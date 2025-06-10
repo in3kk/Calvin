@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="viewport" content="width=1700">
+
     <script type="text/javascript" src="/js/lnb.js"></script>
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script><!-- 메뉴, 메인 제이쿼리 -->
@@ -18,7 +19,7 @@
         <div th:replace="~{fragments/header :: header}"></div>
     </div>
     <div id="contents">
-        <div th:replace="~{menu/certificate/fragments/left_sidebar :: left_sidebar}"></div>
+        <div th:replace="~{menu/language/fragments/left_sidebar :: left_sidebar}"></div>
 
         <style>
 			.w { text-align: left; }
@@ -28,18 +29,24 @@
 		</style>
         <div class="right_warp">
             <div class="local">
-<!--                <p th:if="${page_type == '4.1'}">HOME &gt; 자격증/취창업 &gt; 전문자격증</p>-->
-<!--                <p th:if="${page_type == '4.2'}">HOME &gt; 자격증/취창업 &gt; 등록민간자격증</p>-->
-<!--                <p th:if="${page_type == '4.3'}">HOME &gt; 자격증/취창업 &gt; 기술자격증</p>-->
-<!--                <p th:if="${page_type == '4.4'}">HOME &gt; 자격증/취창업 &gt; 취창업과정</p>-->
-<!--                <h3 th:if="${page_type == '4.1'}">전문자격증</h3>-->
-<!--                <h3 th:if="${page_type == '4.2'}">등록민간자격증</h3>-->
-<!--                <h3 th:if="${page_type == '4.3'}">기술자격증</h3>-->
-<!--                <h3 th:if="${page_type == '4.4'}">취창업과정</h3>-->
-                <p th:if="${page_type == '4.1'}">HOME &gt; 자격증/취창업 &gt; 자격증관련</p>
-                <p th:if="${page_type == '4.2'}">HOME &gt; 자격증/취창업 &gt; 취창업관련</p>
-                <h3 th:if="${page_type == '4.1'}">자격증관련</h3>
-                <h3 th:if="${page_type == '4.2'}">취창업관련</h3>
+                <p th:if="${page_type == '6.1'}">HOME &gt; 교육원 &gt; 요양보호사교육원</p>
+                <p th:if="${page_type == '6.2'}">HOME &gt; 교육원 &gt; 드론전문교육원</p>
+                <p th:if="${page_type == '6.3'}">HOME &gt; 교육원 &gt; 장례지도사교육원</p>
+                <p th:if="${page_type == '6.4'}">HOME &gt; 교육원 &gt; 장로권사교육원</p>
+                <p th:if="${page_type == '6.5'}">HOME &gt; 교육원 &gt; 미래교육교육원</p>
+                <p th:if="${page_type == '6.6'}">HOME &gt; 교육원 &gt; 미래목회연구원</p>
+                <p th:if="${page_type == '6.7'}">HOME &gt; 교육원 &gt; ESG경영연구원</p>
+                <p th:if="${page_type == '6.8'}">HOME &gt; 교육원 &gt; 사모교육원</p>
+                <p th:if="${page_type == '6.9'}">HOME &gt; 교육원 &gt; 여교역자교육원</p>
+                <h3 th:if="${page_type == '6.1'}">요양보호사교육원</h3>
+                <h3 th:if="${page_type == '6.2'}">드론전문교육원</h3>
+                <h3 th:if="${page_type == '6.3'}">장례지도사교육원</h3>
+                <h3 th:if="${page_type == '6.4'}">장로권사교육원</h3>
+                <h3 th:if="${page_type == '6.5'}">미래교육교육원</h3>
+                <h3 th:if="${page_type == '6.6'}">미래목회연구원</h3>
+                <h3 th:if="${page_type == '6.7'}">ESG경영연구원</h3>
+                <h3 th:if="${page_type == '6.8'}">사모교육원</h3>
+                <h3 th:if="${page_type == '6.9'}">여교역자교육원</h3>
             </div>
             <div class="contentsArea">
                 <div class="bbsList">

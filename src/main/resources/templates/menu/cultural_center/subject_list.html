@@ -20,7 +20,7 @@
     <div th:replace="~{fragments/header :: header}"></div>
 </div>
 <div id="contents">
-    <div th:replace="~{menu/special/fragments/left_sidebar :: left_sidebar}">
+    <div th:replace="~{menu/cultural_center/fragments/left_sidebar :: left_sidebar}">
         <!--//왼쪽메뉴 끝-->
     </div>
 
@@ -33,35 +33,17 @@
 
     <div class="right_warp">
         <div class="local">
-            <p th:if="${page_type == '5.1'}">HOME &gt; 특별교육과정 &gt; 바이블아카데미</p>
-            <p th:if="${page_type == '5.2'}">HOME &gt; 특별교육과정 &gt; 용인학아카데미</p>
-            <p th:if="${page_type == '5.3'}">HOME &gt; 특별교육과정 &gt; 골프아카데미</p>
-            <p th:if="${page_type == '5.4'}">HOME &gt; 특별교육과정 &gt; 교회음향아카데미</p>
-            <p th:if="${page_type == '5.5'}">HOME &gt; 특별교육과정 &gt; AI아카데미</p>
-            <p th:if="${page_type == '5.6'}">HOME &gt; 특별교육과정 &gt; 경기교육아카데미</p>
-            <p th:if="${page_type == '5.7'}">HOME &gt; 특별교육과정 &gt; 축구아카데미</p>
-            <h3 th:if="${page_type == '5.1'}">바이블아카데미</h3>
-            <h3 th:if="${page_type == '5.2'}">용인학아카데미</h3>
-            <h3 th:if="${page_type == '5.3'}">골프아카데미</h3>
-            <h3 th:if="${page_type == '5.4'}">교회음향아카데미</h3>
-            <h3 th:if="${page_type == '5.5'}">AI아카데미</h3>
-            <h3 th:if="${page_type == '5.6'}">경기교육아카데미</h3>
-            <h3 th:if="${page_type == '5.7'}">축구아카데미</h3>
+            <p th:if="${page_type == '7.1'}">HOME &gt; 국제문화원 &gt; 한베문화원</p>
+            <p th:if="${page_type == '7.2'}">HOME &gt; 국제문화원 &gt; 한몽문화원</p>
+            <p th:if="${page_type == '7.3'}">HOME &gt; 국제문화원 &gt; 한우문화원</p>
+            <p th:if="${page_type == '7.4'}">HOME &gt; 국제문화원 &gt; 한네문화원</p>
+            <h3 th:if="${page_type == '7.1'}">한베문화원</h3>
+            <h3 th:if="${page_type == '7.2'}">한몽문화원</h3>
+            <h3 th:if="${page_type == '7.3'}">한우문화원</h3>
+            <h3 th:if="${page_type == '7.4'}">한네문화원</h3>
         </div>
         <div class="contentsArea">
             <div class="bbsList">
-                <p th:if="${page_type == '5.2'}"class="cntTxt01" align="center">
-                    <img src="/item/special_info/yongin.png" width="100%" height="auto">
-                </p>
-                <p th:if="${page_type == '5.3'}"class="cntTxt01" align="center">
-                    <img src="/item/special_info/평교-골프아카데미과정(2025-01-01)-전단지.jpg" width="100%" height="auto">
-                </p>
-                <p th:if="${page_type == '5.6'}"class="cntTxt01" align="center">
-                    <img src="/item/special_info/gyeonggi1.png" width="100%" height="auto">
-                    <img src="/item/special_info/gyeonggi2.png" width="100%" height="auto">
-                    <a href="/download/document/경기교육아카데미(교육전문직 및 임용 모집광고)공문 붙임1..hwp" class="sBtns sbtnSt01 ml5"><span>경기교육아카데미 임용 모집 광고 다운로드</span></a>
-                    <a href="/download/document/경기교육아카데미(진로진학 종단상담 학생모집 광고)공문 붙임2.hwp" class="sBtns sbtnSt01 ml5"><span>경기교육아카데미 학생 모집 광고 다운로드</span></a>
-                </p>
                 <table width="100%">
                     <tr>
                         <th width="15%">과정</th>

@@ -165,7 +165,7 @@ public class CalvinController {
 //        return  result;
 //    }
     //강의 리스트 페이지 (학점은행제, 일반교양, 자격증/취창업)
-    @GetMapping({"/menu/subject/list", "/menu/liberal_arts/list","/menu/certificate/list","/menu/special/list","/menu/language/list","/menu/ministry/list"})
+    @GetMapping({"/menu/subject/list", "/menu/liberal_arts/list","/menu/certificate/list","/menu/special/list","/menu/language/list","/menu/ministry/list","/menu/center/list","/menu/culture/list"})
     public String SubjectList(@RequestParam(value = "field", required = false, defaultValue = "") String field,
                               @RequestParam(value = "type") String type,
                               @RequestParam(value = "name", required = false, defaultValue = "")String name,Model model){
@@ -188,35 +188,37 @@ public class CalvinController {
             model.addAttribute("page_type","3.1");
         }else if(type.equals("자격증/취창업")){
             result = "menu/certificate/subject_list";
-            if(field.equals("전문자격증")){
-                model.addAttribute("page_type","4.1");
-            }else if(field.equals("민간자격증")){
-                model.addAttribute("page_type","4.2");
-            }else if(field.equals("기술자격증")){
-                model.addAttribute("page_type","4.3");
-            }else if(field.equals("취창업")){
-                model.addAttribute("page_type","4.4");
+//            if(field.equals("전문자격증")){
+//                model.addAttribute("page_type","4.1");
+//            }else if(field.equals("민간자격증")){
+//                model.addAttribute("page_type","4.2");
+//            }else if(field.equals("기술자격증")){
+//                model.addAttribute("page_type","4.3");
+//            }else if(field.equals("취창업")){
+//                model.addAttribute("page_type","4.4");
+//            }
+            if (field.equals("자격증")) {
+                model.addAttribute("page_type", "4.1");
+            } else if (field.equals("취창업")) {
+                model.addAttribute("page_type", "4.2");
             }
         }else if(type.equals("특별교육과정")){
             //용인학아카데미, 서현정치경제아카데미, 경기교육아카데미, 사모아카데미, 레이번스축구아카데미, 연예아카데미
             result = "menu/special/subject_list";
-            if(field.equals("용인")){
+            if(field.equals("바이블")){
                 model.addAttribute("page_type","5.1");
-            }else if(field.equals("서현정치경제")){
+            }else if(field.equals("용인")){
                 model.addAttribute("page_type","5.2");
-            }else if(field.equals("경기교육")){
+            }else if(field.equals("골프")){
                 model.addAttribute("page_type","5.3");
-            }else if(field.equals("사모포럼")){
+            }else if(field.equals("교회음향")){
                 model.addAttribute("page_type","5.4");
-                result = "menu/ministry/subject_list";
-            }else if(field.equals("레이번스축구아카데미")){
+            }else if(field.equals("AI")){
                 model.addAttribute("page_type","5.5");
-            }else if(field.equals("연예")){
+            } else if (field.equals("경기교육")) {
                 model.addAttribute("page_type","5.6");
-            } else if (field.equals("미디어")) {
+            } else if (field.equals("축구아카데미")) {
                 model.addAttribute("page_type","5.7");
-            } else if (field.equals("골프")) {
-                model.addAttribute("page_type", "5.8");
             }
         }else if(type.equals("언어")){
             result = "menu/language/subject_list";
@@ -227,9 +229,41 @@ public class CalvinController {
             }else if(field.equals("한국어")){
                 model.addAttribute("page_type","6.3");
             }
-        }else if(type.equals("목회")){
+        } else if (type.equals("교육원")) {
+            result = "menu/center/subject_list";
+            if (field.equals("요양보호사교육원")) {
+                model.addAttribute("page_type", "6.1");
+            } else if (field.equals("드론전문교육원")) {
+                model.addAttribute("page_type", "6.2");
+            } else if (field.equals("장례지도사교육원")) {
+                model.addAttribute("page_type", "6.3");
+            } else if (field.equals("장로권사교육원")) {
+                model.addAttribute("page_type", "6.4");
+            } else if (field.equals("미래교육교육원")) {
+                model.addAttribute("page_type", "6.5");
+            } else if (field.equals("미래목회연구원")) {
+                model.addAttribute("page_type", "6.6");
+            } else if (field.equals("ESG경영연구원")) {
+                model.addAttribute("page_type", "6.7");
+            } else if (field.equals("사모교육원")) {
+                model.addAttribute("page_type", "6.8");
+            } else if (field.equals("여교역자교육원")) {
+                model.addAttribute("page_type", "6.9");
+            }
+        } else if (type.equals("목회")) {
             result = "menu/ministry/subject_list";
-            model.addAttribute("page_type","7.1");
+            model.addAttribute("page_type", "7.1");
+        } else if (type.equals("국제문화원")) {
+            result = "menu/cultural_center/subject_list";
+            if (field.equals("한베문화원")) {
+                model.addAttribute("page_type", "7.1");
+            } else if (field.equals("한몽문화원")) {
+                model.addAttribute("page_type", "7.2");
+            } else if (field.equals("한우문화원")) {
+                model.addAttribute("page_type", "7.3");
+            } else if (field.equals("한네문화원")) {
+                model.addAttribute("page_type", "7.4");
+            }
         }
         return  result;
     }
@@ -252,30 +286,35 @@ public class CalvinController {
             result = "menu/liberal_arts/apply";
         }else if(subject.getSubject_type().equals("자격증/취창업")){
             result = "menu/certificate/apply";
-            if(subject.getSubject_field().equals("반려동물")){
+            if(subject.getSubject_field().matches("%자격증%")){
                 model.addAttribute("page_type","4.1");
-            }else if(subject.getSubject_field().equals("사회복지")){
+            }else if(subject.getSubject_field().matches("%취창업%")){
                 model.addAttribute("page_type","4.2");
-            }else if(subject.getSubject_field().equals("실용음악")){
-                model.addAttribute("page_type","4.3");
-            }else if(subject.getSubject_field().equals("자격증")){
-                model.addAttribute("page_type","4.4");
-            }else if(subject.getSubject_field().equals("취창업")){
-                model.addAttribute("page_type","4.5");
             }
+//            if(subject.getSubject_field().equals("반려동물")){
+//                model.addAttribute("page_type","4.1");
+//            }else if(subject.getSubject_field().equals("사회복지")){
+//                model.addAttribute("page_type","4.2");
+//            }else if(subject.getSubject_field().equals("실용음악")){
+//                model.addAttribute("page_type","4.3");
+//            }else if(subject.getSubject_field().equals("자격증")){
+//                model.addAttribute("page_type","4.4");
+//            }else if(subject.getSubject_field().equals("취창업")){
+//                model.addAttribute("page_type","4.5");
+//            }
         }else if(subject.getSubject_type().equals("특별교육과정")){
             result = "menu/special/apply";
-            if(subject.getSubject_field().equals("용인")){
+            if(subject.getSubject_field().equals("바이블")){
                 model.addAttribute("page_type","5.1");
-            }else if(subject.getSubject_field().equals("서현정치경제")){
+            }else if(subject.getSubject_field().equals("용인")){
                 model.addAttribute("page_type","5.2");
-            }else if(subject.getSubject_field().equals("경기교육")){
+            }else if(subject.getSubject_field().equals("골프")){
                 model.addAttribute("page_type","5.3");
-            }else if(subject.getSubject_field().equals("레이번스축구아카데미")){
+            }else if(subject.getSubject_field().equals("교회음향")){
                 model.addAttribute("page_type","5.5");
-            }else if(subject.getSubject_field().equals("연예")){
+            }else if(subject.getSubject_field().equals("AI")){
                 model.addAttribute("page_type","5.6");
-            } else if (subject.getSubject_field().equals("미디어")) {
+            } else if (subject.getSubject_field().equals("축구아카데미")) {
                 model.addAttribute("page_type","5.7");
             }
         }else if(subject.getSubject_type().equals("언어")){
@@ -292,6 +331,38 @@ public class CalvinController {
                 model.addAttribute("page_type","6.5");
             } else if (subject.getSubject_field().equals("영어")) {
                 model.addAttribute("page_type","6.6");
+            }
+        } else if (subject.getSubject_type().equals("교육원")) {
+            result = "menu/center/apply";
+            if (subject.getSubject_field().equals("요양보호사교육원")) {
+                model.addAttribute("page_type", "6.1");
+            } else if (subject.getSubject_field().equals("드론전문교육원")) {
+                model.addAttribute("page_type", "6.2");
+            } else if (subject.getSubject_field().equals("장례지도사교육원")) {
+                model.addAttribute("page_type", "6.3");
+            } else if (subject.getSubject_field().equals("장로권사교육원")) {
+                model.addAttribute("page_type", "6.4");
+            } else if (subject.getSubject_field().equals("미래교육교육원")) {
+                model.addAttribute("page_type", "6.5");
+            } else if (subject.getSubject_field().equals("미래목회연구원")) {
+                model.addAttribute("page_type", "6.6");
+            } else if (subject.getSubject_field().equals("ESG경영연구원")) {
+                model.addAttribute("page_type", "6.7");
+            } else if (subject.getSubject_field().equals("사모교육원")) {
+                model.addAttribute("page_type", "6.8");
+            } else if (subject.getSubject_field().equals("여교역자교육원")) {
+                model.addAttribute("page_type", "6.9");
+            }
+        } else if (subject.getSubject_type().equals("국제문화원")) {
+            result = "menu/cultural_center/apply";
+            if (subject.getSubject_field().equals("한베문화원")) {
+                model.addAttribute("page_type", "7.1");
+            } else if (subject.getSubject_field().equals("한몽문화원")) {
+                model.addAttribute("page_type", "7.2");
+            } else if (subject.getSubject_field().equals("한우문화원")) {
+                model.addAttribute("page_type", "7.3");
+            } else if (subject.getSubject_field().equals("한네문화원")) {
+                model.addAttribute("page_type", "7.4");
             }
         }
         return result;

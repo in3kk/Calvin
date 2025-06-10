@@ -124,10 +124,10 @@ public class CalvinSubjectService {
         return result;
     }
     public List<Calvin_subject> SubjectList(String field, String subject_type,String name){
-        String sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field REGEXP ? AND subject_type = ? AND REPLACE(subject_name,' ','') LIKE '%?%' ORDER BY subject_code DESC";
+        String sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field REGEXP ? AND subject_type = ? AND REPLACE(subject_name,' ','') LIKE ? ORDER BY subject_code DESC";
         field =".*"+field+".*";
         name = name.replaceAll(" ","");
-        List<Calvin_subject> result = jdbcTemplate.query(sql, new Object[]{field, subject_type,name}, new RowMapper<Calvin_subject>() {
+        List<Calvin_subject> result = jdbcTemplate.query(sql, new Object[]{field, subject_type,"%"+name+"%"}, new RowMapper<Calvin_subject>() {
             @Override
             public Calvin_subject mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Calvin_subject calvin_subject = new Calvin_subject();
