@@ -22,8 +22,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.google.code.gson:gson:2.8.6") // gson 추가
 	implementation("commons-io:commons-io:2.6") // commons-io 추가
-//	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
-	runtimeOnly("com.h2database:h2")
+	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+	//runtimeOnly("com.h2database:h2")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")

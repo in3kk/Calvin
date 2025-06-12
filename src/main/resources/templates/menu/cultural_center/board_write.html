@@ -25,7 +25,7 @@
     <div th:replace="~{fragments/header :: header}"></div>
 </div>
 <div id="contents">
-    <div th:replace="~{menu/info2/fragments/left_sidebar :: left_sidebar}">
+    <div th:replace="~{menu/cultural_center/fragments/left_sidebar :: left_sidebar}">
     </div>
 
     <style>
@@ -41,8 +41,14 @@
     </script>
     <div class="right_warp">
         <div class="local">
-            <p>HOME &gt; 정보광장 &gt; 게시글작성</p>
-            <h3>게시글작성</h3>
+            <p th:if="${page_type == '7.1'}">HOME &gt; 국제문화원 &gt; 한베문화원</p>
+            <p th:if="${page_type == '7.2'}">HOME &gt; 국제문화원 &gt; 한몽문화원</p>
+            <p th:if="${page_type == '7.3'}">HOME &gt; 국제문화원 &gt; 한우문화원</p>
+            <p th:if="${page_type == '7.4'}">HOME &gt; 국제문화원 &gt; 한네문화원</p>
+            <h3 th:if="${page_type == '7.1'}">한베문화원</h3>
+            <h3 th:if="${page_type == '7.2'}">한몽문화원</h3>
+            <h3 th:if="${page_type == '7.3'}">한우문화원</h3>
+            <h3 th:if="${page_type == '7.4'}">한네문화원</h3>
         </div>
         <div class="contentsArea">
 
@@ -59,13 +65,10 @@
                             <td width="70%" colspan="3">
                                 <select onchange="TypeCheck()" id="board_type" name="board_type">
                                     <option selected value="" style="display:none;">분류를 선택해 주세요</option>
-                                    <option value="공지사항">공지사항</option>
-                                    <option value="사진자료실">사진자료실</option>
-                                    <option value="서식자료실">서식자료실</option>
-                                    <option value="한베문화원">한베문화원</option>
-                                    <option value="한몽문화원">한몽문화원</option>
-                                    <option value="한우문화원">한우문화원</option>
-                                    <option value="한네문화원">한네문화원</option>
+                                    <option value="한베문화원" >한베문화원</option>
+                                    <option value="한몽문화원" >한몽문화원</option>
+                                    <option value="한우문화원" >한우문화원</option>
+                                    <option value="한네문화원" >한네문화원</option>
                                 </select>
                             </td>
                         </tr>

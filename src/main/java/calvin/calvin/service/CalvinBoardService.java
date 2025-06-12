@@ -54,6 +54,7 @@ public class CalvinBoardService {
         String sql = "SELECT member_code FROM calvin_member WHERE id = ?";
         int code = jdbcTemplate.queryForObject(sql, new Object[]{member_id}, Integer.class);
         sql = "INSERT INTO calvin_board(member_code,title, contents, created_date,file_code, board_type) VALUES(?,?,?,SYSDATE(),-1,?)";
+        //sql = "INSERT INTO calvin_board(member_code,title, contents, created_date,file_code, board_type) VALUES(?,?,?,current_date(),-1,?)";
         System.out.println("contents size : "+contents);
         int result = jdbcTemplate.update(sql, code, title, contents,board_type);
         return result;
@@ -92,6 +93,7 @@ public class CalvinBoardService {
             }
             int code = jdbcTemplate.queryForObject(sql, new Object[]{member_id}, Integer.class);
             sql = "INSERT INTO calvin_board(member_code,title, contents, created_date,file_code1,file_code2, file_code3, file_code4, file_code5,board_type) VALUES(?,?,?,SYSDATE(),?,?,?,?,?,?)";
+            //sql = "INSERT INTO calvin_board(member_code,title, contents, created_date,file_code1,file_code2, file_code3, file_code4, file_code5,board_type) VALUES(?,?,?,current_date(),?,?,?,?,?,?)";
             result = jdbcTemplate.update(sql, code, title, contents,file_code_list[0],file_code_list[1],file_code_list[2],file_code_list[3],file_code_list[4],board_type);
         }catch (Exception e){
             System.out.println("에러 : "+e);
@@ -149,7 +151,6 @@ public class CalvinBoardService {
 //                "contents, board_type,created_date, member_name FROM calvin_board b, calvin_member m where b.member_code = m.member_code) t WHERE num >= ? AND num <= ? AND board_type = ?";
 //        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code,b.member_code, title,contents,created_date,member_name FROM calvin_board b, calvin_member m, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND board_type = ? ORDER BY board_code DESC) t LIMIT ?, ? ";//서버
         String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code,b.member_code, title,contents,b.created_date,member_name, f.save_name FROM calvin_board b, calvin_member m,calvin_file f, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND b.file_code1 = f.file_code AND board_type = ? ORDER BY board_code DESC) t LIMIT ?, ? ";//서버
-
         result = jdbcTemplate.query(sql, new Object[]{board_type,(page-1)*20,20}, new RowMapper<BoardView>() {
             @Override
             public BoardView mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -239,8 +240,7 @@ public class CalvinBoardService {
 
     //제목으로 검색(어드민용)
     public List<BoardView> SelectByTitle(String word, int page, int max_code){
-//        String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board_code DESC) AS num, board_code, m.member_code, title, contents, created_date, m.member_name FROM calvin_board b, calvin_member m WHERE b.member_code = m.member_code AND title REGEXP ?) t WHERE num >= ? AND num <= ?";
-        //
+        //String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board_code DESC) AS num, board_code, m.member_code, title, contents, created_date, m.member_name FROM calvin_board b, calvin_member m WHERE b.member_code = m.member_code AND title REGEXP ?) t WHERE num >= ? AND num <= ?";
         String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, b.created_date, m.member_name,f.save_name FROM calvin_board b, calvin_member m, calvin_file f, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND b.file_code1 = f.file_code AND title REGEXP ?) t LIMIT ?, ?";
         //서버
         List<BoardView> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*", (page-1)*20,20}, new RowMapper<BoardView>() {
@@ -271,8 +271,7 @@ public class CalvinBoardService {
     }
     //제목으로 검색(일반용)
     public List<BoardView> SelectByTitle(String board_type, String word, int page, int max_code){
-//        String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board_code DESC) AS num, board_code, m.member_code, title, contents, created_date, m.member_name FROM calvin_board b, calvin_member m WHERE b.member_code = m.member_code AND title REGEXP ?) t WHERE num >= ? AND num <= ? AND board_type = ?";
-        //
+        //String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board_code DESC) AS num, board_code, m.member_code, title, contents, created_date, m.member_name FROM calvin_board b, calvin_member m WHERE b.member_code = m.member_code AND title REGEXP ?) t WHERE num >= ? AND num <= ? AND board_type = ?";
         String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, b.created_date, m.member_name, f.save_name FROM calvin_board b, calvin_member m, calvin_file f,(SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND f.file_code = b.file_code1 AND title REGEXP ?  AND board_type = ?) t LIMIT ?, ?";
         //서버
         List<BoardView> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*",board_type, (page-1)*20,20}, new RowMapper<BoardView>() {
@@ -305,6 +304,7 @@ public class CalvinBoardService {
     public List<BoardView> SelectByContents(String word, int page, int max_code){
         String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num, board_code, m.member_code, title, contents, b.created_date, m.member_name,f.save_name FROM calvin_board b, calvin_member m, calvin_file f, (SELECT @rownum := 0) r WHERE b.member_code = m.member_code AND b.file_code1 = f.file_code AND contents REGEXP ?) t LIMIT ?, ?";
         //서버
+        //String sql = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY BOARD_CODE DESC) AS NUM, BOARD_CODE, M.MEMBER_CODE, TITLE, CONTENTS,B.CREATED_DATE, M.MEMBER_NAME, F.SAVE_NAME FROM CALVIN_BOARD B, CALVIN_MEMBER M, CALVIN_FILE F, (SELECT ROW_NUMBER() OVER (ORDER BY score DESC)) R WHERE B.MEMBER_CODE = M.MEMBER_CODE AND B.FILE_CODE1 = F.FILE_CODE AND CONTENTS REGEXP ?) T LIMIT ?,?";
         List<BoardView> result = jdbcTemplate.query(sql, new Object[]{".*"+word+".*", (page-1)*20,20}, new RowMapper<BoardView>() {
             @Override
             public BoardView mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -403,6 +403,7 @@ public class CalvinBoardService {
         File saveFile = new File(path,fileName);
         file.transferTo(saveFile);
         String sql = "INSERT INTO calvin_file (original_name, save_name, size, created_date) VALUES (?,?,?,SYSDATE())";
+        //String sql = "INSERT INTO calvin_file (original_name, save_name, size, created_date) VALUES (?,?,?,current_date())";
         int insertResult = jdbcTemplate.update(sql,file.getOriginalFilename(), fileName, file.getSize());
         int file_code = -1;
         if(insertResult == 1){

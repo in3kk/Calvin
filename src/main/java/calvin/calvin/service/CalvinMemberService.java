@@ -49,6 +49,7 @@ public class CalvinMemberService {
 
     public int JoinMember(String id, String pwd, String name, String birth, String phone_number, String address){
         String sql = "INSERT INTO calvin_member(id, pwd, join_date, member_type, member_name, birth, phone_number, address) VALUES(?,?,SYSDATE(),?,?,?,?,?)";
+//        String sql = "INSERT INTO calvin_member(id, pwd, join_date, member_type, member_name, birth, phone_number, address) VALUES(?,?,current_date(),?,?,?,?,?)";
         int result = jdbcTemplate.update(sql, id, pwd, "member",name,birth, phone_number,address);
         return result;
     }

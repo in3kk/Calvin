@@ -149,6 +149,7 @@ public class CalvinController {
         return "menu/subject/ACBsystem";
     }
 
+
 //    @GetMapping("/menu/subject/list") //강의 리스트 페이지
 //    public String SubjectList(@RequestParam(value = "field", required = false, defaultValue = "") String field,
 //                              @RequestParam(value = "type") String type, Model model){
@@ -165,7 +166,7 @@ public class CalvinController {
 //        return  result;
 //    }
     //강의 리스트 페이지 (학점은행제, 일반교양, 자격증/취창업)
-    @GetMapping({"/menu/subject/list", "/menu/liberal_arts/list","/menu/certificate/list","/menu/special/list","/menu/language/list","/menu/ministry/list","/menu/center/list","/menu/culture/list"})
+    @GetMapping({"/menu/subject/list", "/menu/liberal_arts/list","/menu/certificate/list","/menu/special/list","/menu/language/list","/menu/ministry/list","/menu/center/list"})
     public String SubjectList(@RequestParam(value = "field", required = false, defaultValue = "") String field,
                               @RequestParam(value = "type") String type,
                               @RequestParam(value = "name", required = false, defaultValue = "")String name,Model model){
@@ -188,20 +189,20 @@ public class CalvinController {
             model.addAttribute("page_type","3.1");
         }else if(type.equals("자격증/취창업")){
             result = "menu/certificate/subject_list";
-//            if(field.equals("전문자격증")){
-//                model.addAttribute("page_type","4.1");
-//            }else if(field.equals("민간자격증")){
-//                model.addAttribute("page_type","4.2");
-//            }else if(field.equals("기술자격증")){
-//                model.addAttribute("page_type","4.3");
-//            }else if(field.equals("취창업")){
-//                model.addAttribute("page_type","4.4");
-//            }
-            if (field.equals("자격증")) {
-                model.addAttribute("page_type", "4.1");
-            } else if (field.equals("취창업")) {
-                model.addAttribute("page_type", "4.2");
+            if(field.equals("전문자격증")){
+                model.addAttribute("page_type","4.1");
+            }else if(field.equals("민간자격증")){
+                model.addAttribute("page_type","4.2");
+            }else if(field.equals("기술자격증")){
+                model.addAttribute("page_type","4.3");
+            }else if(field.equals("취창업")){
+                model.addAttribute("page_type","4.4");
             }
+//            if (field.equals("자격증")) {
+//                model.addAttribute("page_type", "4.1");
+//            } else if (field.equals("취창업")) {
+//                model.addAttribute("page_type", "4.2");
+//            }
         }else if(type.equals("특별교육과정")){
             //용인학아카데미, 서현정치경제아카데미, 경기교육아카데미, 사모아카데미, 레이번스축구아카데미, 연예아카데미
             result = "menu/special/subject_list";
@@ -253,17 +254,6 @@ public class CalvinController {
         } else if (type.equals("목회")) {
             result = "menu/ministry/subject_list";
             model.addAttribute("page_type", "7.1");
-        } else if (type.equals("국제문화원")) {
-            result = "menu/cultural_center/subject_list";
-            if (field.equals("한베문화원")) {
-                model.addAttribute("page_type", "7.1");
-            } else if (field.equals("한몽문화원")) {
-                model.addAttribute("page_type", "7.2");
-            } else if (field.equals("한우문화원")) {
-                model.addAttribute("page_type", "7.3");
-            } else if (field.equals("한네문화원")) {
-                model.addAttribute("page_type", "7.4");
-            }
         }
         return  result;
     }
@@ -286,22 +276,22 @@ public class CalvinController {
             result = "menu/liberal_arts/apply";
         }else if(subject.getSubject_type().equals("자격증/취창업")){
             result = "menu/certificate/apply";
-            if(subject.getSubject_field().matches("%자격증%")){
-                model.addAttribute("page_type","4.1");
-            }else if(subject.getSubject_field().matches("%취창업%")){
-                model.addAttribute("page_type","4.2");
-            }
-//            if(subject.getSubject_field().equals("반려동물")){
+//            if(subject.getSubject_field().matches("%자격증%")){
 //                model.addAttribute("page_type","4.1");
-//            }else if(subject.getSubject_field().equals("사회복지")){
+//            }else if(subject.getSubject_field().matches("%취창업%")){
 //                model.addAttribute("page_type","4.2");
-//            }else if(subject.getSubject_field().equals("실용음악")){
-//                model.addAttribute("page_type","4.3");
-//            }else if(subject.getSubject_field().equals("자격증")){
-//                model.addAttribute("page_type","4.4");
-//            }else if(subject.getSubject_field().equals("취창업")){
-//                model.addAttribute("page_type","4.5");
 //            }
+            if(subject.getSubject_field().equals("반려동물")){
+                model.addAttribute("page_type","4.1");
+            }else if(subject.getSubject_field().equals("사회복지")){
+                model.addAttribute("page_type","4.2");
+            }else if(subject.getSubject_field().equals("실용음악")){
+                model.addAttribute("page_type","4.3");
+            }else if(subject.getSubject_field().equals("자격증")){
+                model.addAttribute("page_type","4.4");
+            }else if(subject.getSubject_field().equals("취창업")){
+                model.addAttribute("page_type","4.5");
+            }
         }else if(subject.getSubject_type().equals("특별교육과정")){
             result = "menu/special/apply";
             if(subject.getSubject_field().equals("바이블")){
@@ -352,17 +342,6 @@ public class CalvinController {
                 model.addAttribute("page_type", "6.8");
             } else if (subject.getSubject_field().equals("여교역자교육원")) {
                 model.addAttribute("page_type", "6.9");
-            }
-        } else if (subject.getSubject_type().equals("국제문화원")) {
-            result = "menu/cultural_center/apply";
-            if (subject.getSubject_field().equals("한베문화원")) {
-                model.addAttribute("page_type", "7.1");
-            } else if (subject.getSubject_field().equals("한몽문화원")) {
-                model.addAttribute("page_type", "7.2");
-            } else if (subject.getSubject_field().equals("한우문화원")) {
-                model.addAttribute("page_type", "7.3");
-            } else if (subject.getSubject_field().equals("한네문화원")) {
-                model.addAttribute("page_type", "7.4");
             }
         }
         return result;
@@ -515,7 +494,7 @@ public class CalvinController {
         return "menu/mypage/admin_member_view";
     }
     //게시판 페이지 search_type = 검색방법 ex) 제목, 내용 admin => 관리자용 페이지
-    @GetMapping({"/menu/board","/mypage/admin/board"})
+    @GetMapping({"/menu/board","/mypage/admin/board","/menu/culture/board"})
     public String BoardPage(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
                             @RequestParam(value = "search_word", required = false, defaultValue = "") String search_word,
                             @RequestParam(value = "search_type", required = false, defaultValue = "1") int search_type,
@@ -545,24 +524,39 @@ public class CalvinController {
                     throw new CustomException(ErrorCode.INVALID_PERMISSION);
                 }
 
-            }else if(board_type.equals("공지사항")){
+            }else {
                 LocalDateTime startTime = LocalDateTime.now();
                 count = calvinBoardService.paging(board_type);
-                board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
-                result = "menu/board/board01";
-                page_type = "8.5";
-                LocalDateTime now = LocalDateTime.now();
-            }else if(board_type.equals("사진자료실")){
-                count = calvinBoardService.paging(board_type);
-                board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
-                result = "menu/info2/gallery";
-                page_type = "8.6";
-            }else if(board_type.equals("서식자료실")){
-                count = calvinBoardService.paging(board_type);
-                board_list = calvinBoardService.SelectAllBoard(board_type,page, count);
-                result = "menu/info2/format";
-                page_type = "8.7";
+                board_list = calvinBoardService.SelectAllBoard(board_type, page, count);
+                if(board_type.equals("공지사항")){
+                    result = "menu/board/board01";
+                    page_type = "8.5";
+                    LocalDateTime now = LocalDateTime.now();
+                }else if(board_type.equals("사진자료실")){
+                    result = "menu/info2/gallery";
+                    page_type = "8.6";
+                }else if(board_type.equals("서식자료실")){
+                    result = "menu/info2/format";
+                    page_type = "8.7";
+                } else if (board_type.equals("한베문화원")) {
+                    result = "menu/cultural_center/board01";
+                    model.addAttribute("board_type",board_type);
+                    page_type = "7.1";
+                }else if (board_type.equals("한몽문화원")) {
+                    result = "menu/cultural_center/board01";
+                    model.addAttribute("board_type",board_type);
+                    page_type = "7.2";
+                }else if (board_type.equals("한우문화원")) {
+                    result = "menu/cultural_center/board01";
+                    model.addAttribute("board_type",board_type);
+                    page_type = "7.3";
+                }else if (board_type.equals("한네문화원")) {
+                    result = "menu/cultural_center/board01";
+                    model.addAttribute("board_type",board_type);
+                    page_type = "7.4";
+                }
             }
+
         }else{
             if(board_type.equals("")){
                 if(httpSession.getAttribute("member_type").equals("dd")||httpSession.getAttribute("member_type").equals("st")||httpSession.getAttribute("member_type").equals("ai")){
@@ -619,7 +613,7 @@ public class CalvinController {
     }
 
     //게시글 확인 페이지 id == board_code
-    @GetMapping("/menu/board/view")
+    @GetMapping({"/menu/board/view","/menu/culture/view"})
     public String BoardView(@RequestParam(value = "id") int id, Model model){
         BoardView boardView = calvinBoardService.SelectBoardDetail(id);
         Calvin_file calvinFile1 = calvinFileService.getFileOriginName(boardView.getFile_code1());
@@ -635,14 +629,27 @@ public class CalvinController {
         model.addAttribute("file5",calvinFile5);
         model.addAttribute("page_type", "8.5");
         String board_type = boardView.getBoard_type();
+        String result = "menu/board/board_view";
         if(board_type.equals("공지사항")){
             model.addAttribute("page_type", "8.5");
         }else if(board_type.equals("사진자료실")){
             model.addAttribute("page_type", "8.6");
         }else if(board_type.equals("서식자료실")){
             model.addAttribute("page_type", "8.7");
+        }else if(board_type.equals("한베문화원")){
+            result = "menu/cultural_center/board_view";
+            model.addAttribute("page_type","7.1");
+        }else if(board_type.equals("한몽문화원")){
+            result = "menu/cultural_center/board_view";
+            model.addAttribute("page_type","7.2");
+        }else if(board_type.equals("한우문화원")){
+            result = "menu/cultural_center/board_view";
+            model.addAttribute("page_type","7.3");
+        }else if(board_type.equals("한네문화원")){
+            result = "menu/cultural_center/board_view";
+            model.addAttribute("page_type","7.4");
         }
-        return "menu/board/board_view";
+        return result;
     }
     //게시글 작성 페이지
     @GetMapping("/menu/board/write")
@@ -657,48 +664,70 @@ public class CalvinController {
         return "menu/board/board_write";
     }
 
+    //국제문화원 게시글 작성 페이지
+    @GetMapping("/menu/culture/write")
+    public String cultureWritePage(@RequestParam(value = "board_type") String board_type, HttpSession httpSession, Model model) {
+        if(httpSession.getAttribute("member_id") != null && httpSession.getAttribute("member_type") != null){
+            if(httpSession.getAttribute("member_type").equals("dd")||httpSession.getAttribute("member_type").equals("st")||httpSession.getAttribute("member_type").equals("ai")) {
+                if(board_type.equals("한베문화원")){
+                    model.addAttribute("page_type", "7.1");
+                }else if(board_type.equals("한몽문화원")){
+                    model.addAttribute("page_type", "7.2");
+                }else if(board_type.equals("한우문화원")){
+                    model.addAttribute("page_type", "7.3");
+                }else if(board_type.equals("한네문화원")){
+                    model.addAttribute("page_type", "7.4");
+                }
+            }
+        }else {
+            throw new CustomException(ErrorCode.INVALID_PERMISSION);
+        }
+        return "menu/cultural_center/board_write";
+    }
+
     //게시글 작성
     @PostMapping("/menu/board/write")
     public String InsertBoard(@RequestParam(value = "title") String title, @RequestParam(value = "contents") String board_contents,
                               @RequestParam(value = "member_id") String member_id,
-                              @RequestParam(value= "board_type") String board_type,
+                              @RequestParam(value = "board_type") String board_type,
                               @RequestParam(value = "file1", required = false) MultipartFile file1,
                               @RequestParam(value = "file2", required = false) MultipartFile file2,
                               @RequestParam(value = "file3", required = false) MultipartFile file3,
                               @RequestParam(value = "file4", required = false) MultipartFile file4,
-                              @RequestParam(value = "file5", required = false) MultipartFile file5){
+                              @RequestParam(value = "file5", required = false) MultipartFile file5) {
+
         String result = "";
         List<MultipartFile> file_list = new ArrayList<>();
         boolean token = false;
-        if(file1 != null){
+        if (file1 != null) {
             file_list.add(file1);
             token = true;
         }
-        if(file2 != null){
+        if (file2 != null) {
             file_list.add(file2);
             token = true;
         }
-        if(file3 != null){
+        if (file3 != null) {
             file_list.add(file3);
             token = true;
         }
-        if(file4 != null){
+        if (file4 != null) {
             file_list.add(file4);
             token = true;
         }
-        if(file5 != null){
+        if (file5 != null) {
             file_list.add(file5);
             token = true;
         }
         int insert_result;
-        if(token){
-            insert_result = calvinBoardService.insertBoard(title,board_contents,member_id,file_list,board_type);
-        }else{
-            insert_result = calvinBoardService.insertBoard(title,board_contents,member_id,board_type);
+        if (token) {
+            insert_result = calvinBoardService.insertBoard(title, board_contents, member_id, file_list, board_type);
+        } else {
+            insert_result = calvinBoardService.insertBoard(title, board_contents, member_id, board_type);
         }
-        if(insert_result == 1){
+        if (insert_result == 1) {
             result = "redirect:/menu/board";
-        }else{
+        } else {
             //insert 실패시
             result = "redirect:/menu/board";
         }
@@ -718,24 +747,29 @@ public class CalvinController {
         model.addAttribute("page_type","1.2");
         return "menu/information/history";
     }
-
-    //조직도 페이지 1.3
+    //발전 계획 1.3
+    @GetMapping("/menu/info/masterplan")
+    public String masterPlan(Model model) {
+        model.addAttribute("page_type", "1.3");
+        return "menu/information/master_plan";
+    }
+    //조직도 페이지 1.4
     @GetMapping("/menu/info/organization")
     public String OrganizationPage(Model model){
-        model.addAttribute("page_type","1.3");
+        model.addAttribute("page_type","1.4");
         return "menu/information/organization";
     }
 
-    //캠퍼스 안내 페이지 1.4
+    //캠퍼스 안내 페이지 1.5
     @GetMapping("/menu/info/campus")
     public String CampusPage(Model model){
-        model.addAttribute("page_type","1.4");
+        model.addAttribute("page_type","1.5");
         return "menu/information/campus";
     }
-    //찾아오시는 길 페이지 1.5
+    //찾아오시는 길 페이지 1.6
     @GetMapping("/menu/info/path")
     public String PathPage(Model model){
-        model.addAttribute("page_type","1.5");
+        model.addAttribute("page_type","1.6");
         return "menu/information/path";
     }
 

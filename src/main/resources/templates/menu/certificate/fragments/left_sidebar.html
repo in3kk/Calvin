@@ -11,95 +11,95 @@
     <h2>자격증/취창업</h2>
     <div class="lnb">
         <ul>
-            <li>
-                <a th:if="${page_type == '4.1'}" href="/menu/certificate/list?type=자격증/취창업&field=자격증" class='lnb_on'>자격증관련</a>
-                <a th:unless="${page_type == '4.1'}" href="/menu/certificate/list?type=자격증/취창업&field=자격증">자격증관련</a>
-                <ol th:if="${page_type == '4.1'}"class="lnb_on_3depth"><!--3차 메뉴-->
-                    <dl>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=사회복지사">사회복지사</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=평생교육사">청소년상담사</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=행정관리사">청소년지도사</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=장애아특수교사">보육교사</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=사회복지사">임상심리사</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=평생교육사">심리상담사</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=행정관리사">건강관리사</a></dd>
-                    </dl>
-                </ol>
-            </li>
-            <li>
-                <a th:if="${page_type == '4.2'}" href="/menu/certificate/list?type=자격증/취창업&field=취창업" class='lnb_on'>취창업관련</a>
-                <a th:unless="${page_type == '4.2'}" href="/menu/certificate/list?type=자격증/취창업&field=취창업">취창업관련</a>
-                <ol th:if="${page_type == '4.2'}"class="lnb_on_3depth"><!--3차 메뉴-->
-                    <dl>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=가죽공예사">가죽공예사</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=바리스타">바리스타</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=골프진행요원">골프진행요원</a></dd>
-                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=하우스닥터">하우스닥터</a></dd>
-                    </dl>
-                </ol>
-            </li>
 <!--            <li>-->
-<!--                <a th:if="${page_type == '4.1'}" href="/menu/certificate/list?type=자격증/취창업&field=전문자격증" class='lnb_on'>전문자격증</a>-->
-<!--                <a th:unless="${page_type == '4.1'}" href="/menu/certificate/list?type=자격증/취창업&field=전문자격증">전문자격증</a>-->
+<!--                <a th:if="${page_type == '4.1'}" href="/menu/certificate/list?type=자격증/취창업&field=자격증" class='lnb_on'>자격증관련</a>-->
+<!--                <a th:unless="${page_type == '4.1'}" href="/menu/certificate/list?type=자격증/취창업&field=자격증">자격증관련</a>-->
 <!--                <ol th:if="${page_type == '4.1'}"class="lnb_on_3depth">&lt;!&ndash;3차 메뉴&ndash;&gt;-->
 <!--                    <dl>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=전문자격증&name=사회복지사">사회복지사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=전문자격증&name=평생교육사">평생교육사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=전문자격증&name=행정관리사">행정관리사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=전문자격증&name=장애아특수교사">장애아특수교사</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=사회복지사">사회복지사</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=평생교육사">청소년상담사</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=행정관리사">청소년지도사</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=장애아특수교사">보육교사</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=사회복지사">임상심리사</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=평생교육사">심리상담사</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=자격증&name=행정관리사">건강관리사</a></dd>-->
 <!--                    </dl>-->
 <!--                </ol>-->
 <!--            </li>-->
 <!--            <li>-->
-<!--                <a th:if="${page_type == '4.2'}" href="/menu/certificate/list?type=자격증/취창업&field=민간자격증" class='lnb_on'>등록민간자격증</a>-->
-<!--                <a th:unless="${page_type == '4.2'}" href="/menu/certificate/list?type=자격증/취창업&field=민간자격증">등록민간자격증</a>-->
+<!--                <a th:if="${page_type == '4.2'}" href="/menu/certificate/list?type=자격증/취창업&field=취창업" class='lnb_on'>취창업관련</a>-->
+<!--                <a th:unless="${page_type == '4.2'}" href="/menu/certificate/list?type=자격증/취창업&field=취창업">취창업관련</a>-->
 <!--                <ol th:if="${page_type == '4.2'}"class="lnb_on_3depth">&lt;!&ndash;3차 메뉴&ndash;&gt;-->
 <!--                    <dl>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=미술심리상담사">미술심리상담사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=아동심리상담사">아동심리상담사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=노인심리상담사">노인심리상담사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=다문화심리상담사">다문화심리상담사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=동화구연지도사">동화구연지도사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=POP예쁜손글씨">POP예쁜손글씨</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=레크리에이션지도사">레크리에이션지도사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=웃음코칭지도사">웃음코칭지도사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=펀리더십지도사">펀리더십지도사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=숲체험심리상담사">숲체험심리상담사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=인지행동상담사">인지행동상담사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=학교폭력예방상담사">학교폭력예방상담사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=민간조사사">민간조사사(탐정사)</a></dd>-->
-<!--                    </dl>-->
-<!--                </ol>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a th:if="${page_type == '4.3'}" href="/menu/certificate/list?type=자격증/취창업&field=기술자격증" class='lnb_on'>기술자격증</a>-->
-<!--                <a th:unless="${page_type == '4.3'}" href="/menu/certificate/list?type=자격증/취창업&field=기술자격증">기술자격증</a>-->
-<!--                <ol th:if="${page_type == '4.3'}"class="lnb_on_3depth">&lt;!&ndash;3차 메뉴&ndash;&gt;-->
-<!--                    <dl>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=기술자격증&name=전기기능사">전기기능사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=기술자격증&name=설비기능사">설비기능사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=기술자격증&name=산업안전기능사">산업안전기능사</a></dd>-->
-<!--                    </dl>-->
-<!--                </ol>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a th:if="${page_type == '4.4'}" href="/menu/certificate/list?type=자격증/취창업&field=취창업" class='lnb_on'>취창업과정</a>-->
-<!--                <a th:unless="${page_type == '4.4'}" href="/menu/certificate/list?type=자격증/취창업&field=취창업">취창업과정</a>-->
-<!--                <ol th:if="${page_type == '4.4'}"class="lnb_on_3depth">&lt;!&ndash;3차 메뉴&ndash;&gt;-->
-<!--                    <dl>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=융합반도체운영요원">융합반도체운영요원</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=골프진행요원">골프진행요원</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=물류관리사">물류관리사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=하우스닥터">하우스닥터</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=가죽공예사">가죽공예사</a></dd>-->
 <!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=바리스타">바리스타</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=장례지도사">장례지도사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=요양보호사">요양보호사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=간호조무사">간호조무사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=도시농업관리사">도시농업관리사</a></dd>-->
-<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=원예기능사">원예기능사</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=골프진행요원">골프진행요원</a></dd>-->
+<!--                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=하우스닥터">하우스닥터</a></dd>-->
 <!--                    </dl>-->
 <!--                </ol>-->
 <!--            </li>-->
+            <li>
+                <a th:if="${page_type == '4.1'}" href="/menu/certificate/list?type=자격증/취창업&field=전문자격증" class='lnb_on'>전문자격증</a>
+                <a th:unless="${page_type == '4.1'}" href="/menu/certificate/list?type=자격증/취창업&field=전문자격증">전문자격증</a>
+                <ol th:if="${page_type == '4.1'}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=전문자격증&name=사회복지사">사회복지사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=전문자격증&name=평생교육사">평생교육사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=전문자격증&name=행정관리사">행정관리사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=전문자격증&name=장애아특수교사">장애아특수교사</a></dd>
+                    </dl>
+                </ol>
+            </li>
+            <li>
+                <a th:if="${page_type == '4.2'}" href="/menu/certificate/list?type=자격증/취창업&field=민간자격증" class='lnb_on'>등록민간자격증</a>
+                <a th:unless="${page_type == '4.2'}" href="/menu/certificate/list?type=자격증/취창업&field=민간자격증">등록민간자격증</a>
+                <ol th:if="${page_type == '4.2'}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=미술심리상담사">미술심리상담사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=아동심리상담사">아동심리상담사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=노인심리상담사">노인심리상담사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=다문화심리상담사">다문화심리상담사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=동화구연지도사">동화구연지도사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=POP예쁜손글씨">POP예쁜손글씨</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=레크리에이션지도사">레크리에이션지도사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=웃음코칭지도사">웃음코칭지도사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=펀리더십지도사">펀리더십지도사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=숲체험심리상담사">숲체험심리상담사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=인지행동상담사">인지행동상담사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=학교폭력예방상담사">학교폭력예방상담사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=민간자격증&name=민간조사사">민간조사사(탐정사)</a></dd>
+                    </dl>
+                </ol>
+            </li>
+            <li>
+                <a th:if="${page_type == '4.3'}" href="/menu/certificate/list?type=자격증/취창업&field=기술자격증" class='lnb_on'>기술자격증</a>
+                <a th:unless="${page_type == '4.3'}" href="/menu/certificate/list?type=자격증/취창업&field=기술자격증">기술자격증</a>
+                <ol th:if="${page_type == '4.3'}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=기술자격증&name=전기기능사">전기기능사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=기술자격증&name=설비기능사">설비기능사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=기술자격증&name=산업안전기능사">산업안전기능사</a></dd>
+                    </dl>
+                </ol>
+            </li>
+            <li>
+                <a th:if="${page_type == '4.4'}" href="/menu/certificate/list?type=자격증/취창업&field=취창업" class='lnb_on'>취창업과정</a>
+                <a th:unless="${page_type == '4.4'}" href="/menu/certificate/list?type=자격증/취창업&field=취창업">취창업과정</a>
+                <ol th:if="${page_type == '4.4'}"class="lnb_on_3depth"><!--3차 메뉴-->
+                    <dl>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=융합반도체운영요원">융합반도체운영요원</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=골프진행요원">골프진행요원</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=물류관리사">물류관리사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=하우스닥터">하우스닥터</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=바리스타">바리스타</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=장례지도사">장례지도사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=요양보호사">요양보호사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=간호조무사">간호조무사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=도시농업관리사">도시농업관리사</a></dd>
+                        <dd><a href="/menu/certificate/list?type=자격증/취창업&field=취창업&name=원예기능사">원예기능사</a></dd>
+                    </dl>
+                </ol>
+            </li>
         </ul>
     </div>
 
