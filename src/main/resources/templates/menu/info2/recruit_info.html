@@ -38,35 +38,114 @@
         </div>
         <div class="contentsArea">
             <script type="text/javascript">
-            $(function(){
+                $(function(){
+                    //parameter에서 tab 파라미터 추출
+                    const params = new URLSearchParams(window.location.search);
+                    const tab = parseInt(params.get("tab") || 0);
 
-                $(".tabmenu ul li:eq(0) a").addClass("active");
-                $(".tabmenu ul li:eq(0) a").css("color","#1692cd")
+                    $(".tabmenu ul li").eq(tab).find("a").addClass("active");
+                    $(".tabmenu ul li").eq(tab).find("a").css("color","#1692cd")
 
-                $(".tabmenu ul li a").click(function(){
-                    $(".tabmenu ul li a").removeClass("active");
-                    $(this).addClass("active");
-                    $(".tabmenu ul li a").css("color","#333");
-                    $(this).css("color","#1692cd")
-                    tabno=$(".tabmenu ul li a").index($(this))+1;
-                    for (i=1;i<8 ;i++ ){
-                        $("#tabcon"+i).hide()
-                    }
-                    $("#tabcon"+tabno).show()
+                    //url에서 parameter 삭제
+                    const url = window.location.origin + window.location.pathname;
+                    history.replaceState({}, document.title, url);
+
+                    $(".tabmenu ul li a").click(function(){
+                        $(".tabmenu ul li a").removeClass("active");
+                        $(this).addClass("active");
+                        $(".tabmenu ul li a").css("color","#333");
+                        $(this).css("color","#1692cd")
+                        tabno=$(".tabmenu ul li a").index($(this))+1;
+                        for (i=1;i<8 ;i++ ){
+                            $("#tabcon"+i).hide()
+                        }
+                        $("#tabcon"+tabno).show()
+                    })
                 })
-
-
-            })
             </script>
             <div class="tabmenu">
                 <ul>
-                    <li style="width:33%"><a href="#;">일반교육과정</a></li>
-                    <li style="width:33%"><a href="#2;">특별교육과정</a></li>
-                    <li style="width:33%"><a href="#3;">학점은행제</a></li>
+                    <li style="width:33%"><a href="#;">학점은행제</a></li>
+                    <li style="width:33%"><a href="#;">자격증/취창업과정</a></li>
+                    <li style="width:33%"><a href="#;">특별교육과정</a></li>
                 </ul>
             </div>
-            <div id="tabcon1">
-                <h4 class="h4_tit">일반교육과정 모집안내</h4>
+
+
+
+
+
+            <div id="tabcon1" >
+                <h4 class="h4_tit">학점은행제 모집안내</h4>
+                <table class="table_style5" summary="">
+                    <caption></caption>
+                    <tbody>
+                    <tr>
+                        <th width="140px">접수기간</th>
+                        <td><span class="tx_pink"><strong>기간 표시 </strong> </span> 토 · 일요일제외(단, 인터넷접수는 예외)</td>
+                    </tr>
+                    <tr>
+                        <th>추가 접수기간</th>
+                        <td><span class="tx_pink"><strong>기간 표시</strong></span> (단, 개강된 강좌에 한함)</td>
+                    </tr>
+                    <tr>
+                        <th>교육기간</th>
+                        <td><span class="tx_blue"><strong>기간 표시 </strong></span> <15주 과정> (강좌에 따라 다름) </td>
+                    </tr>
+                    <tr>
+                        <th>개강일</th>
+                        <td><span class="tx_blue"><strong>기간 표시</strong></span>부터 요일별로 순차적 개강 </td>
+                    </tr>
+                    <tr>
+                        <th>지원자격</th>
+                        <td>자격제한은 없으며, 수강접수 순</td>
+                    </tr>
+                    <tr>
+                        <th>접수방법</th>
+                        <td>인터넷 접수 <span class="tx_pink">(모바일, 태블릿으로는 접속이 불가능합니다. 반드시 <strong>PC로 접속</strong>해주시길 바랍니다.)</span></td>
+                    </tr>
+                    <tr>
+                        <th>제출서류</th>
+                        <td>감면대상인 경우 : 증빙자료 교학팀 (대학원동 506호)으로 제출바람</td>
+                    </tr>
+                    <tr>
+                        <th>수강료입금</th>
+                        <td>
+                            <span class="tx_pink tx_size16">학점은행제 (우리은행 :  / 예금주 : )</span> <br />
+                            ※입금시 <span class="tx_blue">수강생의 성명기재</span>를 하며, <span class="tx_blue">입금 후 반드시 전화로 등록</span>을 확인하시기 바랍니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>참고사항</th>
+                        <td>
+                            - 강좌별 인원 미달시 개설되지 않을 수 있습니다. <br />
+                            - 학위취득에 필요한 학점 중 84학점 이상을 본 교육기관에서 취득할 경우, 「학점인정 등에 관한 법률」에 의거하여 단국대학교 총장명의의 학사학위를 취득할 수 있습니다.
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="info_local">
+                    <h5 class="info_local_tit">위치</h5>
+                    <p class="pt20">
+                        [평생교육원 교학팀 ]<br />
+                        경기도 용인시 기흥구 마북로 184 <br />
+                        칼빈대학교 </p>
+                </div>
+                <div class="info_call">
+                    <h5 class="info_call_tit">문의전화</h5>
+                    <p class="pt20">
+                        교학팀 TEL 031-0000-0000 / FAX 031-0000-0000
+                        <!--
+                         전통복식과정 : TEL (031)8005-2619<br />
+                        전통인형옷 및 규방공예소모품 제작과정 : TEL (031)8005-2211
+                        -->
+
+                    </p>
+                </div>
+            </div>
+            <div id="tabcon2" class="dn">
+                <h4 class="h4_tit">자격증/취창업과정 모집안내</h4>
                 <table class="table_style5" summary="">
                     <caption></caption>
                     <tbody>
@@ -140,9 +219,7 @@
                     </p>
                 </div>
             </div>
-
-
-            <div id="tabcon2" class="dn">
+            <div id="tabcon3" class="dn">
                 <h4 class="h4_tit">특별교육과정 모집안내</h4>
                 <table class="table_style5" summary="">
                     <caption></caption>
@@ -203,76 +280,6 @@
                     </tbody>
                 </table>
 
-                <div class="info_local">
-                    <h5 class="info_local_tit">위치</h5>
-                    <p class="pt20">
-                        [평생교육원 교학팀 ]<br />
-                        경기도 용인시 기흥구 마북로 184 <br />
-                        칼빈대학교 </p>
-                </div>
-                <div class="info_call">
-                    <h5 class="info_call_tit">문의전화</h5>
-                    <p class="pt20">
-                        교학팀 TEL 031-0000-0000 / FAX 031-0000-0000
-                        <!--
-                         전통복식과정 : TEL (031)8005-2619<br />
-                        전통인형옷 및 규방공예소모품 제작과정 : TEL (031)8005-2211
-                        -->
-
-                    </p>
-                </div>
-            </div>
-
-            <div id="tabcon3" class="dn">
-                <h4 class="h4_tit">학점은행제 모집안내</h4>
-                <table class="table_style5" summary="">
-                    <caption></caption>
-                    <tbody>
-                    <tr>
-                        <th width="140px">접수기간</th>
-                        <td><span class="tx_pink"><strong>기간 표시 </strong> </span> 토 · 일요일제외(단, 인터넷접수는 예외)</td>
-                    </tr>
-                    <tr>
-                        <th>추가 접수기간</th>
-                        <td><span class="tx_pink"><strong>기간 표시</strong></span> (단, 개강된 강좌에 한함)</td>
-                    </tr>
-                    <tr>
-                        <th>교육기간</th>
-                        <td><span class="tx_blue"><strong>기간 표시 </strong></span> <15주 과정> (강좌에 따라 다름) </td>
-                    </tr>
-                    <tr>
-                        <th>개강일</th>
-                        <td><span class="tx_blue"><strong>기간 표시</strong></span>부터 요일별로 순차적 개강 </td>
-                    </tr>
-                    <tr>
-                        <th>지원자격</th>
-                        <td>자격제한은 없으며, 수강접수 순</td>
-                    </tr>
-                    <tr>
-                        <th>접수방법</th>
-                        <td>인터넷 접수 <span class="tx_pink">(모바일, 태블릿으로는 접속이 불가능합니다. 반드시 <strong>PC로 접속</strong>해주시길 바랍니다.)</span></td>
-                    </tr>
-                    <tr>
-                        <th>제출서류</th>
-                        <td>감면대상인 경우 : 증빙자료 교학팀 (대학원동 506호)으로 제출바람</td>
-                    </tr>
-                    <tr>
-                        <th>수강료입금</th>
-                        <td>
-                            <span class="tx_pink tx_size16">학점은행제 (우리은행 :  / 예금주 : )</span> <br />
-                            ※입금시 <span class="tx_blue">수강생의 성명기재</span>를 하며, <span class="tx_blue">입금 후 반드시 전화로 등록</span>을 확인하시기 바랍니다.
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>참고사항</th>
-                        <td>
-                            - 강좌별 인원 미달시 개설되지 않을 수 있습니다. <br />
-                            - 학위취득에 필요한 학점 중 84학점 이상을 본 교육기관에서 취득할 경우, 「학점인정 등에 관한 법률」에 의거하여 단국대학교 총장명의의 학사학위를 취득할 수 있습니다.
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
                 <div class="info_local">
                     <h5 class="info_local_tit">위치</h5>
                     <p class="pt20">
