@@ -234,22 +234,24 @@ public class CalvinController {
             result = "menu/center/subject_list";
             if (field.equals("요양보호사교육원")) {
                 model.addAttribute("page_type", "6.1");
-            } else if (field.equals("드론전문교육원")) {
+            } else if (field.equals("미래금융교육원")) {
                 model.addAttribute("page_type", "6.2");
-            } else if (field.equals("장례지도사교육원")) {
-                model.addAttribute("page_type", "6.3");
-            } else if (field.equals("장로권사교육원")) {
-                model.addAttribute("page_type", "6.4");
             } else if (field.equals("미래교육교육원")) {
+                model.addAttribute("page_type", "6.3");
+            } else if (field.equals("드론전문교육원")) {
+                model.addAttribute("page_type", "6.4");
+            } else if (field.equals("장례지도사교육원")) {
                 model.addAttribute("page_type", "6.5");
-            } else if (field.equals("미래목회연구원")) {
+            } else if (field.equals("장로권사교육원")) {
                 model.addAttribute("page_type", "6.6");
-            } else if (field.equals("ESG경영연구원")) {
+            } else if (field.equals("미래목회연구원")) {
                 model.addAttribute("page_type", "6.7");
-            } else if (field.equals("사모교육원")) {
+            } else if (field.equals("ESG경영연구원")) {
                 model.addAttribute("page_type", "6.8");
-            } else if (field.equals("여교역자교육원")) {
+            } else if (field.equals("사모교육원")) {
                 model.addAttribute("page_type", "6.9");
+            } else if (field.equals("여교역자교육원")) {
+                model.addAttribute("page_type", "6.10");
             }
         } else if (type.equals("목회")) {
             result = "menu/ministry/subject_list";
@@ -326,22 +328,24 @@ public class CalvinController {
             result = "menu/center/apply";
             if (subject.getSubject_field().equals("요양보호사교육원")) {
                 model.addAttribute("page_type", "6.1");
-            } else if (subject.getSubject_field().equals("드론전문교육원")) {
+            } else if (subject.getSubject_field().equals("미래금융교육원")) {
                 model.addAttribute("page_type", "6.2");
-            } else if (subject.getSubject_field().equals("장례지도사교육원")) {
-                model.addAttribute("page_type", "6.3");
-            } else if (subject.getSubject_field().equals("장로권사교육원")) {
-                model.addAttribute("page_type", "6.4");
             } else if (subject.getSubject_field().equals("미래교육교육원")) {
+                model.addAttribute("page_type", "6.3");
+            } else if (subject.getSubject_field().equals("드론전문교육원")) {
+                model.addAttribute("page_type", "6.4");
+            } else if (subject.getSubject_field().equals("장례지도사교육원")) {
                 model.addAttribute("page_type", "6.5");
-            } else if (subject.getSubject_field().equals("미래목회연구원")) {
+            } else if (subject.getSubject_field().equals("장로권사교육원")) {
                 model.addAttribute("page_type", "6.6");
-            } else if (subject.getSubject_field().equals("ESG경영연구원")) {
+            } else if (subject.getSubject_field().equals("미래목회연구원")) {
                 model.addAttribute("page_type", "6.7");
-            } else if (subject.getSubject_field().equals("사모교육원")) {
+            } else if (subject.getSubject_field().equals("ESG경영연구원")) {
                 model.addAttribute("page_type", "6.8");
-            } else if (subject.getSubject_field().equals("여교역자교육원")) {
+            } else if (subject.getSubject_field().equals("사모교육원")) {
                 model.addAttribute("page_type", "6.9");
+            } else if (subject.getSubject_field().equals("여교역자교육원")) {
+                model.addAttribute("page_type", "6.10");
             }
         }
         return result;
