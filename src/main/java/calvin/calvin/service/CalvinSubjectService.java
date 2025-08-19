@@ -92,6 +92,9 @@ public class CalvinSubjectService {
 
         int file_code = -1;
         int result = 0;
+        if (subject_name.isEmpty() || subject_field.isEmpty() || subject_type.isEmpty()) {
+            return result;
+        }
         try {
             file_code =  calvinBoardService.SaveFile(file);
             String sql = "INSERT INTO calvin_subject(fee,subject_name, write_date, subject_stat, file_code, subject_field, lecture_time, " +

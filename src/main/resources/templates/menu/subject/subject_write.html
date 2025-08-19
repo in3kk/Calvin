@@ -42,24 +42,9 @@
                     <input type="hidden" th:value="${subject_code}" name="subject_code"/>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                            <th width="30%">강좌명</th>
+                            <th width="30%">대분류</th>
                             <td width="70%">
-                                <input th:if="${subject.subject_name != null}" type="text" style="width:60%;" name="subject_name" th:value="${subject.subject_name}"/>
-                                <input th:if="${subject.subject_name == null}" type="text" style="width:60%;" name="subject_name" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th width="30%">과정명</th>
-                            <td width="70%">
-                                <input th:if="${subject.subject_field != null}" type="text" style="width:60%;" name="subject_field" th:value="${subject.subject_field}"/>
-                                <input th:if="${subject.subject_field == null}" type="text" style="width:60%;" name="subject_field"/>
-                                <span style="color:red;font-size:10px;display:none" id="add_file_warning" th:value="${subject.subject_field}">띄어쓰기 없이 입력해주세요</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th width="30%">분류</th>
-                            <td width="70%">
-                                <select name="subject_type" style="width:60%;">
+                                <select name="subject_type" style="width:60%;" onchange="changeField(this.value)">
                                     <option th:if="${subject.subject_type == null}" selected value="" style="display:none;">분류를 선택해 주세요</option>
                                     <option th:if="${subject.subject_type != '학점은행제'}" value="학점은행제">학점은행제</option>
                                     <option th:if="${subject.subject_type != '일반교양'}" value="일반교양">일반교양</option>
@@ -72,6 +57,24 @@
                                     <option th:if="${subject.subject_type == '특별교육과정'}" value="특별교육과정" selected>특별교육과정</option>
                                     <option th:if="${subject.subject_type == '교육원'}" value="교육원" selected>교육원</option>
                                 </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">소분류</th>
+                            <td width="70%">
+<!--                                <input th:if="${subject.subject_field != null}" type="text" style="width:60%;" name="subject_field" th:value="${subject.subject_field}"/>-->
+<!--                                <input th:if="${subject.subject_field == null}" type="text" style="width:60%;" name="subject_field"/>-->
+<!--                                <span style="color:red;font-size:10px;display:none" id="add_file_warning" th:value="${subject.subject_field}">띄어쓰기 없이 입력해주세요</span>-->
+                                <select name="subject_field" style="width:60%;">
+                                    <option style="display:none;" selected>분류를 선택해주세요</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">강좌명</th>
+                            <td width="70%">
+                                <input th:if="${subject.subject_name != null}" type="text" style="width:60%;" name="subject_name" th:value="${subject.subject_name}"/>
+                                <input th:if="${subject.subject_name == null}" type="text" style="width:60%;" name="subject_name" />
                             </td>
                         </tr>
                         <tr>
@@ -98,10 +101,14 @@
                         <tr>
                             <th>교ㆍ강사</th>
                             <td>
-                                <select name="member_code" th:each="pro : ${professor}" style="width:60%;">
+                                <select name="member_code"  style="width:60%;">
                                     <option th:if="${subject.member_code == null}" value="0" style="display:none;" selected >교강사를 선택해 주세요</option>
-                                    <option th:if="${pro.member_code == subject.member_code}" th:value="${pro.member_code}"th:text="${pro.name}+'/'+${pro.id}" selected></option>
-                                    <option th:if="${pro.member_code != subject.member_code}" th:value="${pro.member_code}"th:text="${pro.name}+'/'+${pro.id}" ></option>
+                                    <option
+                                            th:each="pro : ${professor}"
+                                            th:value="${pro.member_code}"
+                                            th:text="${pro.name}+' '+${pro.id}"
+                                            th:selected="${pro.member_code == subject.member_code}"></option>
+<!--                                    <option th:if="${pro.member_code != subject.member_code}" th:value="${pro.member_code}"th:text="${pro.name}+'/'+${pro.id}" ></option>-->
                                 </select>
                             </td>
                         </tr>

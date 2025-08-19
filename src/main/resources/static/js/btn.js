@@ -2,6 +2,28 @@ function history_back(){
     history.back();
 }
 
+function changeField(type_value){
+    const lists = {
+        "학점은행제": ["사회복지학과", "사회복지현장실습", "장애아특수교사", "상담학과", "신학과", "아동학과", "실용음악학과", "교양", "행정관리사"],
+        "자격증/취창업": ["등록민간자격증", "기술자격증", "취창업과정"],
+        "특별교육과정": ["바이블아카데미", "용인학아카데미", "골프아카데미", "교회음향아카데미", "AI아카데미", "경기교육아카데미", "축구아카데미"],
+        "일반교양": ["놀술강좌", "자기계발강좌", "생활건강", "생활교양", "생활예술", "성경고전어강좌", "라틴어강좌", "영어강좌", "독일어강좌"],
+        "교육원": ["요양보호사교육원", "미래금융교육원", "미래교육교육원", "드론전문교육원", "장례지도사교육원", "장로권사교육원", "미래목회연구원", "ESG경영연구원", "사모교육원", "여교역자교육원"]
+    };
+
+    const select = document.getElementsByName("subject_field")[0];
+    select.options.length = 0;
+
+    const targetList = lists[type_value] || []; // 없는 경우 빈 배열
+
+    targetList.forEach(field => {
+        const option = document.createElement("option");
+        option.value = field;
+        option.textContent = field;
+        select.appendChild(option);
+    });
+}
+
 function delete_member_btn(member_code){
     if(confirm('해당 회원의 정보를 삭제합니다.')){
         window.location.href = '/mypage/admin/member/delete?member_code='+member_code;
