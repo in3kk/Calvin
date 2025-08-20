@@ -29,7 +29,7 @@ function getCookie( name )
         return "";
 }
 
-// �˾�â ��� -->
+ -->
 
 
 //if ( getCookie( "Notice1" ) != "done" )

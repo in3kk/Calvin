@@ -1278,5 +1278,9 @@ public class CalvinController {
         return result;
     }
 
+    @GetMapping("/temp_popup")
+    public String temp_popup(){
+        return "temp_popup";
+    }
 
 }
