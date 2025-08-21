@@ -12,6 +12,11 @@
     <script type="text/javascript" src="/js/gnb.js"></script> <!-- 메뉴 제이쿼리 -->
     <script type="text/javascript" src="/js/script.js"></script>
     <script type="text/javascript" src="/js/btn.js"></script>
+    <script th:inline="javascript">
+        window.onload = function() {
+            setField([[${subject.subject_type}]], [[${subject.subject_field}]]);
+        }
+    </script>
     <title>칼빈대학교 평생교육원</title>
 </head>
 <body>
