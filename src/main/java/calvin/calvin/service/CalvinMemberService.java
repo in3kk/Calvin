@@ -211,7 +211,7 @@ public class CalvinMemberService {
                 String name = rs.getString("member_name");
                 if(name.length() == 2){
                     name = name.substring(0,1)+"*";
-                }else{
+                }else if(name.length() >= 3){
                     name = name.substring(0,1)+"*"+name.substring(2);
                 }
                 calvin_member.setName(name);
