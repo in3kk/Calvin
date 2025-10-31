@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- 제목:원장 인사말 -->
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -33,35 +33,37 @@
 
     <div class="right_warp">
         <div class="local">
-            <p th:if="${page_type == '5.1'}">HOME &gt; 특별교육과정 &gt; 바이블아카데미</p>
-            <p th:if="${page_type == '5.2'}">HOME &gt; 특별교육과정 &gt; 용인학아카데미</p>
-            <p th:if="${page_type == '5.3'}">HOME &gt; 특별교육과정 &gt; 골프아카데미</p>
-            <p th:if="${page_type == '5.4'}">HOME &gt; 특별교육과정 &gt; 교회음향아카데미</p>
-            <p th:if="${page_type == '5.5'}">HOME &gt; 특별교육과정 &gt; AI아카데미</p>
-            <p th:if="${page_type == '5.6'}">HOME &gt; 특별교육과정 &gt; 경기교육아카데미</p>
+            <p th:if="${page_type == '5.1'}">HOME &gt; 특별교육과정 &gt; 글로벌 문화 예술 아카데미</p>
+            <p th:if="${page_type == '5.2'}">HOME &gt; 특별교육과정 &gt; 바이블아카데미</p>
+            <p th:if="${page_type == '5.3'}">HOME &gt; 특별교육과정 &gt; 용인학아카데미</p>
+            <p th:if="${page_type == '5.4'}">HOME &gt; 특별교육과정 &gt; 골프아카데미</p>
+            <p th:if="${page_type == '5.5'}">HOME &gt; 특별교육과정 &gt; 교회음향아카데미</p>
+            <p th:if="${page_type == '5.6'}">HOME &gt; 특별교육과정 &gt; AI아카데미</p>
+<!--            <p th:if="${page_type == '5.6'}">HOME &gt; 특별교육과정 &gt; 경기교육아카데미</p>-->
             <p th:if="${page_type == '5.7'}">HOME &gt; 특별교육과정 &gt; 축구아카데미</p>
-            <h3 th:if="${page_type == '5.1'}">바이블아카데미</h3>
-            <h3 th:if="${page_type == '5.2'}">용인학아카데미</h3>
-            <h3 th:if="${page_type == '5.3'}">골프아카데미</h3>
-            <h3 th:if="${page_type == '5.4'}">교회음향아카데미</h3>
-            <h3 th:if="${page_type == '5.5'}">AI아카데미</h3>
-            <h3 th:if="${page_type == '5.6'}">경기교육아카데미</h3>
+            <h3 th:if="${page_type == '5.1'}">글로벌 문화 예술 아카데미</h3>
+            <h3 th:if="${page_type == '5.2'}">바이블아카데미</h3>
+            <h3 th:if="${page_type == '5.3'}">용인학아카데미</h3>
+            <h3 th:if="${page_type == '5.4'}">골프아카데미</h3>
+            <h3 th:if="${page_type == '5.5'}">교회음향아카데미</h3>
+            <h3 th:if="${page_type == '5.6'}">AI아카데미</h3>
+<!--            <h3 th:if="${page_type == '5.6'}">경기교육아카데미</h3>-->
             <h3 th:if="${page_type == '5.7'}">축구아카데미</h3>
         </div>
         <div class="contentsArea">
             <div class="bbsList">
-                <p th:if="${page_type == '5.2'}"class="cntTxt01" align="center">
+                <p th:if="${page_type == '5.3'}"class="cntTxt01" align="center">
                     <img src="/item/special_info/yongin.png" width="100%" height="auto">
                 </p>
-                <p th:if="${page_type == '5.3'}"class="cntTxt01" align="center">
+                <p th:if="${page_type == '5.4'}"class="cntTxt01" align="center">
                     <img src="/item/special_info/평교-골프아카데미과정(2025-01-01)-전단지.jpg" width="100%" height="auto">
                 </p>
-                <p th:if="${page_type == '5.6'}"class="cntTxt01" align="center">
-                    <img src="/item/special_info/gyeonggi1.png" width="100%" height="auto">
-                    <img src="/item/special_info/gyeonggi2.png" width="100%" height="auto">
-                    <a href="/download/document/경기교육아카데미(교육전문직 및 임용 모집광고)공문 붙임1..hwp" class="sBtns sbtnSt01 ml5"><span>경기교육아카데미 임용 모집 광고 다운로드</span></a>
-                    <a href="/download/document/경기교육아카데미(진로진학 종단상담 학생모집 광고)공문 붙임2.hwp" class="sBtns sbtnSt01 ml5"><span>경기교육아카데미 학생 모집 광고 다운로드</span></a>
-                </p>
+<!--                <p th:if="${page_type == '5.6'}"class="cntTxt01" align="center">-->
+<!--                    <img src="/item/special_info/gyeonggi1.png" width="100%" height="auto">-->
+<!--                    <img src="/item/special_info/gyeonggi2.png" width="100%" height="auto">-->
+<!--                    <a href="/download/document/경기교육아카데미(교육전문직 및 임용 모집광고)공문 붙임1..hwp" class="sBtns sbtnSt01 ml5"><span>경기교육아카데미 임용 모집 광고 다운로드</span></a>-->
+<!--                    <a href="/download/document/경기교육아카데미(진로진학 종단상담 학생모집 광고)공문 붙임2.hwp" class="sBtns sbtnSt01 ml5"><span>경기교육아카데미 학생 모집 광고 다운로드</span></a>-->
+<!--                </p>-->
                 <table width="100%">
                     <tr>
                         <th width="15%">과정</th>

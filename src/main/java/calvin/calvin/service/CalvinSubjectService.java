@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -54,6 +55,57 @@ public class CalvinSubjectService {
         String sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field REGEXP ? AND subject_type = ? ORDER BY subject_code DESC";
         field = ".*"+field+".*";
         List<Calvin_subject> result = jdbcTemplate.query(sql, new Object[]{field, subject_type}, new RowMapper<Calvin_subject>() {
+            @Override
+            public Calvin_subject mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Calvin_subject calvin_subject = new Calvin_subject();
+                calvin_subject.setSubject_name(rs.getString("subject_name"));
+                calvin_subject.setLecture_time(rs.getString("lecture_time"));
+                calvin_subject.setSubject_code(rs.getInt("subject_code"));
+                calvin_subject.setFee(rs.getInt("fee"));
+                calvin_subject.setSubject_stat(rs.getInt("subject_stat"));
+                calvin_subject.setSubject_field(rs.getString("subject_field"));
+                calvin_subject.setPeriod(rs.getString("period"));
+                return calvin_subject;
+            }
+        });
+        return result;
+    }
+
+    public List<Calvin_subject> SubjcetList(String type, int ipt) {
+        String[] ooo = {};//1:1 과정 필드 채워넣기
+        String[] oot = {};//1:3 과정 필드 채워넣기
+
+        String placeholders;
+        String sql;
+
+        Object[] params;
+        if (ipt == 1) {
+            if (ooo.length == 0) {
+                sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field In ('!') AND subject_type = ? ORDER BY subject_code DESC";
+            }else {
+                placeholders = String.join(",", Collections.nCopies(ooo.length, "?"));
+                sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field In ("+placeholders+") AND subject_type = ? ORDER BY subject_code DESC";
+
+            }
+
+            params = new Object[ooo.length + 1];
+            System.arraycopy(ooo, 0, params, 0, ooo.length);
+            params[ooo.length] = type;
+        } else {
+            if (oot.length == 0) {
+                sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field In ('!') AND subject_type = ? ORDER BY subject_code DESC";
+            } else {
+                placeholders = String.join(",", Collections.nCopies(oot.length, "?"));
+                sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field In ("+placeholders+") AND subject_type = ? ORDER BY subject_code DESC";
+
+            }
+
+            params = new Object[oot.length + 1];
+            System.arraycopy(oot, 0, params, 0, oot.length);
+            params[oot.length] = type;
+        }
+
+        List<Calvin_subject> result = jdbcTemplate.query(sql, params, new RowMapper<Calvin_subject>() {
             @Override
             public Calvin_subject mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Calvin_subject calvin_subject = new Calvin_subject();

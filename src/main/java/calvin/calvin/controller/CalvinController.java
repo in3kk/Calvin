@@ -10,12 +10,14 @@ import calvin.calvin.service.CalvinSubjectService;
 import exception.CustomException;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -165,13 +167,29 @@ public class CalvinController {
 //        model.addAttribute("page_type","2.2");
 //        return  result;
 //    }
+//    @GetMapping("/template-check")//템플릿 누락 확인 코드
+//    @ResponseBody
+//    public String checkTemplate() throws IOException {
+//        ClassPathResource resource = new ClassPathResource("templates/menu/special/global_instructor.html");
+//        return resource.exists() ? "✅ Template found!" : "❌ Template not found!";
+//    }
+    //강사 소개(글로벌 문화 예술)
+    @GetMapping("/menu/special/instructor")
+    public String globalInstructor(Model model) {
+        model.addAttribute("page_type","5.1");
+        return "menu/special/global_instructor";
+    }
+
     //강의 리스트 페이지 (학점은행제, 일반교양, 자격증/취창업)
     @GetMapping({"/menu/subject/list", "/menu/liberal_arts/list","/menu/certificate/list","/menu/special/list","/menu/language/list","/menu/ministry/list","/menu/center/list"})
     public String SubjectList(@RequestParam(value = "field", required = false, defaultValue = "") String field,
                               @RequestParam(value = "type") String type,
-                              @RequestParam(value = "name", required = false, defaultValue = "")String name,Model model){
+                              @RequestParam(value = "name", required = false, defaultValue = "")String name,
+                              @RequestParam(value = "ipt", required = false, defaultValue = "0") int ipt,Model model){
         List<Calvin_subject> subject_list;
-        if(field.equals("")){
+        if (ipt != 0) {
+            subject_list = calvinSubjectService.SubjcetList(type, ipt);
+        }else if(field.equals("")){
             subject_list= calvinSubjectService.SubjectList(type);
         }else if(!name.equals("")){
             subject_list = calvinSubjectService.SubjectList(field,type,name);
@@ -204,21 +222,25 @@ public class CalvinController {
 //                model.addAttribute("page_type", "4.2");
 //            }
         }else if(type.equals("특별교육과정")){
-            //용인학아카데미, 서현정치경제아카데미, 경기교육아카데미, 사모아카데미, 레이번스축구아카데미, 연예아카데미
+            //글로벌 문화 예술, 바이블, 용인학, 골프, 교회음향, AI, 축구
             result = "menu/special/subject_list";
-            if(field.equals("바이블")){
+            if(field.equals("글로벌")){
                 model.addAttribute("page_type","5.1");
-            }else if(field.equals("용인")){
+            }else if(field.equals("바이블")){
                 model.addAttribute("page_type","5.2");
-            }else if(field.equals("골프")){
+            }else if(field.equals("용인")){
                 model.addAttribute("page_type","5.3");
-            }else if(field.equals("교회음향")){
+            }else if(field.equals("골프")){
                 model.addAttribute("page_type","5.4");
-            }else if(field.equals("AI")){
+            }else if(field.equals("교회음향")){
                 model.addAttribute("page_type","5.5");
-            } else if (field.equals("경기교육")) {
+            }else if(field.equals("AI")){
                 model.addAttribute("page_type","5.6");
-            } else if (field.equals("축구아카데미")) {
+            }
+//            else if (field.equals("경기교육")) {
+//                model.addAttribute("page_type","5.6");
+//            }
+            else if (field.equals("축구아카데미")) {
                 model.addAttribute("page_type","5.7");
             }
         }else if(type.equals("언어")){

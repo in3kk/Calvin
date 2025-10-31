@@ -396,8 +396,8 @@ public class CalvinBoardService {
     //첨부파일 저장
     @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
     public int SaveFile(MultipartFile file) throws Exception{
-//        String path = "F:\\CalvinUploadFiles\\";//로컬
-        String path = "/iceadmin/CalvinUploadFile/"; //서버
+        String path = "F:\\CalvinUploadFiles\\";//로컬
+//        String path = "/iceadmin/CalvinUploadFile/"; //서버
         UUID uuid = UUID.randomUUID();
         String fileName = uuid+"_"+file.getOriginalFilename();
         File saveFile = new File(path,fileName);
@@ -428,8 +428,8 @@ public class CalvinBoardService {
                 return file;
             }
         });
-//        String path = "F:\\CalvinUploadFiles\\";//로컬
-        String path = "/iceadmin/CalvinUploadFile/"; //서버
+        String path = "F:\\CalvinUploadFiles\\";//로컬
+//        String path = "/iceadmin/CalvinUploadFile/"; //서버
         for(Calvin_file calvinFile : list){
             path = path+calvinFile.getSave_name();
             calvinFileService.DeleteFile(path,calvinFile.getFile_code());
