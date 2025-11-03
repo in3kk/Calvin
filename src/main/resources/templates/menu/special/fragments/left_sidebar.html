@@ -8,47 +8,49 @@
 <body>
 <div class="lnb_warp" th:fragment="left_sidebar">
     <!--왼쪽메뉴-->
-    <h2>특별교육과정</h2>
+    <h2>전문교육과정</h2>
     <div class="lnb">
         <ul>
             <li>
-                <a th:if="${page_type == '5.1'}" href="/menu/special/list?type=특별교육과정&field=글로벌" class='lnb_on'>글로벌 문화 예술 아카데미</a>
-                <a th:unless="${page_type == '5.1'}" href="/menu/special/list?type=특별교육과정&field=글로벌">글로벌 문화 예술 아카데미</a>
+                <a th:if="${page_type == '5.1'}" href="/menu/special/instructor" class='lnb_on'>글로벌문화예술아카데미</a>
+                <a th:unless="${page_type == '5.1'}" href="/menu/special/instructor">글로벌문화예술아카데미</a>
                 <ol th:if="${page_type == '5.1'}"class="lnb_on_3depth"><!--3차 메뉴-->
                     <dl>
                         <dd><a href="/menu/special/instructor">- 강사소개</a></dd>
-                        <dd><a href="/menu/special/list?field=글로벌&type=특별교육과정&ipt=1">- 1:1 과정</a></dd>
-                        <dd><a href="/menu/special/list?field=글로벌&type=특별교육과정&ipt=3">- 1:3 과정</a></dd>
+                        <dd><a href="/menu/special/list?field=글로벌&type=전문교육과정&ipt=1">- 1:1 과정</a></dd>
+                        <dd><a href="/menu/special/list?field=글로벌&type=전문교육과정&ipt=2">- 1:2 과정</a></dd>
+                        <dd><a href="/menu/special/list?field=글로벌&type=전문교육과정&ipt=3">- 1:3 과정</a></dd>
+                        <dd><a href="/menu/special/list?field=글로벌&type=전문교육과정&ipt=4">- 1:4 과정</a></dd>
                     </dl>
                 </ol>
             </li>
             <li>
-                <a th:if="${page_type == '5.2'}" href="/menu/special/list?type=특별교육과정&field=바이블" class='lnb_on'>바이블아카데미</a>
-                <a th:unless="${page_type == '5.2'}" href="/menu/special/list?type=특별교육과정&field=바이블">바이블아카데미</a>
+                <a th:if="${page_type == '5.2'}" href="/menu/special/list?type=전문교육과정&field=바이블" class='lnb_on'>바이블아카데미</a>
+                <a th:unless="${page_type == '5.2'}" href="/menu/special/list?type=전문교육과정&field=바이블">바이블아카데미</a>
             </li>
             <li>
-                <a th:if="${page_type == '5.3'}" href="/menu/special/list?type=특별교육과정&field=용인" class='lnb_on'>용인학아카데미</a>
-                <a th:unless="${page_type == '5.3'}" href="/menu/special/list?type=특별교육과정&field=용인">용인학아카데미</a>
+                <a th:if="${page_type == '5.3'}" href="/menu/special/list?type=전문교육과정&field=용인" class='lnb_on'>용인학아카데미</a>
+                <a th:unless="${page_type == '5.3'}" href="/menu/special/list?type=전문교육과정&field=용인">용인학아카데미</a>
             </li>
             <li>
-                <a th:if="${page_type == '5.4'}" href="/menu/special/list?type=특별교육과정&field=골프" class='lnb_on'>골프아카데미</a>
-                <a th:unless="${page_type == '5.4'}" href="/menu/special/list?type=특별교육과정&field=골프">골프아카데미</a>
+                <a th:if="${page_type == '5.4'}" href="/menu/special/list?type=전문교육과정&field=골프" class='lnb_on'>골프아카데미</a>
+                <a th:unless="${page_type == '5.4'}" href="/menu/special/list?type=전문교육과정&field=골프">골프아카데미</a>
             </li>
             <li>
-                <a th:if="${page_type == '5.5'}" href="/menu/special/list?type=특별교육과정&field=교회음향" class='lnb_on'>교회음향아카데미</a>
-                <a th:unless="${page_type == '5.5'}" href="/menu/special/list?type=특별교육과정&field=교회음향">교회음향아카데미</a>
+                <a th:if="${page_type == '5.5'}" href="/menu/special/list?type=전문교육과정&field=교회음향" class='lnb_on'>교회음향아카데미</a>
+                <a th:unless="${page_type == '5.5'}" href="/menu/special/list?type=전문교육과정&field=교회음향">교회음향아카데미</a>
             </li>
             <li>
-                <a th:if="${page_type == '5.6'}" href="/menu/special/list?type=특별교육과정&field=AI" class='lnb_on'>AI아카데미</a>
-                <a th:unless="${page_type == '5.6'}" href="/menu/special/list?type=특별교육과정&field=AI">AI아카데미</a>
+                <a th:if="${page_type == '5.6'}" href="/menu/special/list?type=전문교육과정&field=AI" class='lnb_on'>AI아카데미</a>
+                <a th:unless="${page_type == '5.6'}" href="/menu/special/list?type=전문교육과정&field=AI">AI아카데미</a>
             </li>
 <!--            <li>-->
-<!--                <a th:if="${page_type == '5.6'}" href="/menu/special/list?type=특별교육과정&field=경기교육" class='lnb_on'>경기교육아카데미</a>-->
-<!--                <a th:unless="${page_type == '5.6'}" href="/menu/special/list?type=특별교육과정&field=경기교육">경기교육아카데미</a>-->
+<!--                <a th:if="${page_type == '5.6'}" href="/menu/special/list?type=전문교육과정&field=경기교육" class='lnb_on'>경기교육아카데미</a>-->
+<!--                <a th:unless="${page_type == '5.6'}" href="/menu/special/list?type=전문교육과정&field=경기교육">경기교육아카데미</a>-->
 <!--            </li>-->
             <li>
-                <a th:if="${page_type == '5.7'}" href="/menu/special/list?type=특별교육과정&field=축구아카데미" class='lnb_on'>축구아카데미</a>
-                <a th:unless="${page_type == '5.7'}" href="/menu/special/list?type=특별교육과정&field=축구아카데미">축구아카데미</a>
+                <a th:if="${page_type == '5.7'}" href="/menu/special/list?type=전문교육과정&field=축구아카데미" class='lnb_on'>축구아카데미</a>
+                <a th:unless="${page_type == '5.7'}" href="/menu/special/list?type=전문교육과정&field=축구아카데미">축구아카데미</a>
             </li>
 
 
@@ -59,9 +61,9 @@
     <div class="left_con pb50">
         <h3>수강신청</h3>
         <div class="pl10">
-            <span><a href="">일반교양과정</a></span>
-            <span><a href="/menu/liberal_arts/list">특별교육과정</a></span>
-            <span><a href="/menu/subject/list">학점은행제 </a></span>
+            <span><a href="/menu/liberal_arts/list?type=일반교양">일반교양과정</a></span>
+            <span><a href="/menu/special/instructor">전문교육과정</a></span>
+            <span><a href="/menu/subject/list?type=학점은행제">학점은행제</a></span>
         </div>
         </ul>
     </div>

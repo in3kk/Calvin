@@ -33,15 +33,15 @@
 
     <div class="right_warp">
         <div class="local">
-            <p th:if="${page_type == '5.1'}">HOME &gt; 특별교육과정 &gt; 글로벌 문화 예술 아카데미</p>
-            <p th:if="${page_type == '5.2'}">HOME &gt; 특별교육과정 &gt; 바이블아카데미</p>
-            <p th:if="${page_type == '5.3'}">HOME &gt; 특별교육과정 &gt; 용인학아카데미</p>
-            <p th:if="${page_type == '5.4'}">HOME &gt; 특별교육과정 &gt; 골프아카데미</p>
-            <p th:if="${page_type == '5.5'}">HOME &gt; 특별교육과정 &gt; 교회음향아카데미</p>
-            <p th:if="${page_type == '5.6'}">HOME &gt; 특별교육과정 &gt; AI아카데미</p>
-<!--            <p th:if="${page_type == '5.6'}">HOME &gt; 특별교육과정 &gt; 경기교육아카데미</p>-->
-            <p th:if="${page_type == '5.7'}">HOME &gt; 특별교육과정 &gt; 축구아카데미</p>
-            <h3 th:if="${page_type == '5.1'}">글로벌 문화 예술 아카데미</h3>
+            <p th:if="${page_type == '5.1'}">HOME &gt; 전문교육과정 &gt; 글로벌문화예술아카데미</p>
+            <p th:if="${page_type == '5.2'}">HOME &gt; 전문교육과정 &gt; 바이블아카데미</p>
+            <p th:if="${page_type == '5.3'}">HOME &gt; 전문교육과정 &gt; 용인학아카데미</p>
+            <p th:if="${page_type == '5.4'}">HOME &gt; 전문교육과정 &gt; 골프아카데미</p>
+            <p th:if="${page_type == '5.5'}">HOME &gt; 전문교육과정 &gt; 교회음향아카데미</p>
+            <p th:if="${page_type == '5.6'}">HOME &gt; 전문교육과정 &gt; AI아카데미</p>
+<!--            <p th:if="${page_type == '5.6'}">HOME &gt; 전문교육과정 &gt; 경기교육아카데미</p>-->
+            <p th:if="${page_type == '5.7'}">HOME &gt; 전문교육과정 &gt; 축구아카데미</p>
+            <h3 th:if="${page_type == '5.1'}">글로벌문화예술아카데미</h3>
             <h3 th:if="${page_type == '5.2'}">바이블아카데미</h3>
             <h3 th:if="${page_type == '5.3'}">용인학아카데미</h3>
             <h3 th:if="${page_type == '5.4'}">골프아카데미</h3>
@@ -52,6 +52,9 @@
         </div>
         <div class="contentsArea">
             <div class="bbsList">
+                <p th:if="${page_type == '5.1'}"class="cntTxt01" align="center">
+                    <img src="/item/special_info/글로벌문화예술아카데미_배너.png" width="100%" height="auto">
+                </p>
                 <p th:if="${page_type == '5.3'}"class="cntTxt01" align="center">
                     <img src="/item/special_info/yongin.png" width="100%" height="auto">
                 </p>

@@ -71,41 +71,11 @@ public class CalvinSubjectService {
         return result;
     }
 
-    public List<Calvin_subject> SubjcetList(String type, int ipt) {
-        String[] ooo = {};//1:1 과정 필드 채워넣기
-        String[] oot = {};//1:3 과정 필드 채워넣기
+    public List<Calvin_subject> SubjcetList(String type, String field, int ipt) {
+        String sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field REGEXP ? AND subject_type = ? AND subject_name REGEXP ? ORDER BY subject_code DESC";
 
-        String placeholders;
-        String sql;
 
-        Object[] params;
-        if (ipt == 1) {
-            if (ooo.length == 0) {
-                sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field In ('!') AND subject_type = ? ORDER BY subject_code DESC";
-            }else {
-                placeholders = String.join(",", Collections.nCopies(ooo.length, "?"));
-                sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field In ("+placeholders+") AND subject_type = ? ORDER BY subject_code DESC";
-
-            }
-
-            params = new Object[ooo.length + 1];
-            System.arraycopy(ooo, 0, params, 0, ooo.length);
-            params[ooo.length] = type;
-        } else {
-            if (oot.length == 0) {
-                sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field In ('!') AND subject_type = ? ORDER BY subject_code DESC";
-            } else {
-                placeholders = String.join(",", Collections.nCopies(oot.length, "?"));
-                sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field In ("+placeholders+") AND subject_type = ? ORDER BY subject_code DESC";
-
-            }
-
-            params = new Object[oot.length + 1];
-            System.arraycopy(oot, 0, params, 0, oot.length);
-            params[oot.length] = type;
-        }
-
-        List<Calvin_subject> result = jdbcTemplate.query(sql, params, new RowMapper<Calvin_subject>() {
+        List<Calvin_subject> result = jdbcTemplate.query(sql, new Object[]{".*"+field+".*",type,".*1:"+ipt+".*"}, new RowMapper<Calvin_subject>() {
             @Override
             public Calvin_subject mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Calvin_subject calvin_subject = new Calvin_subject();

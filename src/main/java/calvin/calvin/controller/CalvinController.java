@@ -188,7 +188,7 @@ public class CalvinController {
                               @RequestParam(value = "ipt", required = false, defaultValue = "0") int ipt,Model model){
         List<Calvin_subject> subject_list;
         if (ipt != 0) {
-            subject_list = calvinSubjectService.SubjcetList(type, ipt);
+            subject_list = calvinSubjectService.SubjcetList(type, field,ipt);
         }else if(field.equals("")){
             subject_list= calvinSubjectService.SubjectList(type);
         }else if(!name.equals("")){
@@ -221,7 +221,7 @@ public class CalvinController {
 //            } else if (field.equals("취창업")) {
 //                model.addAttribute("page_type", "4.2");
 //            }
-        }else if(type.equals("특별교육과정")){
+        }else if(type.equals("전문교육과정")){
             //글로벌 문화 예술, 바이블, 용인학, 골프, 교회음향, AI, 축구
             result = "menu/special/subject_list";
             if(field.equals("글로벌")){
@@ -316,7 +316,7 @@ public class CalvinController {
             }else if(subject.getSubject_field().equals("취창업")){
                 model.addAttribute("page_type","4.5");
             }
-        }else if(subject.getSubject_type().equals("특별교육과정")){
+        }else if(subject.getSubject_type().equals("전문교육과정")){
             result = "menu/special/apply";
             if(subject.getSubject_field().equals("바이블")){
                 model.addAttribute("page_type","5.1");
