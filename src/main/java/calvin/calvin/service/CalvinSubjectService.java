@@ -31,6 +31,8 @@ public class CalvinSubjectService {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     @Autowired
     private CalvinBoardService calvinBoardService;
+    @Autowired
+    private CalvinMemberService calvinMemberService;
 
 
     public List<Calvin_subject> SubjectList(String subject_type){
@@ -71,11 +73,53 @@ public class CalvinSubjectService {
         return result;
     }
 
+    public List<Calvin_subject> SubjectListByIpt100(String type, String field) {
+        String sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field REGEXP ? AND subject_type = ? AND subject_name NOT REGEXP ? AND subject_name NOT REGEXP ? ORDER BY subject_code DESC";
+
+        String pattern1 = ".*1:[1-4].*";
+        String pattern2 = ".*자격증.*";
+        List<Calvin_subject> result = jdbcTemplate.query(sql, new Object[]{".*"+field+".*", type, pattern1, pattern2}, new RowMapper<Calvin_subject>() {
+            @Override
+            public Calvin_subject mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Calvin_subject calvin_subject = new Calvin_subject();
+                calvin_subject.setSubject_name(rs.getString("subject_name"));
+                calvin_subject.setLecture_time(rs.getString("lecture_time"));
+                calvin_subject.setSubject_code(rs.getInt("subject_code"));
+                calvin_subject.setFee(rs.getInt("fee"));
+                calvin_subject.setSubject_stat(rs.getInt("subject_stat"));
+                calvin_subject.setSubject_field(rs.getString("subject_field"));
+                calvin_subject.setPeriod(rs.getString("period"));
+                return calvin_subject;
+            }
+        });
+        return result;
+    }
     public List<Calvin_subject> SubjcetList(String type, String field, int ipt) {
         String sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_field REGEXP ? AND subject_type = ? AND subject_name REGEXP ? ORDER BY subject_code DESC";
 
 
         List<Calvin_subject> result = jdbcTemplate.query(sql, new Object[]{".*"+field+".*",type,".*1:"+ipt+".*"}, new RowMapper<Calvin_subject>() {
+            @Override
+            public Calvin_subject mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Calvin_subject calvin_subject = new Calvin_subject();
+                calvin_subject.setSubject_name(rs.getString("subject_name"));
+                calvin_subject.setLecture_time(rs.getString("lecture_time"));
+                calvin_subject.setSubject_code(rs.getInt("subject_code"));
+                calvin_subject.setFee(rs.getInt("fee"));
+                calvin_subject.setSubject_stat(rs.getInt("subject_stat"));
+                calvin_subject.setSubject_field(rs.getString("subject_field"));
+                calvin_subject.setPeriod(rs.getString("period"));
+                return calvin_subject;
+            }
+        });
+        return result;
+    }
+
+    public List<Calvin_subject> SubjectListByName(String type, String field, String word) {
+        String sql = "SELECT period,subject_code, subject_field, lecture_time, fee, subject_name, subject_stat FROM calvin_subject WHERE subject_type = ? AND subject_field REGEXP ? AND subject_name REGEXP ? ORDER BY subject_code DESC";
+
+
+        List<Calvin_subject> result = jdbcTemplate.query(sql, new Object[]{type,".*"+field+".*",".*"+word+".*"}, new RowMapper<Calvin_subject>() {
             @Override
             public Calvin_subject mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Calvin_subject calvin_subject = new Calvin_subject();
@@ -196,16 +240,17 @@ public class CalvinSubjectService {
         });
         return result;
     }
-
+//내 강의
     public List<MyPageSubjectView> My_subject(String member_id){
         String sql = "SELECT s.subject_code, s.subject_name, s.subject_stat, s.subject_field, s.fee, m.pay_stat FROM calvin_subject s, member_subject m WHERE s.subject_code = m.subject_code AND m.member_code = ? ORDER BY s.subject_code DESC";
-        List<MyPageSubjectView> result = jdbcTemplate.query(sql, new Object[]{member_id}, new RowMapper<MyPageSubjectView>() {
+        Long member_code = calvinMemberService.getMemberCode(member_id);
+        List<MyPageSubjectView> result = jdbcTemplate.query(sql, new Object[]{member_code}, new RowMapper<MyPageSubjectView>() {
             @Override
             public MyPageSubjectView mapRow(ResultSet rs, int rowNum) throws SQLException {
                 MyPageSubjectView myPageSubjectView = new MyPageSubjectView();
                 myPageSubjectView.setFee(rs.getInt("fee"));
                 myPageSubjectView.setSubject_stat(rs.getInt("subject_stat"));
-                myPageSubjectView.setSubject_field(rs.getString("field"));
+                myPageSubjectView.setSubject_field(rs.getString("subject_field"));
                 myPageSubjectView.setSubject_code(rs.getInt("subject_code"));
                 myPageSubjectView.setPay_stat(rs.getString("pay_stat"));
                 myPageSubjectView.setSubject_name(rs.getString("subject_name"));
@@ -454,6 +499,14 @@ public class CalvinSubjectService {
         result = jdbcTemplate.update(sql, member_code,subject_code);
 
         return result;
+    }
+
+    //수강 신청 취소
+    public int ApplyCancel(Long member_code, int subject_code) {
+        int result = 0;
+        String sql = "DELETE FROM member_subject WHERE member_code = ? AND subject_code = ?";
+        result = jdbcTemplate.update(sql, member_code, subject_code);
+        return  result;
     }
 
     //강의 상태 변경

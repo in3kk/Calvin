@@ -77,7 +77,8 @@
                         <img th:if="(${session.member_type == 'ai'} or ${session.member_type == 'st'} or ${session.member_type == 'dd'}) and (${subject.subject_stat == 1} or ${subject.subject_stat == 2})" th:onclick="'ChangeSubjectStat('+${subject.subject_code}+',3)'" src="/item/apply_btn03.png"/>
                         <img th:if="${session.member_type == 'ai'} or ${session.member_type == 'st'} or ${session.member_type == 'dd'}" th:onclick="'ModifyApply('+${subject.subject_code}+')'" src="/item/apply_btn04.png"/>
                         <img th:if="${session.member_type == 'ai'} or ${session.member_type == 'st'} or ${session.member_type == 'dd'}" th:onclick="'DeleteSubject('+${subject.subject_code}+')'" src="/item/apply_btn03_2.png"/>
-                        <img th:if="${session.member_type == 'mb'} and ${subject.subject_stat == 1}" th:onclick="'ApplyYN('+${subject.subject_code}+')'" src="/item/apply_btn.png"/>
+                        <img th:if="${session.member_type == 'mb'} and ${subject.subject_stat == 1} and ${applyCheck}" th:onclick="'ApplyYN('+${subject.subject_code}+')'" src="/item/apply_btn.png"/>
+                        <img th:if="${session.member_type == 'mb'} and ${subject.subject_stat == 1} and ${!applyCheck}" th:onclick="'ApplyCancel('+${subject.subject_code}+')'" src="/item/apply_cancel_btn.png"/>
                         <img th:if="${session.member_type == 'mb'} and ${subject.subject_stat == 2}" src="/item/apply_btn02.png"/>
                     </div>
                 </div>

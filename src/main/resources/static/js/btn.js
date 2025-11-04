@@ -95,6 +95,12 @@ function ApplyYN(subject_code){
     }
 }
 
+function ApplyCancel(subject_code){
+    if(confirm('해당 강의의 수강신청을 취소하시겠습니까?')){
+        window.location.href='/menu/subject/apply/cancel?subject_code='+subject_code;
+    }
+}
+
 function GrantAuthor(){
     return confirm('해당 회원의 권한을 변경합니다.');
 }

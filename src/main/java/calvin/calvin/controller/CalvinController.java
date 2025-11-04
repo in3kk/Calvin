@@ -10,16 +10,13 @@ import calvin.calvin.service.CalvinSubjectService;
 import exception.CustomException;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -185,10 +182,15 @@ public class CalvinController {
     public String SubjectList(@RequestParam(value = "field", required = false, defaultValue = "") String field,
                               @RequestParam(value = "type") String type,
                               @RequestParam(value = "name", required = false, defaultValue = "")String name,
-                              @RequestParam(value = "ipt", required = false, defaultValue = "0") int ipt,Model model){
+                              @RequestParam(value = "ipt", required = false, defaultValue = "0") int ipt,
+                              @RequestParam(value= "word",required = false, defaultValue = "")String word,Model model){
         List<Calvin_subject> subject_list;
-        if (ipt != 0) {
+        if (ipt == 100) {
+            subject_list = calvinSubjectService.SubjectListByIpt100(type,field);
+        }else if (ipt != 0) {
             subject_list = calvinSubjectService.SubjcetList(type, field,ipt);
+        }else if(!word.equals("")){
+            subject_list = calvinSubjectService.SubjectListByName(type,field,word);
         }else if(field.equals("")){
             subject_list= calvinSubjectService.SubjectList(type);
         }else if(!name.equals("")){
@@ -283,13 +285,15 @@ public class CalvinController {
     }
     //수강신청 페이지
     @GetMapping({"/menu/subject/apply", "/menu/liberal_arts/apply","/menu/certificate/apply","/menu/language/apply"})
-    public String ApplyPage(@RequestParam(value = "id", required = false, defaultValue = "-1") int id, Model model){
+    public String ApplyPage(@RequestParam(value = "id", required = false, defaultValue = "-1") int id, Model model,HttpSession httpSession){
         Calvin_subject subject = calvinSubjectService.SubjectApply(id);
         Calvin_file calvinFile;
         if(subject.getFile_code() != -1){
             calvinFile = calvinFileService.getFileOriginName(subject.getFile_code());
             model.addAttribute("file", calvinFile);
         }
+        boolean applyCheck = calvinSubjectService.ApplyWhether(httpSession.getAttribute("member_id").toString(),id);
+        model.addAttribute("applyCheck",applyCheck);
         model.addAttribute("subject",subject);
         String result = "";
         if(subject.getSubject_type().equals("학점은행제")){
@@ -318,17 +322,19 @@ public class CalvinController {
             }
         }else if(subject.getSubject_type().equals("전문교육과정")){
             result = "menu/special/apply";
-            if(subject.getSubject_field().equals("바이블")){
+            if (subject.getSubject_field().equals("글로벌문화예술아카데미")){
                 model.addAttribute("page_type","5.1");
-            }else if(subject.getSubject_field().equals("용인")){
+            }else if(subject.getSubject_field().equals("바이블")){
                 model.addAttribute("page_type","5.2");
-            }else if(subject.getSubject_field().equals("골프")){
+            }else if(subject.getSubject_field().equals("용인")){
                 model.addAttribute("page_type","5.3");
+            }else if(subject.getSubject_field().equals("골프")){
+                model.addAttribute("page_type","5.4");
             }else if(subject.getSubject_field().equals("교회음향")){
                 model.addAttribute("page_type","5.5");
             }else if(subject.getSubject_field().equals("AI")){
                 model.addAttribute("page_type","5.6");
-            } else if (subject.getSubject_field().equals("축구아카데미")) {
+            }else if (subject.getSubject_field().equals("축구아카데미")) {
                 model.addAttribute("page_type","5.7");
             }
         }else if(subject.getSubject_type().equals("언어")){
@@ -400,6 +406,23 @@ public class CalvinController {
         return "menu/subject/apply_done";
     }
 
+    @GetMapping("/menu/subject/apply/cancel")
+    @ResponseBody
+    public String ApplyCancel(@RequestParam(value = "subject_code") int subject_code, HttpSession httpSession) {
+        String result = "";
+        if(httpSession.getAttribute("member_id")==null){
+            result = "<script>alert('로그인이 필요한 서비스 입니다..');window.location.href = '/member/login';</script>";
+        }else{
+            Long member_code = calvinMemberService.getMemberCode(httpSession.getAttribute("member_id").toString());
+            int insert_result = calvinSubjectService.ApplyCancel(member_code,subject_code);
+            if(insert_result >= 1){
+                result = "<script>alert('수강신청이 취소되었습니다.');window.location.href = document.referrer;</script>";
+            }else{
+                result = "<script>alert('신청취소에 실패하였습니다.');history.back();</script>";
+            }
+        }
+        return result;
+    }
     //회원 권한 변경
     @PostMapping("/mypage/admin/member/grant")
     @ResponseBody

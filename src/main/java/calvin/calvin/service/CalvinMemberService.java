@@ -254,4 +254,9 @@ public class CalvinMemberService {
         return result;
     }
 
+    //회원코드 by 회원 아이디
+    public Long getMemberCode(String member_id) {
+        String sql = "SELECT member_code FROM calvin_member WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{member_id}, Long.class);
+    }
 }
