@@ -3,6 +3,7 @@ package calvin.calvin.service;
 import calvin.calvin.domain.Calvin_Member;
 import calvin.calvin.domain.Calvin_subject;
 import calvin.calvin.domain.MyPageSubjectView;
+import calvin.calvin.domain.adminApplyManage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -261,64 +262,64 @@ public class CalvinSubjectService {
     }
 
     //모든 신청 검색
-    public List<MyPageSubjectView> SelectAllApply(int page){//페이징 추가
-        String sql = "SELECT ms.apply_code, m.member_code, s.subject_code, ms.pay_stat, m.member_name, m.id, s.subject_name, s.subject_field FROM calvin_member m, calvin_subject s, member_subject ms WHERE m.member_code = ms.member_code AND s.subject_code = ms.subject_code";
-        List<MyPageSubjectView> result = jdbcTemplate.query(sql, new RowMapper<MyPageSubjectView>() {
+    public List<adminApplyManage> SelectAllApply(int page){//페이징 추가
+        String sql = "SELECT ms.apply_code, m.member_code, s.subject_code, ms.pay_stat, m.member_name, m.phone_number, s.subject_name, s.subject_field FROM calvin_member m, calvin_subject s, member_subject ms WHERE m.member_code = ms.member_code AND s.subject_code = ms.subject_code";
+        List<adminApplyManage> result = jdbcTemplate.query(sql, new RowMapper<adminApplyManage>() {
             @Override
-            public MyPageSubjectView mapRow(ResultSet rs, int rowNum) throws SQLException {
-                MyPageSubjectView myPageSubjectView = new MyPageSubjectView();
-                myPageSubjectView.setId(rs.getString("id"));
-                myPageSubjectView.setSubject_field(rs.getString("subject_field"));
-                myPageSubjectView.setApply_code(rs.getInt("apply_code"));
-                myPageSubjectView.setMember_code(rs.getInt("member_code"));
-                myPageSubjectView.setSubject_code(rs.getInt("subject_code"));
-                myPageSubjectView.setPay_stat(rs.getString("pay_stat"));
-                myPageSubjectView.setName(rs.getString("member_name"));
-                myPageSubjectView.setSubject_name(rs.getString("subject_name"));
-                return myPageSubjectView;
+            public adminApplyManage mapRow(ResultSet rs, int rowNum) throws SQLException {
+                adminApplyManage adminApplyManage1 = new adminApplyManage();
+                adminApplyManage1.setPhone_number(rs.getString("phone_number"));
+                adminApplyManage1.setSubject_field(rs.getString("subject_field"));
+                adminApplyManage1.setApply_code(rs.getInt("apply_code"));
+                adminApplyManage1.setMember_code(rs.getInt("member_code"));
+                adminApplyManage1.setSubject_code(rs.getInt("subject_code"));
+                adminApplyManage1.setPay_stat(rs.getString("pay_stat"));
+                adminApplyManage1.setName(rs.getString("member_name"));
+                adminApplyManage1.setSubject_name(rs.getString("subject_name"));
+                return adminApplyManage1;
             }
         });
         return result;
     }
 
     //모든 신청 아이디로 검색
-    public List<MyPageSubjectView> SelectApplyById(int page, String search_word){
+    public List<adminApplyManage> SelectApplyById(int page, String search_word){
         search_word = ".*"+search_word+".*";
-        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num,  ms.apply_code, m.member_code, s.subject_code, ms.pay_stat, m.member_name, m.id, s.subject_name, s.subject_field FROM calvin_member m, calvin_subject s, member_subject ms, (SELECT @rownum := 0) r WHERE m.id REGEXP ? AND  m.member_code = ms.member_code AND s.subject_code = ms.subject_code) t LIMIT ?, ?";
-        List<MyPageSubjectView> result = jdbcTemplate.query(sql, new Object[]{search_word, (page - 1) * 20, 20}, new RowMapper<MyPageSubjectView>() {
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num,  ms.apply_code, m.member_code, s.subject_code, ms.pay_stat, m.member_name, m.phone_number, s.subject_name, s.subject_field FROM calvin_member m, calvin_subject s, member_subject ms, (SELECT @rownum := 0) r WHERE m.id REGEXP ? AND  m.member_code = ms.member_code AND s.subject_code = ms.subject_code) t LIMIT ?, ?";
+        List<adminApplyManage> result = jdbcTemplate.query(sql, new Object[]{search_word, (page - 1) * 20, 20}, new RowMapper<adminApplyManage>() {
             @Override
-            public MyPageSubjectView mapRow(ResultSet rs, int rowNum) throws SQLException {
-                MyPageSubjectView myPageSubjectView = new MyPageSubjectView();
-                myPageSubjectView.setId(rs.getString("id"));
-                myPageSubjectView.setSubject_field(rs.getString("subject_field"));
-                myPageSubjectView.setApply_code(rs.getInt("apply_code"));
-                myPageSubjectView.setMember_code(rs.getInt("member_code"));
-                myPageSubjectView.setSubject_code(rs.getInt("subject_code"));
-                myPageSubjectView.setPay_stat(rs.getString("pay_stat"));
-                myPageSubjectView.setName(rs.getString("member_name"));
-                myPageSubjectView.setSubject_name(rs.getString("subject_name"));
-                return null;
+            public adminApplyManage mapRow(ResultSet rs, int rowNum) throws SQLException {
+                adminApplyManage adminApplyManage1 = new adminApplyManage();
+                adminApplyManage1.setPhone_number(rs.getString("phone_number"));
+                adminApplyManage1.setSubject_field(rs.getString("subject_field"));
+                adminApplyManage1.setApply_code(rs.getInt("apply_code"));
+                adminApplyManage1.setMember_code(rs.getInt("member_code"));
+                adminApplyManage1.setSubject_code(rs.getInt("subject_code"));
+                adminApplyManage1.setPay_stat(rs.getString("pay_stat"));
+                adminApplyManage1.setName(rs.getString("member_name"));
+                adminApplyManage1.setSubject_name(rs.getString("subject_name"));
+                return adminApplyManage1;
             }
         });
         return result;
     }
     //모든 신청 강의명으로 검색
-    public List<MyPageSubjectView> SelectApplyBySubjectName(int page, String search_word){
+    public List<adminApplyManage> SelectApplyBySubjectName(int page, String search_word){
         search_word = ".*"+search_word+".*";
-        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num,  ms.apply_code, m.member_code, s.subject_code, ms.pay_stat, m.member_name, m.id, s.subject_name, s.subject_field FROM calvin_member m, calvin_subject s, member_subject ms, (SELECT @rownum := 0) r WHERE m.subject_name REGEXP ? AND  m.member_code = ms.member_code AND s.subject_code = ms.subject_code) t LIMIT ?, ?";
-        List<MyPageSubjectView> result = jdbcTemplate.query(sql, new Object[]{search_word, (page - 1) * 20, 20}, new RowMapper<MyPageSubjectView>() {
+        String sql = "SELECT * FROM ( SELECT @rownum := @rownum + 1 AS num,  ms.apply_code, m.member_code, s.subject_code, ms.pay_stat, m.member_name, m.phone_number, s.subject_name, s.subject_field FROM calvin_member m, calvin_subject s, member_subject ms, (SELECT @rownum := 0) r WHERE s.subject_name REGEXP ? AND  m.member_code = ms.member_code AND s.subject_code = ms.subject_code) t LIMIT ?, ?";
+        List<adminApplyManage> result = jdbcTemplate.query(sql, new Object[]{search_word, (page - 1) * 20, 20}, new RowMapper<adminApplyManage>() {
             @Override
-            public MyPageSubjectView mapRow(ResultSet rs, int rowNum) throws SQLException {
-                MyPageSubjectView myPageSubjectView = new MyPageSubjectView();
-                myPageSubjectView.setId(rs.getString("id"));
-                myPageSubjectView.setSubject_field(rs.getString("subject_field"));
-                myPageSubjectView.setApply_code(rs.getInt("apply_code"));
-                myPageSubjectView.setMember_code(rs.getInt("member_code"));
-                myPageSubjectView.setSubject_code(rs.getInt("subject_code"));
-                myPageSubjectView.setPay_stat(rs.getString("pay_stat"));
-                myPageSubjectView.setName(rs.getString("member_name"));
-                myPageSubjectView.setSubject_name(rs.getString("subject_name"));
-                return null;
+            public adminApplyManage mapRow(ResultSet rs, int rowNum) throws SQLException {
+                adminApplyManage adminApplyManage1 = new adminApplyManage();
+                adminApplyManage1.setPhone_number(rs.getString("phone_number"));
+                adminApplyManage1.setSubject_field(rs.getString("subject_field"));
+                adminApplyManage1.setApply_code(rs.getInt("apply_code"));
+                adminApplyManage1.setMember_code(rs.getInt("member_code"));
+                adminApplyManage1.setSubject_code(rs.getInt("subject_code"));
+                adminApplyManage1.setPay_stat(rs.getString("pay_stat"));
+                adminApplyManage1.setName(rs.getString("member_name"));
+                adminApplyManage1.setSubject_name(rs.getString("subject_name"));
+                return adminApplyManage1;
             }
         });
         return result;

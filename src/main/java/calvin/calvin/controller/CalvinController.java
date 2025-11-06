@@ -1032,7 +1032,7 @@ public class CalvinController {
             result = "redirect:/member/login";
         }else{
             if(httpSession.getAttribute("member_type").equals("ai")||httpSession.getAttribute("member_type").equals("dd")||httpSession.getAttribute("member_type").equals("st")){
-                List<MyPageSubjectView> apply = new ArrayList<>();
+                List<adminApplyManage> apply = new ArrayList<>();
                 int count = 0;
                 if(search_word.equals("")){
                     apply = calvinSubjectService.SelectAllApply(page);
